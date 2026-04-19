@@ -98,15 +98,57 @@
         /* Hero */
         .hero {
             position: relative;
-            min-height: 480px;
+            min-height: calc(100vh - 77px);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 40px;
             overflow: hidden;
         }
+
+        .hero-content { margin-top: auto; }
+
+        .hero-socials {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+            padding-top: 40px;
+            width: 100%;
+            max-width: 640px;
+        }
+        .hero-socials-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f2f2f2;
+            margin-bottom: 16px;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+        .hero-socials-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(22,22,22,0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .hero-social-btn:hover { background: rgba(30,30,30,0.95); border-color: rgba(156,23,41,0.6); }
 
         .hero-bg {
             position: absolute;
@@ -720,7 +762,7 @@
             .hero-title { font-size: 32px; }
             .hero-logo-wrap { width: 100px; height: 100px; }
             .hero-logo-wrap span { font-size: 26px; }
-            .hero { min-height: 380px; padding: 40px 16px; }
+            .hero { min-height: calc(100vh - 77px); padding: 40px 16px; }
             .packages-grid { grid-template-columns: 1fr; }
             .booking-packages-grid { grid-template-columns: 1fr; }
             .qr-grid { grid-template-columns: 1fr; }
@@ -766,18 +808,18 @@
                     <button class="btn-outline" onclick="showPage('prices', document.querySelectorAll('.nav-btn')[1])">View Prices</button>
                 </div>
             </div>
-        </div>
-        <div style="max-width:640px;margin:40px auto 60px;padding:0 20px;text-align:center;">
-            <div style="font-size:12px;text-transform:uppercase;letter-spacing:3px;color:#e8e8e8;margin-bottom:16px;font-weight:500;">Follow Us</div>
-            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-                <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 24px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#fff;font-size:14px;font-weight:600;transition:all 0.2s;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9C1729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    Instagram
-                </a>
-                <a href="https://www.tiktok.com/@bwsdcardetailing?_r=1&_d=edllled2gka33e&sec_uid=MS4wLjABAAAAYFl_9uQGgeyxLXTeny9LCn1-Z1XrErg7WA3ywnCwarioL261Aivv8E4Rkn8UnaXO&share_author_id=7362730103653172230&sharer_language=en&source=h5_m&u_code=e9ig20i2627h45&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=37D6638E-284A-4EB3-9B63-EBC4E78F2C9D&user_id=7271557750748120070&sec_user_id=MS4wLjABAAAA4-SOWUJBmug9zQ04eM5Yg6Uof5Yp4WpVAh19Sh16JDAnUgjRZUlZdQGNa6FfeQXY&social_share_type=5&ug_btm=b0,b5836&utm_campaign=client_share&share_app_id=1233" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:12px 24px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#fff;font-size:14px;font-weight:600;transition:all 0.2s;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#9C1729"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.86 2.86 0 0 1 .84.13V9.01a6.33 6.33 0 0 0-.84-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 10.86 4.43 6.28 6.28 0 0 0 1.83-4.43V8.72a8.2 8.2 0 0 0 4.74 1.51V6.82a4.82 4.82 0 0 1-1-.13z"/></svg>
-                    TikTok
-                </a>
+            <div class="hero-socials">
+                <div class="hero-socials-label">Follow Us</div>
+                <div class="hero-socials-row">
+                    <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9C1729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/@bwsdcardetailing?_r=1&_d=edllled2gka33e&sec_uid=MS4wLjABAAAAYFl_9uQGgeyxLXTeny9LCn1-Z1XrErg7WA3ywnCwarioL261Aivv8E4Rkn8UnaXO&share_author_id=7362730103653172230&sharer_language=en&source=h5_m&u_code=e9ig20i2627h45&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=37D6638E-284A-4EB3-9B63-EBC4E78F2C9D&user_id=7271557750748120070&sec_user_id=MS4wLjABAAAA4-SOWUJBmug9zQ04eM5Yg6Uof5Yp4WpVAh19Sh16JDAnUgjRZUlZdQGNa6FfeQXY&social_share_type=5&ug_btm=b0,b5836&utm_campaign=client_share&share_app_id=1233" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#9C1729"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.86 2.86 0 0 1 .84.13V9.01a6.33 6.33 0 0 0-.84-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 10.86 4.43 6.28 6.28 0 0 0 1.83-4.43V8.72a8.2 8.2 0 0 0 4.74 1.51V6.82a4.82 4.82 0 0 1-1-.13z"/></svg>
+                        TikTok
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -908,9 +950,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Ford F-150</div>
-                            <div class="testimonial-text">"Best detail I've ever had on my truck. The interior was completely spotless — got every crumb out of the back seats and the carpet looked factory new. Exterior had a mirror finish and the ceramic sealant still has water beading off weeks later. Highly recommend BWS to anyone in Vancouver!"</div>
+                            <div class="testimonial-text">"Best detail I've ever had on my truck. The interior was completely spotless — got every crumb out of the back seats and the carpet looked factory new. Exterior had a mirror finish and the ceramic sealant still has water beading off weeks later. Highly recommend BWS to anyone in North Vancouver!"</div>
                             <div class="testimonial-author">Marcus T.</div>
-                            <div class="testimonial-location">Vancouver, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Ceramic Coating</div>
                         </div>
                     </div>
@@ -918,9 +960,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Honda Civic 2022</div>
-                            <div class="testimonial-text">"Super convenient mobile service. He came right to my driveway in Burnaby and had my Civic looking brand new in about two hours. Great communication too — texted when he was on the way and showed up right on time. Amazing price for the quality of work. Will definitely be a regular!"</div>
+                            <div class="testimonial-text">"Super convenient mobile service. He came right to my driveway in West Vancouver and had my Civic looking brand new in about two hours. Great communication too — texted when he was on the way and showed up right on time. Amazing price for the quality of work. Will definitely be a regular!"</div>
                             <div class="testimonial-author">Sarah L.</div>
-                            <div class="testimonial-location">Burnaby, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Basic Interior Detail</div>
                         </div>
                     </div>
@@ -928,9 +970,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">BMW 3 Series</div>
-                            <div class="testimonial-text">"Professional, on time, and the ceramic coating was worth every penny. My BMW still beads water after heavy rain weeks later. The attention to detail on the paint correction was next level — you can see yourself in the reflection. I've tried other detailers in Surrey and BWS is hands down the best."</div>
+                            <div class="testimonial-text">"Professional, on time, and the ceramic coating was worth every penny. My BMW still beads water after heavy rain weeks later. The attention to detail on the paint correction was next level — you can see yourself in the reflection. I've tried other detailers on the North Shore and BWS is hands down the best."</div>
                             <div class="testimonial-author">James R.</div>
-                            <div class="testimonial-location">Surrey, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Deluxe Detail + Ceramic Coating</div>
                         </div>
                     </div>
@@ -940,7 +982,7 @@
                             <div class="testimonial-vehicle">Toyota RAV4 2023</div>
                             <div class="testimonial-text">"Had my RAV4 detailed after a camping trip — muddy floors, dog hair everywhere, the works. BWS made it look showroom fresh. The leather conditioning on the seats feels incredible and the exterior shine is unreal. Super friendly guy too, explained everything he was doing. 10/10 would recommend!"</div>
                             <div class="testimonial-author">Priya M.</div>
-                            <div class="testimonial-location">New Westminster, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail</div>
                         </div>
                     </div>
@@ -948,9 +990,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Chevrolet Silverado 1500</div>
-                            <div class="testimonial-text">"I've been going to BWS for my Silverado every few months and the quality is always consistent. This last time I added the ceramic coating and rim shine — the truck looks like it just rolled off the lot. The mobile service is a game changer, don't even have to leave the house. Best detailer in the Lower Mainland for real."</div>
+                            <div class="testimonial-text">"I've been going to BWS for my Silverado every few months and the quality is always consistent. This last time I added the ceramic coating and rim shine — the truck looks like it just rolled off the lot. The mobile service is a game changer, don't even have to leave the house. Best detailer on the North Shore for real."</div>
                             <div class="testimonial-author">Derek W.</div>
-                            <div class="testimonial-location">Coquitlam, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Ceramic Coating + Rim Shine</div>
                         </div>
                     </div>
@@ -960,7 +1002,7 @@
                             <div class="testimonial-vehicle">Tesla Model 3</div>
                             <div class="testimonial-text">"Was nervous about getting my Tesla detailed but BWS knew exactly what products to use. The interior wipe-down was perfect, all the screens and white seats are spotless. The foam wash on the exterior was satisfying to watch and the finish is flawless. Booking again next month for sure!"</div>
                             <div class="testimonial-author">Alex K.</div>
-                            <div class="testimonial-location">Vancouver, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Basic Exterior + Interior Detail</div>
                         </div>
                     </div>
@@ -970,7 +1012,7 @@
                             <div class="testimonial-vehicle">Jeep Wrangler</div>
                             <div class="testimonial-text">"My Wrangler was absolutely trashed after a weekend off-roading and I didn't think it could be saved. BWS worked magic on it — deep cleaned the carpets, scrubbed the mud off every surface, and the exterior looked better than when I bought it. The fog removal on my headlights was a nice bonus too. Top notch service!"</div>
                             <div class="testimonial-author">Ryan S.</div>
-                            <div class="testimonial-location">Langley, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Deluxe Detail + Fog Removal</div>
                         </div>
                     </div>
@@ -980,7 +1022,7 @@
                             <div class="testimonial-vehicle">Mercedes-Benz GLC 300</div>
                             <div class="testimonial-text">"Got my GLC detailed as a surprise for my wife's birthday and she couldn't believe it was the same car. The leather shine made the interior look and smell brand new. BWS was accommodating with scheduling and even finished early. The whole car had that new-car feeling again. Absolutely worth every dollar!"</div>
                             <div class="testimonial-author">Kevin N.</div>
-                            <div class="testimonial-location">Richmond, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Leather Shine</div>
                         </div>
                     </div>
@@ -1006,7 +1048,7 @@
                         <input type="text" name="vehicle" class="review-form-input" placeholder="Vehicle (e.g. Ford F-150)" />
                     </div>
                     <div class="review-form-row">
-                        <input type="text" name="location" class="review-form-input" placeholder="City (e.g. Vancouver)" />
+                        <input type="text" name="location" class="review-form-input" placeholder="City (e.g. North Vancouver)" />
                         <input type="text" name="service" class="review-form-input" placeholder="Service Received (e.g. Detail Package)" />
                     </div>
 
