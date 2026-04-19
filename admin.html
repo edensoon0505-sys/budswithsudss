@@ -773,7 +773,37 @@
             .dash-stats { grid-template-columns: 1fr 1fr; }
             .hero-buttons { flex-direction: column; width: 100%; }
             .btn-primary, .btn-outline { width: 100%; text-align: center; }
+            .member-benefits-grid { grid-template-columns: 1fr 1fr; }
         }
+
+        /* Members */
+        .member-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .benefit-card {
+            background: #141010;
+            border: 1px solid #2a2020;
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+        .benefit-icon { font-size: 28px; margin-bottom: 8px; }
+        .benefit-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .benefit-text { font-size: 12px; color: #d4d4d4; line-height: 1.45; }
+
+        .member-tier-card { display: flex; flex-direction: column; }
+        .member-tier-card .pkg-features { margin-bottom: 18px; }
+        .member-join-btn { margin-top: auto; width: 100%; text-align: center; }
+        .join-form-card { max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        .tier-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; margin-right: 6px; }
+        .tier-badge.maintain { background: rgba(46,204,113,0.15); color: #2ecc71; }
+        .tier-badge.showroom { background: rgba(156,23,41,0.18); color: #9C1729; }
+        .tier-badge.executive { background: rgba(26,58,92,0.35); color: #6aa8e8; }
+        .source-badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 6px; background: rgba(255,255,255,0.06); color: #b5b5b5; margin-left: 4px; }
     </style>
 </head>
 <body>
@@ -794,6 +824,7 @@
             <button class="nav-btn" onclick="showPage('locations', this)">Locations</button>
             <button class="nav-btn" onclick="showPage('contact', this)">Contacts</button>
             <button class="nav-btn" onclick="showPage('booking', this)">Book a Detail</button>
+            <button class="nav-btn" onclick="showPage('members', this)">Members</button>
             <button class="nav-btn" onclick="showPage('dashboard', this)">Admin</button>
         </nav>
     </header>
@@ -1312,6 +1343,140 @@
         </div>
     </section>
 
+    <!-- Hidden Netlify form for membership -->
+    <form hidden method='POST' name='membership' data-netlify="true">
+        <input type="hidden" name="form-name" value="membership" />
+        <input name="bot-field" />
+        <input name="member-name" />
+        <input name="member-phone" />
+        <input name="member-email" />
+        <input name="tier" />
+        <input name="tier-label" />
+        <input name="tier-price" />
+        <input name="start-date" />
+        <input name="notes" />
+        <input name="subject" value="New membership signup" />
+    </form>
+
+    <!-- Members -->
+    <section id="members" class="page-section">
+        <div class="prices-section">
+            <h2 class="section-heading">Monthly Membership</h2>
+            <p class="section-sub">Keep your car in showroom shape — every month, on a schedule</p>
+
+            <div style="background:rgba(156,23,41,0.08);border:1px solid rgba(156,23,41,0.3);border-radius:12px;padding:16px 24px;margin-bottom:32px;text-align:center;">
+                <span style="font-size:14px;color:#e6e6e6;">⭐ <strong style="color:#9C1729;">Recurring Plans</strong> — Lock in a lower monthly rate, priority booking, and add-on discounts. Members save hundreds per year vs. one-off pricing.</span>
+            </div>
+
+            <div class="member-benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <div class="benefit-title">Always Clean</div>
+                    <div class="benefit-text">Your car gets professionally detailed on a fixed monthly cadence — no more scheduling, remembering, or catching up.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">Member Savings</div>
+                    <div class="benefit-text">Up to $480/year off our published prices, plus 10–20% off every add-on and upgrade.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">Priority Booking</div>
+                    <div class="benefit-text">Members jump the line for weekend and peak-season slots — we hold dates for you first.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-title">Protected Finish</div>
+                    <div class="benefit-text">Monthly ceramic sealant and trim dressing keep paint, rubber, and plastics looking fresh year-round.</div>
+                </div>
+            </div>
+
+            <h3 class="section-heading" style="font-size:24px;margin-top:12px;">Choose Your Tier</h3>
+
+            <div class="packages-grid">
+                <div class="package-card member-tier-card" data-tier="maintain" data-tier-label="Maintain" data-tier-price="90">
+                    <div class="pkg-name">Maintain</div>
+                    <div class="pkg-desc"><strong>Entry tier</strong> — for the "I just want my car clean" client. One Basic Detail every month and priority booking. Minimum 3-month commitment.</div>
+                    <div class="pkg-price"><sup>$</sup>90<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">SAVE $20/mo · $240/year</div>
+                    <ul class="pkg-features">
+                        <li>One Basic Detail per month (interior + exterior, $110 value)</li>
+                        <li>Priority booking</li>
+                        <li>10% off any add-on or upgrade to Detail Package</li>
+                        <li>3-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('maintain','Maintain',90)">Join Maintain</button>
+                </div>
+
+                <div class="package-card member-tier-card" data-tier="showroom" data-tier-label="Showroom" data-tier-price="170">
+                    <span class="best-value-badge" style="background:#9C1729;">Most Popular</span>
+                    <div class="pkg-name">Showroom</div>
+                    <div class="pkg-desc"><strong>Premium tier</strong> — for luxury-car owners who want the full treatment every month. Free tire dressing every visit.</div>
+                    <div class="pkg-price"><sup>$</sup>170<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">SAVE $40/mo · $480/year</div>
+                    <ul class="pkg-features">
+                        <li>One Deluxe Detail per month ($210 value)</li>
+                        <li>Priority booking</li>
+                        <li>15% off any add-on</li>
+                        <li>Free tire dressing every visit</li>
+                        <li>3-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('showroom','Showroom',170)">Join Showroom</button>
+                </div>
+
+                <div class="package-card member-tier-card" data-tier="executive" data-tier-label="Executive" data-tier-price="230">
+                    <span class="best-value-badge" style="background:#1a3a5c;">Top Tier</span>
+                    <div class="pkg-name">Executive</div>
+                    <div class="pkg-desc"><strong>Flagship tier</strong> — Deluxe monthly plus a mid-month exterior wash, 24-hour response, and the biggest add-on discounts. 6-month minimum.</div>
+                    <div class="pkg-price"><sup>$</sup>230<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">Two services every month</div>
+                    <ul class="pkg-features">
+                        <li>One Deluxe Detail per month ($210)</li>
+                        <li>PLUS one Exterior wash mid-month ($50)</li>
+                        <li>20% off any major add-on (ceramic, paint correction, full restoration)</li>
+                        <li>Free tire dressing + leather shine every visit</li>
+                        <li>Guaranteed 24-hour response time</li>
+                        <li>6-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('executive','Executive',230)">Join Executive</button>
+                </div>
+            </div>
+
+            <div class="card join-form-card" id="joinFormCard" style="display:none;margin-top:32px;">
+                <div class="section-title">Join <span id="joinTierLabel">Maintain</span> — <span style="color:#9C1729;">$<span id="joinTierPrice">90</span>/month</span></div>
+                <p style="font-size:13px;color:#b5b5b5;margin-bottom:18px;">Fill out the form below and Bud will reach out within 24 hours to confirm your start date and first detail.</p>
+
+                <div class="form-group">
+                    <label for="memberName">Full name</label>
+                    <input type="text" id="memberName" placeholder="e.g. John Smith" />
+                </div>
+                <div class="form-group">
+                    <label for="memberPhone">Phone number</label>
+                    <input type="tel" id="memberPhone" placeholder="e.g. 604-555-0100" />
+                </div>
+                <div class="form-group">
+                    <label for="memberEmail">Email</label>
+                    <input type="email" id="memberEmail" placeholder="e.g. you@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="memberStartDate">Preferred start date</label>
+                    <input type="date" id="memberStartDate" />
+                </div>
+                <div class="form-group">
+                    <label for="memberNotes">Notes (vehicle, address, anything else)</label>
+                    <textarea id="memberNotes" rows="3" placeholder="e.g. 2021 BMW M4, West Van, prefers Saturdays" style="width:100%;background:#141010;border:1px solid #2a2020;border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:inherit;resize:vertical;"></textarea>
+                </div>
+
+                <button class="submit-btn" type="button" onclick="submitMembership()">Request membership</button>
+
+                <div class="success-msg" id="memberSuccessMsg">
+                    <div class="s-title">Membership request sent!</div>
+                    <div class="s-sub">Bud will reach out within 24 hours to confirm your start date.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Dashboard -->
     <section id="dashboard" class="page-section">
         <div class="dashboard-section">
@@ -1337,6 +1502,64 @@
                 <div class="section-title">All bookings</div>
                 <div id="bookingsList">
                     <div class="empty">No bookings yet. They'll appear here once clients book.</div>
+                </div>
+            </div>
+
+            <h2 class="section-heading" style="margin-top:56px;">Recurring Plan Members</h2>
+            <p class="section-sub">Online signups and in-person closings — all members live here</p>
+
+            <div class="dash-stats">
+                <div class="stat-card">
+                    <div class="stat-label">Active members</div>
+                    <div class="stat-val" id="memStatActive">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Pending</div>
+                    <div class="stat-val" id="memStatPending">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Monthly MRR</div>
+                    <div class="stat-val" id="memStatMrr">$0</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">Add a member (in-person closing)</div>
+                <div class="form-group">
+                    <label for="adminMemName">Full name</label>
+                    <input type="text" id="adminMemName" placeholder="e.g. John Smith" />
+                </div>
+                <div class="form-group">
+                    <label for="adminMemPhone">Phone</label>
+                    <input type="tel" id="adminMemPhone" placeholder="e.g. 604-555-0100" />
+                </div>
+                <div class="form-group">
+                    <label for="adminMemEmail">Email (optional)</label>
+                    <input type="email" id="adminMemEmail" placeholder="e.g. you@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="adminMemTier">Tier</label>
+                    <select id="adminMemTier" style="width:100%;background:#141010;border:1px solid #2a2020;border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:inherit;">
+                        <option value="maintain|Maintain|90">Maintain — $90/mo</option>
+                        <option value="showroom|Showroom|170">Showroom — $170/mo</option>
+                        <option value="executive|Executive|230">Executive — $230/mo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adminMemStart">Start date</label>
+                    <input type="date" id="adminMemStart" />
+                </div>
+                <div class="form-group">
+                    <label for="adminMemNotes">Notes</label>
+                    <textarea id="adminMemNotes" rows="2" placeholder="Vehicle, address, cadence preference…" style="width:100%;background:#141010;border:1px solid #2a2020;border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:inherit;resize:vertical;"></textarea>
+                </div>
+                <button class="submit-btn" type="button" onclick="adminAddMember()">Add member</button>
+            </div>
+
+            <div class="card">
+                <div class="section-title">All members</div>
+                <div id="membersList">
+                    <div class="empty">No members yet. Add someone above or wait for an online signup.</div>
                 </div>
             </div>
         </div>
@@ -1429,7 +1652,7 @@
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(page).classList.add('active');
             if (btn) btn.classList.add('active');
-            if (page === 'dashboard') updateDashboard();
+            if (page === 'dashboard') { updateDashboard(); loadMembers(); }
             window.scrollTo(0, 0);
         }
 
@@ -1609,6 +1832,199 @@
         loadServerBookings();
 
         renderCalendar();
+
+        /* Membership — public join form */
+        function openJoinForm(tier, label, price) {
+            const card = document.getElementById('joinFormCard');
+            document.getElementById('joinTierLabel').textContent = label;
+            document.getElementById('joinTierPrice').textContent = price;
+            card.dataset.tier = tier;
+            card.dataset.tierLabel = label;
+            card.dataset.tierPrice = price;
+            card.style.display = 'block';
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.member-tier-card').forEach(c => {
+                c.style.borderColor = c.dataset.tier === tier ? '#9C1729' : '';
+            });
+        }
+
+        async function submitMembership() {
+            const card = document.getElementById('joinFormCard');
+            const tier = card.dataset.tier || 'maintain';
+            const tierLabel = card.dataset.tierLabel || 'Maintain';
+            const tierPrice = card.dataset.tierPrice || '90';
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const email = document.getElementById('memberEmail').value.trim();
+            const startDate = document.getElementById('memberStartDate').value;
+            const notes = document.getElementById('memberNotes').value.trim();
+            if (!name || !phone) {
+                alert('Please enter your name and phone number.');
+                return;
+            }
+            const btn = card.querySelector('.submit-btn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            try {
+                const formData = new URLSearchParams();
+                formData.append('form-name', 'membership');
+                formData.append('member-name', name);
+                formData.append('member-phone', phone);
+                formData.append('member-email', email);
+                formData.append('tier', tier);
+                formData.append('tier-label', tierLabel);
+                formData.append('tier-price', tierPrice);
+                formData.append('start-date', startDate);
+                formData.append('notes', notes);
+                formData.append('subject', 'New ' + tierLabel + ' membership signup: ' + name);
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
+                });
+                if (!response.ok) throw new Error('Submission failed');
+                document.getElementById('memberSuccessMsg').style.display = 'block';
+                btn.style.display = 'none';
+                loadMembers();
+                setTimeout(() => {
+                    document.getElementById('memberSuccessMsg').style.display = 'none';
+                    btn.style.display = 'block';
+                    btn.textContent = 'Request membership';
+                    btn.disabled = false;
+                    document.getElementById('memberName').value = '';
+                    document.getElementById('memberPhone').value = '';
+                    document.getElementById('memberEmail').value = '';
+                    document.getElementById('memberStartDate').value = '';
+                    document.getElementById('memberNotes').value = '';
+                    card.style.display = 'none';
+                }, 4000);
+            } catch (err) {
+                alert('Something went wrong sending your membership request. Please try again.');
+                btn.textContent = 'Request membership';
+                btn.disabled = false;
+            }
+        }
+
+        /* Membership — admin side */
+        let members = [];
+
+        async function loadMembers() {
+            try {
+                const res = await fetch('/api/members');
+                if (res.ok) {
+                    members = await res.json();
+                    renderMembers();
+                }
+            } catch(e) {}
+        }
+
+        async function adminAddMember() {
+            const name = document.getElementById('adminMemName').value.trim();
+            const phone = document.getElementById('adminMemPhone').value.trim();
+            const email = document.getElementById('adminMemEmail').value.trim();
+            const notes = document.getElementById('adminMemNotes').value.trim();
+            const startDate = document.getElementById('adminMemStart').value;
+            const tierSel = document.getElementById('adminMemTier').value.split('|');
+            if (!name || !phone) {
+                alert('Name and phone are required.');
+                return;
+            }
+            const body = {
+                action: 'create',
+                name,
+                phone,
+                email,
+                notes,
+                startDate: startDate || new Date().toISOString().slice(0, 10),
+                tier: tierSel[0],
+                tierLabel: tierSel[1],
+                price: parseInt(tierSel[2], 10),
+            };
+            try {
+                const res = await fetch('/api/members', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (!res.ok) throw new Error('Failed');
+                document.getElementById('adminMemName').value = '';
+                document.getElementById('adminMemPhone').value = '';
+                document.getElementById('adminMemEmail').value = '';
+                document.getElementById('adminMemNotes').value = '';
+                document.getElementById('adminMemStart').value = '';
+                await loadMembers();
+            } catch (e) {
+                alert('Could not save the member. Try again.');
+            }
+        }
+
+        async function cycleMemberStatus(id) {
+            const m = members.find(x => String(x.id) === String(id));
+            if (!m) return;
+            const statuses = ['pending','active','canceled'];
+            const next = statuses[(statuses.indexOf(m.status) + 1) % statuses.length];
+            try {
+                await fetch('/api/members', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: String(id), status: next }),
+                });
+                await loadMembers();
+            } catch(e) {}
+        }
+
+        async function deleteMember(id) {
+            if (!confirm('Remove this member?')) return;
+            try {
+                await fetch('/api/members', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: String(id), action: 'delete' }),
+                });
+                await loadMembers();
+            } catch(e) {}
+        }
+
+        function renderMembers() {
+            const list = document.getElementById('membersList');
+            const active = members.filter(m => m.status === 'active');
+            const pending = members.filter(m => m.status === 'pending');
+            const mrr = active.reduce((s, m) => s + (parseInt(m.price, 10) || 0), 0);
+            document.getElementById('memStatActive').textContent = active.length;
+            document.getElementById('memStatPending').textContent = pending.length;
+            document.getElementById('memStatMrr').textContent = '$' + mrr;
+            if (!members.length) {
+                list.innerHTML = '<div class="empty">No members yet. Add someone above or wait for an online signup.</div>';
+                return;
+            }
+            const sorted = [...members].sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+            list.innerHTML = sorted.map(m => {
+                const tier = (m.tier || 'maintain').toLowerCase();
+                const source = m.source === 'in-person' ? 'in-person' : 'online';
+                const notesLine = m.notes ? '<div class="b-detail">📝 ' + escapeHtml(m.notes) + '</div>' : '';
+                const emailLine = m.email ? '<div class="b-detail">✉️ ' + escapeHtml(m.email) + '</div>' : '';
+                return '<div class="booking-row">'
+                    + '<div>'
+                    + '<div class="b-client">' + escapeHtml(m.name) + ' <span class="tier-badge ' + tier + '">' + escapeHtml(m.tierLabel || tier) + '</span><span class="source-badge">' + source + '</span></div>'
+                    + '<div class="b-detail" style="color:#9C1729;font-weight:500;">📞 ' + escapeHtml(m.phone || '') + '</div>'
+                    + emailLine
+                    + notesLine
+                    + '<span class="status-badge status-' + (m.status === 'active' ? 'confirmed' : m.status === 'canceled' ? 'done' : 'pending') + '" onclick="cycleMemberStatus(\'' + m.id + '\')" title="Click to change status">' + m.status + '</span>'
+                    + '</div>'
+                    + '<div>'
+                    + '<div class="b-price">$' + (m.price || 0) + '/mo</div>'
+                    + '<div class="b-date">Start ' + escapeHtml(m.startDate || '') + '</div>'
+                    + '<button class="delete-btn" onclick="deleteMember(\'' + m.id + '\')">remove</button>'
+                    + '</div>'
+                    + '</div>';
+            }).join('');
+        }
+
+        function escapeHtml(s) {
+            return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        loadMembers();
 
         /* Testimonial Carousel */
         let carouselIndex = 0;
