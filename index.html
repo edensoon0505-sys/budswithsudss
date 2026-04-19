@@ -662,6 +662,8 @@
         .addon-item.selected { border-color: #9C1729; background: rgba(156,23,41,0.1); }
         .addon-item.selected .addon-name { color: #9C1729; font-weight: 500; }
         .addon-name { font-size: 14px; color: #e6e6e6; }
+        .addon-label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+        .addon-sub { font-size: 12px; color: #b5b5b5; line-height: 1.35; }
         .addon-price { font-size: 13px; color: #9C1729; font-weight: 600; }
 
         /* QR Codes */
@@ -936,6 +938,7 @@
                     <div class="pkg-save">SAVE $25+</div>
                     <ul class="pkg-features">
                         <li>Our 'Detail Package' included</li>
+                        <li>Clay Bar Paint Decontamination</li>
                         <li>Ceramic Coating</li>
                         <li>Bug &amp; Grime Remover</li>
                         <li>Carpets, Mats &amp; Upholstery Thoroughly Vacuumed, Shampooed &amp; Extracted</li>
@@ -950,9 +953,12 @@
                 <h3 style="font-size:22px;font-weight:700;text-align:center;margin-bottom:6px;">Add-on Services</h3>
                 <p class="section-sub" style="margin-bottom:24px;">Enhance any package with these extras</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto;">
-                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#e6e6e6;">Ceramic Coating</span>
-                        <span style="font-size:16px;font-weight:700;color:#9C1729;">+$30</span>
+                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:border-color 0.2s;">
+                        <div style="display:flex;flex-direction:column;gap:4px;min-width:0;">
+                            <span style="font-size:14px;color:#e6e6e6;">Ceramic Coating</span>
+                            <span style="font-size:12px;color:#b5b5b5;line-height:1.35;">Includes clay bar paint decontamination</span>
+                        </div>
+                        <span style="font-size:16px;font-weight:700;color:#9C1729;">+$45</span>
                     </div>
                     <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
                         <span style="font-size:14px;color:#e6e6e6;">Fog Removal</span>
@@ -1512,7 +1518,7 @@
                     <div class="booking-pkg-card" onclick="selectPackage(this, 210, 'Deluxe Detail')">
                         <span class="best-value-badge">Best Value</span>
                         <div class="pkg-name">Deluxe Detail</div>
-                        <div class="pkg-desc"><strong>Extras included:</strong> Ceramic coating, bug &amp; grime remover, carpets/mats/upholstery shampooed &amp; extracted, leather shine + protective coat, seatbelts scrubbed, and full pet hair removal.</div>
+                        <div class="pkg-desc"><strong>Extras included:</strong> Ceramic coating with clay bar paint decontamination, bug &amp; grime remover, carpets/mats/upholstery shampooed &amp; extracted, leather shine + protective coat, seatbelts scrubbed, and full pet hair removal.</div>
                         <div class="pkg-price"><sup>$</sup>210</div>
                         <div class="pkg-save">SAVE $25+</div>
                         <ul class="pkg-features">
@@ -1526,6 +1532,7 @@
                             <li>Full Deep Vacuum of Interior &amp; Boot Area</li>
                             <li>All Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
                             <li>Leather Seats Cleaned</li>
+                            <li>Clay Bar Paint Decontamination</li>
                             <li>Ceramic Coating</li>
                             <li>Bug &amp; Grime Remover</li>
                             <li>Carpets, Mats &amp; Upholstery Shampooed &amp; Extracted</li>
@@ -1540,9 +1547,12 @@
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
                 <div class="section-title">Add-on services</div>
                 <div class="addon-list">
-                    <div class="addon-item" onclick="toggleAddon(this,30)" data-price="30">
-                        <span class="addon-name">Ceramic coating</span>
-                        <span class="addon-price">+$30</span>
+                    <div class="addon-item" onclick="toggleAddon(this,45)" data-price="45">
+                        <div class="addon-label">
+                            <span class="addon-name">Ceramic coating</span>
+                            <span class="addon-sub">Includes clay bar paint decontamination</span>
+                        </div>
+                        <span class="addon-price">+$45</span>
                     </div>
                     <div class="addon-item" onclick="toggleAddon(this,5)" data-price="5">
                         <span class="addon-name">Fog removal</span>
