@@ -693,6 +693,54 @@
         .success-msg .s-title { font-size: 16px; font-weight: 600; color: #9C1729; margin-bottom: 6px; }
         .success-msg .s-sub { font-size: 14px; color: #b5b5b5; }
 
+        /* Tier disclaimer modal */
+        .tier-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .tier-modal-overlay.open { display: flex; }
+        .tier-modal {
+            background: #1a1212;
+            border: 1px solid #9C1729;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(156, 23, 41, 0.35);
+            animation: tierModalPop 0.22s ease-out;
+        }
+        @keyframes tierModalPop {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .tier-modal-badge {
+            display: inline-block;
+            background: #9C1729;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+        .tier-modal-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.3; }
+        .tier-modal-title .tm-tier { color: #9C1729; }
+        .tier-modal-body { text-align: left; color: #e6e6e6; font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+        .tier-modal-body p { margin: 0 0 12px 0; }
+        .tier-modal-body p:last-child { margin-bottom: 0; }
+        .tier-modal-fineprint { font-size: 12px; color: #9e9090; border-top: 1px solid #2a2020; padding-top: 12px; }
+        .tier-modal .submit-btn { margin-top: 0; }
+
         /* Dashboard */
         .dashboard-section {
             max-width: 800px;
@@ -1580,6 +1628,20 @@
         &copy; 2026 BWS Details &middot; West Vancouver &amp; North Shore, BC
     </footer>
 
+    <!-- Tier disclaimer modal -->
+    <div class="tier-modal-overlay" id="tierDisclaimerModal" onclick="if(event.target===this)closeTierDisclaimer()">
+        <div class="tier-modal" role="dialog" aria-modal="true" aria-labelledby="tierDisclaimerTitle">
+            <div class="tier-modal-badge">Membership Confirmed</div>
+            <div class="tier-modal-title" id="tierDisclaimerTitle">You are now a <span class="tm-tier" id="disclaimerTierName">Maintain</span> Member</div>
+            <div class="tier-modal-body">
+                <p>Thank you for joining the BWS Details <strong id="disclaimerTierName2">Maintain</strong> plan at <strong>$<span id="disclaimerTierPrice">90</span>/month</strong>. Your membership request has been sent to Bud and will show up in the admin dashboard.</p>
+                <p>Bud will reach out within 24 hours to confirm your start date, collect payment details, and walk you through your member perks.</p>
+                <p class="tier-modal-fineprint">Disclaimer: monthly billing begins on your confirmed start date. Memberships auto-renew each month and can be cancelled any time with 30 days' notice. Add-on discounts and priority booking apply only while your plan is active and in good standing.</p>
+            </div>
+            <button class="submit-btn" type="button" onclick="closeTierDisclaimer()">Got it</button>
+        </div>
+    </div>
+
     <script>
         let basePrice = 50;
         let addonTotal = 0;
@@ -1893,6 +1955,10 @@
                     body: formData.toString()
                 });
                 if (!response.ok) throw new Error('Submission failed');
+                document.getElementById('disclaimerTierName').textContent = tierLabel;
+                document.getElementById('disclaimerTierName2').textContent = tierLabel;
+                document.getElementById('disclaimerTierPrice').textContent = tierPrice;
+                document.getElementById('tierDisclaimerModal').classList.add('open');
                 document.getElementById('memberSuccessMsg').style.display = 'block';
                 btn.style.display = 'none';
                 loadMembers();
@@ -1913,6 +1979,10 @@
                 btn.textContent = 'Request membership';
                 btn.disabled = false;
             }
+        }
+
+        function closeTierDisclaimer() {
+            document.getElementById('tierDisclaimerModal').classList.remove('open');
         }
 
         /* Membership — admin side */
