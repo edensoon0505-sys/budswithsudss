@@ -1646,6 +1646,20 @@
         </div>
     </div>
 
+    <!-- Booking disclaimer modal -->
+    <div class="tier-modal-overlay" id="bookingDisclaimerModal" onclick="if(event.target===this)closeBookingDisclaimer()">
+        <div class="tier-modal" role="dialog" aria-modal="true" aria-labelledby="bookingDisclaimerTitle">
+            <div class="tier-modal-badge">Booking Received</div>
+            <div class="tier-modal-title" id="bookingDisclaimerTitle">We will contact you <span class="tm-tier">shortly</span> after booking</div>
+            <div class="tier-modal-body">
+                <p>Thanks <strong id="bookingDisclaimerName">there</strong> — your request for <strong id="bookingDisclaimerPackage">the detail</strong> on <strong id="bookingDisclaimerDate">your selected date</strong> has been sent to BWS Details.</p>
+                <p>Bud will reach out by phone or text shortly to confirm the appointment, go over any add-ons, and lock in a drop-off or on-site time.</p>
+                <p class="tier-modal-fineprint">Disclaimer: your booking is not confirmed until Bud contacts you to finalize the date and time. Final pricing may vary based on vehicle condition. Please keep your phone handy so we can reach you.</p>
+            </div>
+            <button class="submit-btn" type="button" onclick="closeBookingDisclaimer()">Got it</button>
+        </div>
+    </div>
+
     <script>
         let basePrice = 50;
         let addonTotal = 0;
@@ -1799,6 +1813,10 @@
                 bookings.push({ id: Date.now(), name, phone, date: selectedDate, size: selectedPackage, addons, total, status: 'pending' });
                 saveBookings();
                 renderCalendar();
+                document.getElementById('bookingDisclaimerName').textContent = name;
+                document.getElementById('bookingDisclaimerPackage').textContent = selectedPackage;
+                document.getElementById('bookingDisclaimerDate').textContent = dateDisplay;
+                document.getElementById('bookingDisclaimerModal').classList.add('open');
                 document.getElementById('successMsg').style.display = 'block';
                 submitBtn.style.display = 'none';
                 setTimeout(() => {
@@ -1901,6 +1919,10 @@
 
         function closeTierDisclaimer() {
             document.getElementById('tierDisclaimerModal').classList.remove('open');
+        }
+
+        function closeBookingDisclaimer() {
+            document.getElementById('bookingDisclaimerModal').classList.remove('open');
         }
 
         /* Testimonial Carousel */
