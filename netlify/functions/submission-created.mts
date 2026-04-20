@@ -20,6 +20,8 @@ export default async (req: Request, context: Context) => {
       phone: payload.data["client-phone"] || "",
       date: payload.data["booking-date"] || "",
       size: payload.data["package"] || "",
+      vehicleSize: payload.data["vehicle-size"] || "",
+      sizeSurcharge: parseInt(payload.data["size-surcharge"] || "0", 10),
       addons: payload.data["addons"] ? payload.data["addons"].split(", ").filter(Boolean) : [],
       total: parseInt(payload.data["total"] || "0", 10),
       status: "pending",
