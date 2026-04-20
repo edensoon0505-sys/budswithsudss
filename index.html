@@ -263,8 +263,9 @@
         .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
 
         /* Page sections */
-        .page-section { display: none; }
-        .page-section.active { display: block; }
+        .page-section { display: block; scroll-margin-top: 80px; }
+        @media (max-width: 600px) { .page-section { scroll-margin-top: 140px; } }
+        html { scroll-behavior: smooth; }
 
         /* Prices Section */
         .prices-section {
@@ -1669,6 +1670,16 @@
     </div>
 
     <script>
+        (function reorderSectionsToNavOrder() {
+            const order = ['home', 'prices', 'products', 'locations', 'reviews', 'members', 'contact', 'booking'];
+            const footer = document.querySelector('.site-footer');
+            if (!footer) return;
+            order.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) footer.parentNode.insertBefore(section, footer);
+            });
+        })();
+
         let basePrice = 50;
         let addonTotal = 0;
         let selectedPackage = 'Basic Exterior Detail';
@@ -1746,12 +1757,10 @@
         }
 
         function showPage(page, btn) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(page).classList.add('active');
             if (btn) btn.classList.add('active');
-
-            window.scrollTo(0, 0);
+            const target = document.getElementById(page);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function selectPackage(el, price, name) {
