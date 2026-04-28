@@ -411,7 +411,7 @@
         /* Booking size selector (smaller inline variant) */
         .booking-size-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 10px;
         }
         .booking-size-card {
@@ -1820,19 +1820,7 @@
                         <span class="bs-sub">Sedan / Coupe</span>
                         <span class="bs-price">Base</span>
                     </div>
-                    <div class="booking-size-card" onclick="selectSize(this, 'Small SUV', 20)" data-size="Small SUV" data-surcharge-pct="20">
-                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path fill="currentColor" d="M8,58 L8,50 C8,45 13,42 18,42 L28,42 L46,18 C50,13 56,10 64,10 L136,10 C144,10 150,13 154,18 L172,42 L182,44 C190,45 194,49 194,54 L194,58 L170,58 C170,53 166,49 161,49 C156,49 152,53 152,58 L50,58 C50,53 46,49 41,49 C36,49 32,53 32,58 Z M54,18 L94,18 L94,40 L38,40 Z M98,18 L138,18 C142,18 146,19 148,21 L160,40 L98,40 Z"/>
-                            <circle cx="41" cy="60" r="11" fill="currentColor"/>
-                            <circle cx="41" cy="60" r="5" fill="#0d0808"/>
-                            <circle cx="161" cy="60" r="11" fill="currentColor"/>
-                            <circle cx="161" cy="60" r="5" fill="#0d0808"/>
-                        </svg>
-                        <span class="bs-name">Small SUV</span>
-                        <span class="bs-sub">Crossover / Small SUV</span>
-                        <span class="bs-price">+20%</span>
-                    </div>
-                    <div class="booking-size-card" onclick="selectSize(this, 'Large SUV', 20)" data-size="Large SUV" data-surcharge-pct="20">
+                    <div class="booking-size-card" onclick="selectSize(this, 'SUV', 20)" data-size="SUV" data-surcharge-pct="20">
                         <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path fill="currentColor" d="M6,58 L6,50 C6,45 11,42 16,42 L24,42 L38,20 C41,15 46,12 52,12 L96,12 L100,42 L186,42 C192,42 196,46 196,52 L196,58 L170,58 C170,53 166,49 161,49 C156,49 152,53 152,58 L46,58 C46,53 42,49 37,49 C32,49 28,53 28,58 Z M48,20 L84,20 L84,40 L32,40 Z M90,20 L96,20 L98,40 L90,40 Z"/>
                             <rect x="108" y="30" width="70" height="10" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -1841,23 +1829,12 @@
                             <circle cx="161" cy="60" r="11" fill="currentColor"/>
                             <circle cx="161" cy="60" r="5" fill="#0d0808"/>
                         </svg>
-                        <span class="bs-name">Large SUV</span>
-                        <span class="bs-sub">Full-size SUV / Pickup</span>
-                        <span class="bs-price">+20%</span>
-                    </div>
-                    <div class="booking-size-card" onclick="selectSize(this, 'Oversized SUV', 20)" data-size="Oversized SUV" data-surcharge-pct="20">
-                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path fill="currentColor" d="M4,58 L4,46 C4,41 9,38 14,38 L22,38 C24,18 30,10 40,10 L162,10 C172,10 178,16 182,26 L186,38 C192,38 196,42 196,48 L196,58 L174,58 C174,53 170,49 165,49 C160,49 156,53 156,58 L44,58 C44,53 40,49 35,49 C30,49 26,53 26,58 Z M32,16 L80,16 L80,36 L28,36 Z M86,16 L158,16 C164,16 168,17 172,20 L178,36 L86,36 Z"/>
-                            <circle cx="35" cy="60" r="11" fill="currentColor"/>
-                            <circle cx="35" cy="60" r="5" fill="#0d0808"/>
-                            <circle cx="165" cy="60" r="11" fill="currentColor"/>
-                            <circle cx="165" cy="60" r="5" fill="#0d0808"/>
-                        </svg>
-                        <span class="bs-name">Oversized SUV</span>
-                        <span class="bs-sub">HD Truck / Van</span>
+                        <span class="bs-name">SUV</span>
+                        <span class="bs-sub">SUV / Crossover / Truck</span>
                         <span class="bs-price">+20%</span>
                     </div>
                 </div>
+                <p style="font-size:11.5px;color:#8e8e8e;margin:12px 0 0;line-height:1.5;font-style:italic;">Note: vehicles larger than an SUV (full-size pickups, vans, HD trucks) are priced at the SUV rate. Vehicles smaller than a sedan (compacts, coupes, hatchbacks) are priced at the sedan rate.</p>
             </div>
 
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
