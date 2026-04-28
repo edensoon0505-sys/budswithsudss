@@ -15,6 +15,10 @@
             background: #0a0a0a;
             color: #fff;
             min-height: 100vh;
+            font-size: 16.5px;
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .hero-title, .section-heading, .hero-logo-wrap span, .pkg-name, .addon-name {
@@ -45,7 +49,7 @@
             height: 44px;
             border-radius: 8px;
             background: #1a1a1a;
-            border: 2px solid #c0392b;
+            border: 2px solid #9C1729;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,7 +57,7 @@
         }
 
         .header-logo span {
-            color: #c0392b;
+            color: #9C1729;
             font-size: 14px;
             font-weight: 800;
             letter-spacing: 0.5px;
@@ -68,7 +72,7 @@
 
         .header-brand-text .brand-sub {
             font-size: 11px;
-            color: #888;
+            color: #b5b5b5;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 500;
@@ -84,7 +88,7 @@
             border-radius: 6px;
             border: none;
             background: transparent;
-            color: #aaa;
+            color: #d4d4d4;
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
@@ -93,27 +97,89 @@
         }
 
         .nav-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .nav-btn.active { background: #c0392b; color: #fff; }
+        .nav-btn.active { background: #9C1729; color: #fff; }
 
         /* Hero */
         .hero {
             position: relative;
-            min-height: 480px;
+            min-height: calc(100vh - 77px);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            padding: 60px 20px;
+            padding: 60px 20px 40px;
             overflow: hidden;
         }
+
+        .hero-content { margin-top: auto; }
+
+        .hero-socials {
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+            padding-top: 40px;
+            width: 100%;
+            max-width: 640px;
+        }
+        .hero-socials-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #f2f2f2;
+            margin-bottom: 16px;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+        }
+        .hero-socials-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .hero-social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(22,22,22,0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .hero-social-btn:hover { background: rgba(30,30,30,0.95); border-color: rgba(156,23,41,0.6); }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.85) 100%),
-                        url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1400&q=80') center/cover no-repeat;
+            background-image: linear-gradient(180deg, rgba(5,5,10,0.15) 0%, rgba(5,5,10,0.55) 100%),
+                              url('hero-bg.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            filter: contrast(1.12) saturate(1.18) brightness(1.02);
+            image-rendering: -webkit-optimize-contrast;
             z-index: 0;
+        }
+        @media (max-width: 600px) {
+            .hero-bg {
+                background-size: cover;
+                background-position: 55% center;
+            }
+        }
+
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 55%),
+                        linear-gradient(115deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(255,255,255,0.06) 100%);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -130,16 +196,16 @@
             height: 130px;
             border-radius: 18px;
             background: #1a1a1a;
-            border: 3px solid #c0392b;
+            border: 3px solid #9C1729;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 8px;
-            filter: drop-shadow(0 8px 32px rgba(192,57,43,0.4));
+            filter: drop-shadow(0 8px 32px rgba(156,23,41,0.4));
         }
 
         .hero-logo-wrap span {
-            color: #c0392b;
+            color: #9C1729;
             font-size: 36px;
             font-weight: 800;
             letter-spacing: 2px;
@@ -149,8 +215,9 @@
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 4px;
-            color: rgba(255,255,255,0.5);
-            font-weight: 400;
+            color: #fff;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.75);
         }
 
         .hero-title {
@@ -158,14 +225,16 @@
             font-weight: 700;
             color: #fff;
             letter-spacing: 0.5px;
+            text-shadow: 0 3px 14px rgba(0,0,0,0.8);
         }
 
         .hero-tagline {
             font-size: 16px;
-            color: rgba(255,255,255,0.65);
+            color: #fff;
             max-width: 440px;
             line-height: 1.6;
-            font-weight: 300;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero-buttons {
@@ -176,7 +245,7 @@
 
         .btn-primary {
             padding: 14px 32px;
-            background: #c0392b;
+            background: #9C1729;
             color: #fff;
             border: none;
             border-radius: 8px;
@@ -186,7 +255,7 @@
             transition: background 0.15s;
             font-family: inherit;
         }
-        .btn-primary:hover { background: #a93226; }
+        .btn-primary:hover { background: #7A0A1A; }
 
         .btn-outline {
             padding: 14px 32px;
@@ -203,8 +272,9 @@
         .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
 
         /* Page sections */
-        .page-section { display: none; }
-        .page-section.active { display: block; }
+        .page-section { display: block; scroll-margin-top: 80px; }
+        @media (max-width: 600px) { .page-section { scroll-margin-top: 140px; } }
+        html { scroll-behavior: smooth; }
 
         /* Prices Section */
         .prices-section {
@@ -223,7 +293,7 @@
 
         .section-sub {
             text-align: center;
-            color: #888;
+            color: #b5b5b5;
             font-size: 15px;
             margin-bottom: 40px;
             font-weight: 300;
@@ -237,8 +307,158 @@
             margin-bottom: 0;
         }
 
+        /* Vehicle Size system */
+        .size-intro-bar {
+            background: linear-gradient(135deg, rgba(156,23,41,0.12), rgba(156,23,41,0.04));
+            border: 1px solid rgba(156,23,41,0.3);
+            border-radius: 14px;
+            padding: 14px 22px;
+            margin-bottom: 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .size-intro-bar .sib-icon {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: #9C1729;
+            color: #fff;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            font-weight: 800; font-size: 15px;
+            flex-shrink: 0;
+        }
+        .size-intro-bar .sib-text {
+            font-size: 14px;
+            color: #e6e6e6;
+            line-height: 1.5;
+            text-align: left;
+        }
+        .size-intro-bar .sib-text strong { color: #9C1729; }
+
+        .size-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .size-card {
+            background: #141010;
+            border: 2px solid #2a2020;
+            border-radius: 14px;
+            padding: 18px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            transition: border-color .2s, transform .2s, box-shadow .2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .size-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 3px;
+            background: #9C1729;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+        }
+        .size-card:hover { border-color: #9C1729; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(156,23,41,0.15); }
+        .size-card:hover::before { transform: scaleX(1); }
+        .size-silhouette {
+            width: 100%;
+            max-width: 150px;
+            height: 64px;
+            color: #9C1729;
+            filter: drop-shadow(0 2px 4px rgba(156,23,41,0.25));
+        }
+        .size-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+        .size-surcharge {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background: rgba(156,23,41,0.15);
+            border: 1px solid rgba(156,23,41,0.4);
+            color: #9C1729;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+        .size-desc {
+            font-size: 12.5px;
+            color: #d4d4d4;
+            line-height: 1.5;
+            margin-top: 2px;
+        }
+        .size-examples {
+            font-size: 11px;
+            color: #8e8e8e;
+            font-style: italic;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        /* Booking size selector (smaller inline variant) */
+        .booking-size-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .booking-size-card {
+            background: #141010;
+            border: 2px solid #2a2020;
+            border-radius: 12px;
+            padding: 12px 8px 10px;
+            cursor: pointer;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: border-color .15s, background .15s, transform .15s;
+        }
+        .booking-size-card:hover { border-color: #9C1729; }
+        .booking-size-card.selected {
+            border-color: #9C1729;
+            background: rgba(156,23,41,0.08);
+        }
+        .booking-size-card svg {
+            width: 70px;
+            height: 34px;
+            color: #9e9e9e;
+            transition: color .15s;
+        }
+        .booking-size-card.selected svg { color: #9C1729; }
+        .booking-size-card .bs-name {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.2px;
+        }
+        .booking-size-card .bs-sub {
+            font-size: 10.5px;
+            color: #9e9e9e;
+            line-height: 1.3;
+        }
+        .booking-size-card .bs-price {
+            font-size: 11px;
+            color: #9C1729;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
         /* Add-on cards on pricing page */
-        .addon-card:hover { border-color: #c0392b !important; }
+        .addon-card:hover { border-color: #9C1729 !important; }
 
         .package-card {
             background: #141010;
@@ -249,21 +469,22 @@
             transition: all 0.2s;
             position: relative;
         }
-        .package-card:hover { border-color: #c0392b; }
+        .package-card:hover { border-color: #9C1729; }
 
         .package-card .pkg-name { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
-        .package-card .pkg-price { font-size: 36px; font-weight: 800; color: #c0392b; margin-bottom: 4px; }
+        .pkg-desc { font-size: 13px; color: #d4d4d4; margin-bottom: 10px; line-height: 1.4; }
+        .package-card .pkg-price { font-size: 36px; font-weight: 800; color: #9C1729; margin-bottom: 4px; }
         .package-card .pkg-price sup { font-size: 16px; vertical-align: super; }
-        .package-card .pkg-save { display: inline-block; font-size: 12px; font-weight: 700; color: #c0392b; margin-bottom: 12px; }
+        .package-card .pkg-save { display: inline-block; font-size: 12px; font-weight: 700; color: #9C1729; margin-bottom: 12px; }
         .package-card .pkg-features { list-style: none; padding: 0; margin: 0; }
-        .package-card .pkg-features li { font-size: 13px; color: #ccc; padding: 4px 0; padding-left: 16px; position: relative; }
-        .package-card .pkg-features li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #c0392b; position: absolute; left: 0; top: 10px; }
+        .package-card .pkg-features li { font-size: 13px; color: #e6e6e6; padding: 4px 0; padding-left: 16px; position: relative; }
+        .package-card .pkg-features li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #9C1729; position: absolute; left: 0; top: 10px; }
 
         .best-value-badge {
             position: absolute;
             top: 14px;
             right: 14px;
-            background: #c0392b;
+            background: #9C1729;
             color: #fff;
             font-size: 10px;
             font-weight: 700;
@@ -308,11 +529,11 @@
             flex-direction: column;
         }
         .testimonial-stars { color: #f1c40f; font-size: 18px; margin-bottom: 10px; }
-        .testimonial-vehicle { font-size: 12px; color: #c0392b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-        .testimonial-text { font-size: 15px; color: #ccc; line-height: 1.7; margin-bottom: 14px; flex: 1; font-style: italic; }
-        .testimonial-author { font-size: 14px; color: #999; font-weight: 600; }
-        .testimonial-location { font-size: 12px; color: #555; margin-top: 2px; }
-        .testimonial-service { font-size: 11px; color: #444; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .testimonial-vehicle { font-size: 12px; color: #9C1729; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .testimonial-text { font-size: 15px; color: #e6e6e6; line-height: 1.7; margin-bottom: 14px; flex: 1; font-style: italic; }
+        .testimonial-author { font-size: 14px; color: #c2c2c2; font-weight: 600; }
+        .testimonial-location { font-size: 12px; color: #8e8e8e; margin-top: 2px; }
+        .testimonial-service { font-size: 11px; color: #7e7e7e; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.3px; }
 
         .carousel-controls {
             display: flex;
@@ -334,7 +555,7 @@
             justify-content: center;
             transition: background 0.2s, border-color 0.2s;
         }
-        .carousel-btn:hover { background: #222; border-color: #c0392b; }
+        .carousel-btn:hover { background: #222; border-color: #9C1729; }
         .carousel-dots {
             display: flex;
             gap: 8px;
@@ -346,7 +567,7 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        .carousel-dot.active { background: #c0392b; }
+        .carousel-dot.active { background: #9C1729; }
 
         /* Leave a Review Form */
         .review-form-section {
@@ -363,7 +584,7 @@
         }
         .review-form-sub {
             font-size: 13px;
-            color: #666;
+            color: #9e9e9e;
             margin-bottom: 24px;
         }
         .review-form-row {
@@ -385,7 +606,7 @@
         }
         .review-form-input:focus, .review-form-textarea:focus {
             outline: none;
-            border-color: #c0392b;
+            border-color: #9C1729;
         }
         .review-form-textarea {
             resize: vertical;
@@ -400,13 +621,13 @@
         .star-rating-input span {
             font-size: 28px;
             cursor: pointer;
-            color: #333;
+            color: #6a6a6a;
             transition: color 0.15s;
         }
         .star-rating-input span.lit { color: #f1c40f; }
         .review-submit-btn {
             padding: 12px 32px;
-            background: #c0392b;
+            background: #9C1729;
             color: #fff;
             border: none;
             border-radius: 8px;
@@ -415,7 +636,7 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        .review-submit-btn:hover { background: #a93226; }
+        .review-submit-btn:hover { background: #7A0A1A; }
         .review-success-msg {
             display: none;
             color: #2ecc71;
@@ -436,8 +657,8 @@
         }
 
         .review-stars { color: #f1c40f; font-size: 16px; margin-bottom: 10px; }
-        .review-text { font-size: 15px; color: #ccc; line-height: 1.6; margin-bottom: 10px; }
-        .review-author { font-size: 13px; color: #666; font-weight: 500; }
+        .review-text { font-size: 15px; color: #e6e6e6; line-height: 1.6; margin-bottom: 10px; }
+        .review-author { font-size: 13px; color: #9e9e9e; font-weight: 500; }
 
         /* Contact */
         .contact-section {
@@ -460,10 +681,76 @@
             padding: 14px 0;
             border-bottom: 1px solid #222;
             font-size: 15px;
-            color: #ccc;
+            color: #e6e6e6;
         }
         .contact-row:last-child { border-bottom: none; }
-        .contact-label { color: #888; font-size: 13px; min-width: 80px; }
+        .contact-label { color: #b5b5b5; font-size: 13px; min-width: 80px; }
+
+        /* Products Section */
+        .products-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .product-card {
+            background: #161616;
+            border: 1px solid #222;
+            border-radius: 14px;
+            padding: 28px;
+            transition: border-color 0.2s;
+        }
+
+        .product-card:hover {
+            border-color: #9C1729;
+        }
+
+        .product-card .product-name {
+            font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .product-card .product-tag {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9C1729;
+            background: rgba(156,23,41,0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .product-card .product-desc {
+            font-size: 14px;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+
+        .product-card .product-benefit {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #9C1729;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
         /* Booking Section */
         .booking-section {
@@ -484,7 +771,7 @@
 
         .form-group { margin-bottom: 14px; }
 
-        label { display: block; font-size: 13px; color: #888; margin-bottom: 6px; font-weight: 500; }
+        label { display: block; font-size: 13px; color: #b5b5b5; margin-bottom: 6px; font-weight: 500; }
 
         input {
             width: 100%;
@@ -498,8 +785,8 @@
             transition: border 0.15s;
             font-family: inherit;
         }
-        input:focus { border-color: #c0392b; box-shadow: 0 0 0 3px rgba(192,57,43,0.15); }
-        input::placeholder { color: #555; }
+        input:focus { border-color: #9C1729; box-shadow: 0 0 0 3px rgba(156,23,41,0.15); }
+        input::placeholder { color: #8e8e8e; }
 
         /* Booking package cards */
         .booking-packages-grid {
@@ -517,25 +804,27 @@
             transition: all 0.2s;
             position: relative;
         }
-        .booking-pkg-card:hover { border-color: #c0392b; }
-        .booking-pkg-card.selected { border-color: #c0392b; box-shadow: 0 0 16px rgba(192,57,43,0.25); }
+        .booking-pkg-card:hover { border-color: #9C1729; }
+        .booking-pkg-card.selected { border-color: #9C1729; box-shadow: 0 0 16px rgba(156,23,41,0.25); }
         .booking-pkg-card .pkg-name { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-        .booking-pkg-card .pkg-price { font-size: 26px; font-weight: 700; color: #c0392b; margin-bottom: 6px; }
+        .booking-pkg-card .pkg-price { font-size: 26px; font-weight: 700; color: #9C1729; margin-bottom: 6px; }
         .booking-pkg-card .pkg-price sup { font-size: 13px; vertical-align: super; }
-        .booking-pkg-card .pkg-save { display: inline-block; font-size: 11px; font-weight: 700; color: #c0392b; margin-bottom: 8px; }
+        .booking-pkg-card .pkg-save { display: inline-block; font-size: 11px; font-weight: 700; color: #9C1729; margin-bottom: 8px; }
         .booking-pkg-card .pkg-features { list-style: none; padding: 0; margin: 0; }
-        .booking-pkg-card .pkg-features li { font-size: 12px; color: #ccc; padding: 3px 0; padding-left: 14px; position: relative; }
-        .booking-pkg-card .pkg-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #c0392b; position: absolute; left: 0; top: 8px; }
+        .booking-pkg-card .pkg-features li { font-size: 12px; color: #e6e6e6; padding: 3px 0; padding-left: 14px; position: relative; }
+        .booking-pkg-card .pkg-features li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #9C1729; position: absolute; left: 0; top: 8px; }
         .booking-pkg-card .best-value-badge { top: 10px; right: 10px; }
 
         /* Addons */
         .addon-list { display: flex; flex-direction: column; gap: 8px; }
         .addon-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border: 1px solid #2a2020; border-radius: 8px; cursor: pointer; transition: all 0.15s; background: #141010; }
-        .addon-item:hover { border-color: #c0392b; background: rgba(192,57,43,0.05); }
-        .addon-item.selected { border-color: #c0392b; background: rgba(192,57,43,0.1); }
-        .addon-item.selected .addon-name { color: #c0392b; font-weight: 500; }
-        .addon-name { font-size: 14px; color: #ccc; }
-        .addon-price { font-size: 13px; color: #c0392b; font-weight: 600; }
+        .addon-item:hover { border-color: #9C1729; background: rgba(156,23,41,0.05); }
+        .addon-item.selected { border-color: #9C1729; background: rgba(156,23,41,0.1); }
+        .addon-item.selected .addon-name { color: #9C1729; font-weight: 500; }
+        .addon-name { font-size: 14px; color: #e6e6e6; }
+        .addon-label { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+        .addon-sub { font-size: 12px; color: #b5b5b5; line-height: 1.35; }
+        .addon-price { font-size: 13px; color: #9C1729; font-weight: 600; }
 
         /* QR Codes */
         .qr-section { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
@@ -543,7 +832,7 @@
         .qr-card { background: #161616; border: 1px solid #222; border-radius: 14px; padding: 28px; text-align: center; }
         .qr-card img { width: 180px; height: 180px; border-radius: 10px; margin-bottom: 14px; background: #fff; padding: 8px; }
         .qr-card .qr-label { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-        .qr-card .qr-sub { font-size: 13px; color: #888; }
+        .qr-card .qr-sub { font-size: 13px; color: #b5b5b5; }
 
         /* Calendar */
         .cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
@@ -555,14 +844,14 @@
             border-radius: 8px;
             padding: 6px 16px;
             cursor: pointer;
-            color: #888;
+            color: #b5b5b5;
             font-size: 15px;
             transition: all 0.15s;
         }
-        .cal-nav:hover { background: #1a1a1a; border-color: #c0392b; color: #fff; }
+        .cal-nav:hover { background: #1a1a1a; border-color: #9C1729; color: #fff; }
 
         .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-        .cal-day-label { text-align: center; font-size: 11px; color: #555; padding: 4px 0; font-weight: 600; text-transform: uppercase; }
+        .cal-day-label { text-align: center; font-size: 11px; color: #8e8e8e; padding: 4px 0; font-weight: 600; text-transform: uppercase; }
 
         .cal-day {
             aspect-ratio: 1;
@@ -572,26 +861,26 @@
             border-radius: 8px;
             font-size: 13px;
             cursor: pointer;
-            color: #ccc;
+            color: #e6e6e6;
             transition: all 0.12s;
             border: 1px solid transparent;
         }
-        .cal-day:hover:not(.booked):not(.past):not(.empty-day) { background: rgba(192,57,43,0.15); border-color: #c0392b; }
-        .cal-day.selected-day { background: #c0392b; color: #fff; border-color: #c0392b; }
-        .cal-day.booked { background: #1a1a1a; color: #555; cursor: not-allowed; position: relative; }
-        .cal-day.booked::after { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: #c0392b; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); }
-        .cal-day.past { color: #333; cursor: not-allowed; }
-        .cal-day.today { border: 2px solid #c0392b; font-weight: 600; }
+        .cal-day:hover:not(.booked):not(.past):not(.empty-day) { background: rgba(156,23,41,0.15); border-color: #9C1729; }
+        .cal-day.selected-day { background: #9C1729; color: #fff; border-color: #9C1729; }
+        .cal-day.booked { background: #1a1a1a; color: #8e8e8e; cursor: not-allowed; position: relative; }
+        .cal-day.booked::after { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: #9C1729; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); }
+        .cal-day.past { color: #6a6a6a; cursor: not-allowed; }
+        .cal-day.today { border: 2px solid #9C1729; font-weight: 600; }
         .cal-day.empty-day { cursor: default; }
 
         .cal-legend { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
-        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #666; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #9e9e9e; }
         .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
-        .selected-date-label { margin-top: 12px; font-size: 13px; color: #c0392b; font-weight: 600; min-height: 18px; }
+        .selected-date-label { margin-top: 12px; font-size: 13px; color: #9C1729; font-weight: 600; min-height: 18px; }
 
         /* Total */
         .total-bar {
-            background: #c0392b;
+            background: #9C1729;
             color: #fff;
             border-radius: 12px;
             padding: 18px 24px;
@@ -606,7 +895,7 @@
         .submit-btn {
             width: 100%;
             padding: 16px;
-            background: #c0392b;
+            background: #9C1729;
             color: #fff;
             border: none;
             border-radius: 10px;
@@ -616,25 +905,331 @@
             transition: background 0.15s;
             font-family: inherit;
         }
-        .submit-btn:hover { background: #a93226; }
+        .submit-btn:hover { background: #7A0A1A; }
 
         .success-msg {
             display: none;
-            background: rgba(192,57,43,0.1);
-            border: 1px solid #c0392b;
+            background: rgba(156,23,41,0.1);
+            border: 1px solid #9C1729;
             border-radius: 12px;
             padding: 24px;
             text-align: center;
             margin-top: 16px;
         }
-        .success-msg .s-title { font-size: 16px; font-weight: 600; color: #c0392b; margin-bottom: 6px; }
-        .success-msg .s-sub { font-size: 14px; color: #888; }
+        .success-msg .s-title { font-size: 16px; font-weight: 600; color: #9C1729; margin-bottom: 6px; }
+        .success-msg .s-sub { font-size: 14px; color: #b5b5b5; }
+
+        /* Tier disclaimer modal */
+        .tier-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .tier-modal-overlay.open { display: flex; }
+        .tier-modal {
+            background: #1a1212;
+            border: 1px solid #9C1729;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(156, 23, 41, 0.35);
+            animation: tierModalPop 0.22s ease-out;
+        }
+        @keyframes tierModalPop {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .tier-modal-badge {
+            display: inline-block;
+            background: #9C1729;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+        .tier-modal-title { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 14px; line-height: 1.3; }
+        .tier-modal-title .tm-tier { color: #9C1729; }
+        .tier-modal-body { text-align: left; color: #e6e6e6; font-size: 14px; line-height: 1.6; margin-bottom: 22px; }
+        .tier-modal-body p { margin: 0 0 12px 0; }
+        .tier-modal-body p:last-child { margin-bottom: 0; }
+        .tier-modal-fineprint { font-size: 12px; color: #9e9090; border-top: 1px solid #2a2020; padding-top: 12px; }
+        .tier-modal .submit-btn { margin-top: 0; }
+
+        /* Terms of Service modal */
+        .tos-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(6px);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .tos-modal-overlay.open { display: flex; }
+        .tos-modal {
+            background: #1a1010;
+            border: 1px solid #9C1729;
+            border-radius: 16px;
+            max-width: 760px;
+            width: 100%;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 24px 80px rgba(156, 23, 41, 0.35);
+            overflow: hidden;
+            animation: tosModalPop 0.22s ease-out;
+        }
+        @keyframes tosModalPop {
+            from { transform: scale(0.96); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .tos-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 26px 32px 18px 32px;
+            border-bottom: 1px solid #2a1a1a;
+        }
+        .tos-modal-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: #fff;
+            letter-spacing: 0.2px;
+        }
+        .tos-modal-close {
+            background: #1f1313;
+            border: 1px solid #3a2424;
+            color: #d7d7d7;
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+        }
+        .tos-modal-close:hover {
+            background: #9C1729;
+            border-color: #9C1729;
+            color: #fff;
+        }
+        .tos-modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 32px 16px 32px;
+            scrollbar-color: #9C1729 #1a1010;
+            scrollbar-width: thin;
+        }
+        .tos-modal-body::-webkit-scrollbar { width: 8px; }
+        .tos-modal-body::-webkit-scrollbar-track { background: #1a1010; }
+        .tos-modal-body::-webkit-scrollbar-thumb { background: #9C1729; border-radius: 4px; }
+        .tos-section {
+            padding: 24px 0;
+            border-bottom: 1px solid #2a1a1a;
+        }
+        .tos-section:last-child { border-bottom: none; }
+        .tos-section-num {
+            color: #9C1729;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+        .tos-section-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+        .tos-section-body {
+            color: #b8b8b8;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .tos-section-body p { margin: 0 0 10px 0; }
+        .tos-section-body p:last-child { margin-bottom: 0; }
+        .tos-modal-footer {
+            padding: 18px 32px 22px 32px;
+            border-top: 1px solid #2a1a1a;
+            background: #150b0b;
+        }
+        .tos-agree-btn {
+            width: 100%;
+            background: #9C1729;
+            color: #fff;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .tos-agree-btn:hover { background: #b51c32; }
+        @media (max-width: 600px) {
+            .tos-modal-header { padding: 20px 20px 14px 20px; }
+            .tos-modal-title { font-size: 22px; }
+            .tos-modal-body { padding: 4px 20px 12px 20px; }
+            .tos-section-title { font-size: 17px; }
+            .tos-section-body { font-size: 14px; }
+            .tos-modal-footer { padding: 14px 20px 18px 20px; }
+        }
+
+        /* Terms of Service checkbox row in booking form */
+        .tos-agree-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: #120a0a;
+            border: 1px solid #2a1a1a;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: border-color 0.15s ease;
+        }
+        .tos-agree-row:hover { border-color: #3a2424; }
+        .tos-agree-row input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #3a2424;
+            border-radius: 6px;
+            background: #0b0505;
+            cursor: pointer;
+            flex-shrink: 0;
+            margin: 1px 0 0 0;
+            position: relative;
+            transition: all 0.15s ease;
+        }
+        .tos-agree-row input[type="checkbox"]:checked {
+            background: #9C1729;
+            border-color: #9C1729;
+        }
+        .tos-agree-row input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .tos-agree-label {
+            color: #c7c7c7;
+            font-size: 14px;
+            line-height: 1.55;
+        }
+        .tos-agree-link {
+            color: #9C1729;
+            text-decoration: underline;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .tos-agree-link:hover { color: #d71e3a; }
+
+        /* Brief Location strip */
+        .location-brief-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px 20px 8px;
+        }
+        .location-brief-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #141010;
+            border: 1px solid #2a2020;
+            border-radius: 12px;
+            padding: 14px 18px;
+        }
+        .location-brief-card:hover { border-color: #9C1729; }
+        .lb-icon {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: rgba(156,23,41,0.12);
+            border: 1px solid rgba(156,23,41,0.35);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .lb-content { display: flex; flex-direction: column; min-width: 0; }
+        .lb-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9C1729;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        .lb-text {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(156,23,41,0.5);
+            display: inline-block;
+            line-height: 1.3;
+        }
+        .lb-text:hover { color: #e04057; }
+        .lb-sub {
+            font-size: 12px;
+            color: #9e9e9e;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+        @media (max-width: 600px) {
+            .location-brief-card { flex-direction: row; padding: 12px 14px; gap: 10px; }
+            .lb-text { font-size: 13px; }
+            .lb-sub { font-size: 11px; }
+        }
+
+        /* Page-mode: booking shown only when in booking mode */
+        body:not(.mode-booking) #booking { display: none; }
+        body.mode-booking #home,
+        body.mode-booking #location-brief,
+        body.mode-booking #products,
+        body.mode-booking #contact,
+        body.mode-booking #reviews,
+        body.mode-booking #members { display: none; }
+
+        /* Footer link */
+        .site-footer .footer-link {
+            color: #a3a3a3;
+            text-decoration: underline;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font: inherit;
+            padding: 0;
+        }
+        .site-footer .footer-link:hover { color: #e04057; }
 
         /* Footer */
         .site-footer {
             text-align: center;
             padding: 40px 20px;
-            color: #444;
+            color: #7e7e7e;
             font-size: 13px;
             border-top: 1px solid #1a1a1a;
             margin-top: 40px;
@@ -647,13 +1242,46 @@
             .hero-title { font-size: 32px; }
             .hero-logo-wrap { width: 100px; height: 100px; }
             .hero-logo-wrap span { font-size: 26px; }
-            .hero { min-height: 380px; padding: 40px 16px; }
+            .hero { min-height: calc(100vh - 77px); padding: 40px 16px; }
             .packages-grid { grid-template-columns: 1fr; }
             .booking-packages-grid { grid-template-columns: 1fr; }
+            .size-grid { grid-template-columns: 1fr 1fr; }
+            .booking-size-grid { grid-template-columns: 1fr 1fr; }
+            .size-silhouette { height: 58px; }
+            .size-intro-bar { flex-direction: column; text-align: center; }
+            .size-intro-bar .sib-text { text-align: center; }
             .qr-grid { grid-template-columns: 1fr; }
             .hero-buttons { flex-direction: column; width: 100%; }
             .btn-primary, .btn-outline { width: 100%; text-align: center; }
+            .member-benefits-grid { grid-template-columns: 1fr 1fr; }
         }
+
+        /* Members */
+        .member-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .benefit-card {
+            background: #141010;
+            border: 1px solid #2a2020;
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+        .benefit-icon { font-size: 28px; margin-bottom: 8px; }
+        .benefit-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .benefit-text { font-size: 12px; color: #d4d4d4; line-height: 1.45; }
+
+        .member-tier-card { display: flex; flex-direction: column; }
+        .member-tier-card .pkg-features { margin-bottom: 18px; }
+        .member-join-btn {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+        }
+        .join-form-card { max-width: 640px; margin-left: auto; margin-right: auto; }
     </style>
 </head>
 <body>
@@ -661,7 +1289,7 @@
     <!-- Header -->
     <header class="site-header">
         <div class="header-brand">
-            <div class="header-logo"><img src="logo.png" alt="BWS" style="width:40px;height:40px;border-radius:6px;object-fit:cover;"></div>
+            <div class="header-logo"><img src="logo.svg" alt="BWS Details" style="width:40px;height:40px;border-radius:6px;object-fit:cover;"></div>
             <div class="header-brand-text">
                 <div class="brand-name">BWS Details</div>
                 <div class="brand-sub">Premium Mobile Detailing</div>
@@ -669,10 +1297,10 @@
         </div>
         <nav class="nav">
             <button class="nav-btn active" onclick="showPage('home', this)">Home</button>
-            <button class="nav-btn" onclick="showPage('prices', this)">Prices</button>
-            <button class="nav-btn" onclick="showPage('reviews', this)">Reviews</button>
-            <button class="nav-btn" onclick="showPage('locations', this)">Locations</button>
+            <button class="nav-btn" onclick="showPage('products', this)">Products</button>
             <button class="nav-btn" onclick="showPage('contact', this)">Contacts</button>
+            <button class="nav-btn" onclick="showPage('reviews', this)">Reviews</button>
+            <button class="nav-btn" onclick="showPage('members', this)">Members</button>
             <button class="nav-btn" onclick="showPage('booking', this)">Book a Detail</button>
         </nav>
     </header>
@@ -682,99 +1310,41 @@
         <div class="hero">
             <div class="hero-bg"></div>
             <div class="hero-content">
-                <div class="hero-logo-wrap"><img src="logo.png" alt="BWS" style="width:120px;height:120px;border-radius:14px;object-fit:cover;"></div>
+                <div class="hero-logo-wrap"><img src="logo.svg" alt="BWS Details" style="width:120px;height:120px;border-radius:14px;object-fit:cover;"></div>
                 <div class="hero-label">Premium Automotive Care</div>
                 <h1 class="hero-title">BWS Details</h1>
                 <p class="hero-tagline">Run by a young detailer focused on clean, quality results.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" onclick="showPage('booking', document.querySelectorAll('.nav-btn')[5])">Book Now</button>
-                    <button class="btn-outline" onclick="showPage('prices', document.querySelectorAll('.nav-btn')[1])">View Prices</button>
+                    <button class="btn-primary" onclick="goToBooking()">Book Now</button>
+                </div>
+            </div>
+            <div class="hero-socials">
+                <div class="hero-socials-label">Follow Us</div>
+                <div class="hero-socials-row">
+                    <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9C1729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/@bwsdcardetailing?_r=1&_d=edllled2gka33e&sec_uid=MS4wLjABAAAAYFl_9uQGgeyxLXTeny9LCn1-Z1XrErg7WA3ywnCwarioL261Aivv8E4Rkn8UnaXO&share_author_id=7362730103653172230&sharer_language=en&source=h5_m&u_code=e9ig20i2627h45&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=37D6638E-284A-4EB3-9B63-EBC4E78F2C9D&user_id=7271557750748120070&sec_user_id=MS4wLjABAAAA4-SOWUJBmug9zQ04eM5Yg6Uof5Yp4WpVAh19Sh16JDAnUgjRZUlZdQGNa6FfeQXY&social_share_type=5&ug_btm=b0,b5836&utm_campaign=client_share&share_app_id=1233" target="_blank" rel="noopener noreferrer" class="hero-social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#9C1729"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.86 2.86 0 0 1 .84.13V9.01a6.33 6.33 0 0 0-.84-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 10.86 4.43 6.28 6.28 0 0 0 1.83-4.43V8.72a8.2 8.2 0 0 0 4.74 1.51V6.82a4.82 4.82 0 0 1-1-.13z"/></svg>
+                        TikTok
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Prices -->
-    <section id="prices" class="page-section">
-        <div class="prices-section">
-            <h2 class="section-heading">Pricing</h2>
-            <p class="section-sub">Choose the detail package that's right for you</p>
-
-            <div style="background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.3);border-radius:12px;padding:16px 24px;margin-bottom:32px;text-align:center;">
-                <span style="font-size:14px;color:#ccc;">🚗 <strong style="color:#c0392b;">Mobile Detailing</strong> — We come to you! Pricing may vary depending on distance. We're happy to work it out with you 1-on-1.</span>
-            </div>
-
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="pkg-name">Basic Exterior Detail</div>
-                    <div class="pkg-price"><sup>$</sup>50</div>
-                    <ul class="pkg-features">
-                        <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
-                        <li>Full Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
-                        <li>Streakless Glass &amp; Mirrors</li>
-                        <li>Door Jambs Cleaned &amp; Flushed</li>
-                        <li>Premium Towel Dried</li>
-                        <li>Ceramic Sealant Applied</li>
-                        <li>Tires &amp; Trims Dressed</li>
-                    </ul>
+    <!-- Brief Location -->
+    <section id="location-brief" class="page-section">
+        <div class="location-brief-wrap">
+            <div class="location-brief-card">
+                <div class="lb-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9C1729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                <div class="package-card">
-                    <div class="pkg-name">Basic Interior Detail</div>
-                    <div class="pkg-price"><sup>$</sup>70</div>
-                    <ul class="pkg-features">
-                        <li>Full Deep Vacuum of Interior &amp; Boot Area</li>
-                        <li>All Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
-                        <li>Carpets &amp; Upholstery Thoroughly Vacuumed &amp; Scrubbed</li>
-                        <li>Upholstery Scrubbed</li>
-                        <li>Leather Seats Cleaned</li>
-                        <li>Leather Shine &amp; Conditioner Protectant</li>
-                    </ul>
-                </div>
-                <div class="package-card">
-                    <span class="best-value-badge" style="background:#1a3a5c;">Most Popular</span>
-                    <div class="pkg-name">Full Detail</div>
-                    <div class="pkg-price"><sup>$</sup>110</div>
-                    <div class="pkg-save">SAVE $10</div>
-                    <ul class="pkg-features">
-                        <li>Our 'Basic Exterior Detail' &amp; 'Basic Interior Detail' all in one</li>
-                    </ul>
-                </div>
-                <div class="package-card">
-                    <span class="best-value-badge">Best Value</span>
-                    <div class="pkg-name">Deluxe Detail</div>
-                    <div class="pkg-price"><sup>$</sup>210</div>
-                    <div class="pkg-save">SAVE $25+</div>
-                    <ul class="pkg-features">
-                        <li>Our 'Full Detail' included</li>
-                        <li>Bug &amp; Grime Remover</li>
-                        <li>Carpets, Mats &amp; Upholstery Thoroughly Vacuumed, Shampooed &amp; Extracted</li>
-                        <li>Leather Shine &amp; Conditioner Protectant</li>
-                        <li>Seatbelts Scrubbed</li>
-                        <li>Pet Hair Removal</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div style="margin-top:40px;">
-                <h3 style="font-size:22px;font-weight:700;text-align:center;margin-bottom:6px;">Add-on Services</h3>
-                <p class="section-sub" style="margin-bottom:24px;">Enhance any package with these extras</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto;">
-                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Ceramic Coating</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$30</span>
-                    </div>
-                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Fog Removal</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$5</span>
-                    </div>
-                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Rim Shine</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$5</span>
-                    </div>
-                    <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Leather Shine + Protective Coat</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$10</span>
-                    </div>
+                <div class="lb-content">
+                    <div class="lb-label">Location</div>
+                    <a class="lb-text" href="https://www.google.com/maps/search/?api=1&amp;query=1215+Duchess+Ave+West+Vancouver+BC" target="_blank" rel="noopener noreferrer">1215 Duchess Ave, West Vancouver, BC</a>
+                    <div class="lb-sub">Mobile + stationary &middot; West Van, North Shore &amp; Downtown &middot; Mon–Sat 8AM–6PM</div>
                 </div>
             </div>
         </div>
@@ -787,7 +1357,7 @@
             <p class="section-sub">What our customers are saying</p>
 
             <div style="text-align:center;margin-bottom:28px;">
-                <a href="https://share.google/46phzrY60xdEg2fIM" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 28px;background:#c0392b;color:#fff;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600;transition:background 0.15s;">
+                <a href="https://share.google/46phzrY60xdEg2fIM" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:12px 28px;background:#9C1729;color:#fff;border-radius:8px;text-decoration:none;font-size:15px;font-weight:600;transition:background 0.15s;">
                     ★ See All Google Reviews
                 </a>
             </div>
@@ -800,9 +1370,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Ford F-150</div>
-                            <div class="testimonial-text">"Best detail I've ever had on my truck. The interior was completely spotless — got every crumb out of the back seats and the carpet looked factory new. Exterior had a mirror finish and the ceramic sealant still has water beading off weeks later. Highly recommend BWS to anyone in Vancouver!"</div>
+                            <div class="testimonial-text">"Best detail I've ever had on my truck. The interior was completely spotless — got every crumb out of the back seats and the carpet looked factory new. Exterior had a mirror finish and the ceramic sealant still has water beading off weeks later. Highly recommend BWS to anyone in North Vancouver!"</div>
                             <div class="testimonial-author">Marcus T.</div>
-                            <div class="testimonial-location">Vancouver, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Ceramic Coating</div>
                         </div>
                     </div>
@@ -811,9 +1381,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Honda Civic 2022</div>
-                            <div class="testimonial-text">"Super convenient mobile service. He came right to my driveway in Burnaby and had my Civic looking brand new in about two hours. Great communication too — texted when he was on the way and showed up right on time. Amazing price for the quality of work. Will definitely be a regular!"</div>
+                            <div class="testimonial-text">"Super convenient mobile service. He came right to my driveway in West Vancouver and had my Civic looking brand new in about two hours. Great communication too — texted when he was on the way and showed up right on time. Amazing price for the quality of work. Will definitely be a regular!"</div>
                             <div class="testimonial-author">Sarah L.</div>
-                            <div class="testimonial-location">Burnaby, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Basic Interior Detail</div>
                         </div>
                     </div>
@@ -822,9 +1392,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">BMW 3 Series</div>
-                            <div class="testimonial-text">"Professional, on time, and the ceramic coating was worth every penny. My BMW still beads water after heavy rain weeks later. The attention to detail on the paint correction was next level — you can see yourself in the reflection. I've tried other detailers in Surrey and BWS is hands down the best."</div>
+                            <div class="testimonial-text">"Professional, on time, and the ceramic coating was worth every penny. My BMW still beads water after heavy rain weeks later. The attention to detail was next level — the finish is so glossy you can see yourself in the reflection. I've tried other detailers on the North Shore and BWS is hands down the best."</div>
                             <div class="testimonial-author">James R.</div>
-                            <div class="testimonial-location">Surrey, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Deluxe Detail + Ceramic Coating</div>
                         </div>
                     </div>
@@ -835,7 +1405,7 @@
                             <div class="testimonial-vehicle">Toyota RAV4 2023</div>
                             <div class="testimonial-text">"Had my RAV4 detailed after a camping trip — muddy floors, dog hair everywhere, the works. BWS made it look showroom fresh. The leather conditioning on the seats feels incredible and the exterior shine is unreal. Super friendly guy too, explained everything he was doing. 10/10 would recommend!"</div>
                             <div class="testimonial-author">Priya M.</div>
-                            <div class="testimonial-location">New Westminster, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail</div>
                         </div>
                     </div>
@@ -844,9 +1414,9 @@
                         <div class="testimonial-card">
                             <div class="testimonial-stars">★★★★★</div>
                             <div class="testimonial-vehicle">Chevrolet Silverado 1500</div>
-                            <div class="testimonial-text">"I've been going to BWS for my Silverado every few months and the quality is always consistent. This last time I added the ceramic coating and rim shine — the truck looks like it just rolled off the lot. The mobile service is a game changer, don't even have to leave the house. Best detailer in the Lower Mainland for real."</div>
+                            <div class="testimonial-text">"I've been going to BWS for my Silverado every few months and the quality is always consistent. This last time I added the ceramic coating and rim shine — the truck looks like it just rolled off the lot. The mobile service is a game changer, don't even have to leave the house. Best detailer on the North Shore for real."</div>
                             <div class="testimonial-author">Derek W.</div>
-                            <div class="testimonial-location">Coquitlam, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Ceramic Coating + Rim Shine</div>
                         </div>
                     </div>
@@ -857,7 +1427,7 @@
                             <div class="testimonial-vehicle">Tesla Model 3</div>
                             <div class="testimonial-text">"Was nervous about getting my Tesla detailed but BWS knew exactly what products to use. The interior wipe-down was perfect, all the screens and white seats are spotless. The foam wash on the exterior was satisfying to watch and the finish is flawless. Booking again next month for sure!"</div>
                             <div class="testimonial-author">Alex K.</div>
-                            <div class="testimonial-location">Vancouver, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Basic Exterior + Interior Detail</div>
                         </div>
                     </div>
@@ -868,7 +1438,7 @@
                             <div class="testimonial-vehicle">Jeep Wrangler</div>
                             <div class="testimonial-text">"My Wrangler was absolutely trashed after a weekend off-roading and I didn't think it could be saved. BWS worked magic on it — deep cleaned the carpets, scrubbed the mud off every surface, and the exterior looked better than when I bought it. The fog removal on my headlights was a nice bonus too. Top notch service!"</div>
                             <div class="testimonial-author">Ryan S.</div>
-                            <div class="testimonial-location">Langley, BC</div>
+                            <div class="testimonial-location">North Vancouver, BC</div>
                             <div class="testimonial-service">Deluxe Detail + Fog Removal</div>
                         </div>
                     </div>
@@ -879,7 +1449,7 @@
                             <div class="testimonial-vehicle">Mercedes-Benz GLC 300</div>
                             <div class="testimonial-text">"Got my GLC detailed as a surprise for my wife's birthday and she couldn't believe it was the same car. The leather shine made the interior look and smell brand new. BWS was accommodating with scheduling and even finished early. The whole car had that new-car feeling again. Absolutely worth every dollar!"</div>
                             <div class="testimonial-author">Kevin N.</div>
-                            <div class="testimonial-location">Richmond, BC</div>
+                            <div class="testimonial-location">West Vancouver, BC</div>
                             <div class="testimonial-service">Full Detail + Leather Shine</div>
                         </div>
                     </div>
@@ -905,11 +1475,11 @@
                         <input type="text" name="vehicle" class="review-form-input" placeholder="Vehicle (e.g. Ford F-150)" />
                     </div>
                     <div class="review-form-row">
-                        <input type="text" name="location" class="review-form-input" placeholder="City (e.g. Vancouver)" />
-                        <input type="text" name="service" class="review-form-input" placeholder="Service Received (e.g. Full Detail)" />
+                        <input type="text" name="location" class="review-form-input" placeholder="City (e.g. North Vancouver)" />
+                        <input type="text" name="service" class="review-form-input" placeholder="Service Received (e.g. Detail Package)" />
                     </div>
 
-                    <div style="margin-bottom:8px;font-size:13px;color:#666;">Your Rating</div>
+                    <div style="margin-bottom:8px;font-size:13px;color:#9e9e9e;">Your Rating</div>
                     <div class="star-rating-input" id="starRating">
                         <span onclick="setRating(1)">★</span>
                         <span onclick="setRating(2)">★</span>
@@ -928,73 +1498,255 @@
         </div>
     </section>
 
-    <!-- Locations -->
-    <section id="locations" class="page-section">
+    <!-- Contact -->
+    <section id="contact" class="page-section">
         <div class="contact-section" style="max-width:800px;">
-            <h2 class="section-heading">Locations</h2>
-            <p class="section-sub">Where we serve &amp; how to book</p>
+            <h2 class="section-heading">Get in Touch</h2>
+            <p class="section-sub">Reach out by email, phone, or social</p>
 
-            <div class="contact-info">
+            <div class="contact-info" style="margin-bottom:28px;">
                 <div class="contact-row">
-                    <div class="contact-label">Service</div>
-                    <div>Mobile Detailing (we come to you)</div>
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:budswithsuds@gmail.com" style="color:#e6e6e6;text-decoration:none;border-bottom:1px dotted #9C1729;">budswithsuds@gmail.com</a>
                 </div>
                 <div class="contact-row">
-                    <div class="contact-label">Area</div>
-                    <div>West Vancouver, North Shore &amp; Downtown</div>
+                    <div class="contact-label">Phone</div>
+                    <a href="tel:+17789037078" style="color:#e6e6e6;text-decoration:none;border-bottom:1px dotted #9C1729;">778-903-7078</a>
                 </div>
                 <div class="contact-row">
                     <div class="contact-label">Hours</div>
                     <div>Mon – Sat, 8AM – 6PM</div>
                 </div>
-                <div class="contact-row">
-                    <div class="contact-label">Book</div>
-                    <a href="#" onclick="showPage('booking', document.querySelectorAll('.nav-btn')[5])" style="color:#c0392b;text-decoration:none;">Book a Detail online →</a>
-                </div>
             </div>
 
-            <div style="background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.3);border-radius:12px;padding:18px 24px;margin-top:24px;text-align:center;">
-                <span style="font-size:14px;color:#ccc;">📍 <strong style="color:#c0392b;">Mobile Detailing</strong> — Pricing depends on distance, so we work it out with you 1-on-1. Reach out and we'll figure it out together!</span>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:14px 28px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#e6e6e6;font-size:15px;font-weight:600;transition:all 0.2s;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9C1729" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                </a>
+                <a href="https://www.tiktok.com/@bwsdcardetailing?_r=1&_d=edllled2gka33e&sec_uid=MS4wLjABAAAAYFl_9uQGgeyxLXTeny9LCn1-Z1XrErg7WA3ywnCwarioL261Aivv8E4Rkn8UnaXO&share_author_id=7362730103653172230&sharer_language=en&source=h5_m&u_code=e9ig20i2627h45&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=37D6638E-284A-4EB3-9B63-EBC4E78F2C9D&user_id=7271557750748120070&sec_user_id=MS4wLjABAAAA4-SOWUJBmug9zQ04eM5Yg6Uof5Yp4WpVAh19Sh16JDAnUgjRZUlZdQGNa6FfeQXY&social_share_type=5&ug_btm=b0,b5836&utm_campaign=client_share&share_app_id=1233" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:14px 28px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#e6e6e6;font-size:15px;font-weight:600;transition:all 0.2s;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#9C1729"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.86 2.86 0 0 1 .84.13V9.01a6.33 6.33 0 0 0-.84-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 10.86 4.43 6.28 6.28 0 0 0 1.83-4.43V8.72a8.2 8.2 0 0 0 4.74 1.51V6.82a4.82 4.82 0 0 1-1-.13z"/></svg>
+                    TikTok
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="page-section">
-        <div class="contact-section" style="max-width:800px;">
-            <h2 class="section-heading">Get in Touch</h2>
-            <p class="section-sub">Connect with us on social media</p>
+    <!-- Products -->
+    <section id="products" class="page-section">
+        <div class="products-section">
+            <h2 class="section-heading">Products We Use</h2>
+            <p class="section-sub">Professional-grade products for lasting results</p>
 
-            <div style="display:flex;gap:16px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;">
-                <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:14px 28px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#ccc;font-size:15px;font-weight:600;transition:all 0.2s;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    Instagram
-                </a>
-                <a href="https://www.tiktok.com/@bwsdcardetailing?_r=1&_d=edllled2gka33e&sec_uid=MS4wLjABAAAAYFl_9uQGgeyxLXTeny9LCn1-Z1XrErg7WA3ywnCwarioL261Aivv8E4Rkn8UnaXO&share_author_id=7362730103653172230&sharer_language=en&source=h5_m&u_code=e9ig20i2627h45&item_author_type=2&utm_source=copy&tt_from=copy&enable_checksum=1&utm_medium=ios&share_link_id=37D6638E-284A-4EB3-9B63-EBC4E78F2C9D&user_id=7271557750748120070&sec_user_id=MS4wLjABAAAA4-SOWUJBmug9zQ04eM5Yg6Uof5Yp4WpVAh19Sh16JDAnUgjRZUlZdQGNa6FfeQXY&social_share_type=5&ug_btm=b0,b5836&utm_campaign=client_share&share_app_id=1233" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:10px;padding:14px 28px;background:#161616;border:1px solid #222;border-radius:12px;text-decoration:none;color:#ccc;font-size:15px;font-weight:600;transition:all 0.2s;">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#c0392b"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78 2.86 2.86 0 0 1 .84.13V9.01a6.33 6.33 0 0 0-.84-.06A6.34 6.34 0 0 0 3.15 15.3a6.34 6.34 0 0 0 10.86 4.43 6.28 6.28 0 0 0 1.83-4.43V8.72a8.2 8.2 0 0 0 4.74 1.51V6.82a4.82 4.82 0 0 1-1-.13z"/></svg>
-                    TikTok
-                </a>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Leather Conditioner &amp; Protectant</div>
+                    <div class="product-tag">Interior Care</div>
+                    <div class="product-desc">Restores moisture to dried-out leather while adding a protective barrier against cracking, fading, and everyday wear.</div>
+                    <div class="product-benefit">Keeps leather soft, clean, and crack-free.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Bug &amp; Grime Remover</div>
+                    <div class="product-tag">Targeted Cleaning</div>
+                    <div class="product-desc">Dissolves baked-on bugs, tar, sap, and road grime without harming your paint or clear coat. Saves time and elbow grease.</div>
+                    <div class="product-benefit">Removes tough contaminants safely.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">P&amp;S Double Black Pearl Auto Shampoo</div>
+                    <div class="product-tag">Safe Wash</div>
+                    <div class="product-desc">High-foaming pH-balanced shampoo concentrate used in our foam bath and contact wash. Lifts dirt and road grime without stripping existing sealants or coatings.</div>
+                    <div class="product-benefit">Deep clean that protects your paint's protection.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">P&amp;S Brake Buster Wheel Cleaner</div>
+                    <div class="product-tag">Wheels &amp; Tires</div>
+                    <div class="product-desc">Non-acid foaming cleaner that dissolves brake dust, road grime, and iron fallout from rims, barrels, and tires. Built-in corrosion inhibitors keep bare metal safe.</div>
+                    <div class="product-benefit">Spotless wheels without damaging finishes.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">P&amp;S Double Black XPRESS Interior Cleaner</div>
+                    <div class="product-tag">Interior All-Purpose</div>
+                    <div class="product-desc">Pro-grade all-purpose cleaner that cuts through grime on plastics, vinyl, leather, cloth, and headliners without leaving residue or a chemical smell.</div>
+                    <div class="product-benefit">Deep clean on every interior surface.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">P&amp;S Double Black Carpet Bomber</div>
+                    <div class="product-tag">Carpet &amp; Upholstery</div>
+                    <div class="product-desc">Heavy-duty fabric and carpet cleaner that lifts out stains, odors, and ground-in dirt from seats, mats, and trunk liners.</div>
+                    <div class="product-benefit">Brings fabric and carpet back to factory-fresh.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Koch Chemie Protector Wax</div>
+                    <div class="product-tag">Premium Sealant</div>
+                    <div class="product-desc">German-engineered sealant wax that delivers a deep, wet gloss and months of hydrophobic protection against water spots, UV rays, and contaminants.</div>
+                    <div class="product-benefit">Showroom shine and lasting protection.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Koch Chemie Green Star</div>
+                    <div class="product-tag">Heavy-Duty APC</div>
+                    <div class="product-desc">Powerful alkaline all-purpose cleaner for the toughest jobs — engine bays, wheel wells, door jambs, and heavily soiled carpets and floor mats.</div>
+                    <div class="product-benefit">Breaks down grime that other cleaners leave behind.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Koch Chemie Gummifix</div>
+                    <div class="product-tag">Rubber &amp; Plastic Interior Cleaner</div>
+                    <div class="product-desc">German-made cleaner and care product for rubber, plastic, and vinyl surfaces inside the cabin. Gently lifts grime from door seals, dashboards, and trim while restoring a clean, factory-matte finish without a greasy feel.</div>
+                    <div class="product-benefit">Revives interior rubber and plastics to a like-new look.</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">ANALAN Pet Hair Remover Blades</div>
+                    <div class="product-tag">Pet Hair Removal</div>
+                    <div class="product-desc">Sharp replacement blades for our pet hair tool. Pulls stubborn pet hair out of fabric, carpets, and upholstery that vacuums and brushes leave behind.</div>
+                    <div class="product-benefit">Finally removes embedded pet hair at the root.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hidden Netlify form for membership -->
+    <form hidden method='POST' name='membership' data-netlify="true">
+        <input type="hidden" name="form-name" value="membership" />
+        <input name="bot-field" />
+        <input name="member-name" />
+        <input name="member-phone" />
+        <input name="member-email" />
+        <input name="tier" />
+        <input name="tier-label" />
+        <input name="tier-price" />
+        <input name="start-date" />
+        <input name="notes" />
+        <input name="subject" value="New membership signup" />
+    </form>
+
+    <!-- Members -->
+    <section id="members" class="page-section">
+        <div class="prices-section">
+            <h2 class="section-heading">Monthly Membership</h2>
+            <p class="section-sub">Keep your car in showroom shape — every month, on a schedule</p>
+
+            <div style="background:rgba(156,23,41,0.08);border:1px solid rgba(156,23,41,0.3);border-radius:12px;padding:16px 24px;margin-bottom:32px;text-align:center;">
+                <span style="font-size:14px;color:#e6e6e6;">⭐ <strong style="color:#9C1729;">Recurring Plans</strong> — Lock in a lower monthly rate, priority booking, and add-on discounts. Members save hundreds per year vs. one-off pricing.</span>
             </div>
 
-            <h3 style="font-size:22px;font-weight:700;text-align:center;margin-bottom:8px;">Scan to Connect</h3>
-            <p class="section-sub">Quick access via QR code</p>
-            <div class="qr-grid">
-                <div class="qr-card">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fbudswithsuds.netlify.app&color=c0392b&bgcolor=ffffff" alt="QR Code - Book Online" />
-                    <div class="qr-label">Book a Detail</div>
-                    <div class="qr-sub">Scan to visit our booking page</div>
+            <div class="member-benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">💧</div>
+                    <div class="benefit-title">Always Clean</div>
+                    <div class="benefit-text">Your car gets professionally detailed on a fixed monthly cadence — no more scheduling, remembering, or catching up.</div>
                 </div>
-                <div class="qr-card">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fshare.google%2F46phzrY60xdEg2fIM&color=c0392b&bgcolor=ffffff" alt="QR Code - Google Reviews" />
-                    <div class="qr-label">Leave a Review</div>
-                    <div class="qr-sub">Scan to review us on Google</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-title">Member Savings</div>
+                    <div class="benefit-text">Up to $480/year off our published prices, plus 10–20% off every add-on and upgrade.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-title">Priority Booking</div>
+                    <div class="benefit-text">Members jump the line for weekend and peak-season slots — we hold dates for you first.</div>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛡️</div>
+                    <div class="benefit-title">Protected Finish</div>
+                    <div class="benefit-text">Monthly ceramic sealant and trim dressing keep paint, rubber, and plastics looking fresh year-round.</div>
+                </div>
+            </div>
+
+            <h3 class="section-heading" style="font-size:24px;margin-top:12px;">Choose Your Tier</h3>
+
+            <div class="packages-grid">
+                <div class="package-card member-tier-card" data-tier="maintain" data-tier-label="Maintain" data-tier-price="90">
+                    <div class="pkg-name">Maintain</div>
+                    <div class="pkg-desc"><strong>Entry tier</strong> — for the "I just want my car clean" client. One Basic Detail every month and priority booking. Minimum 3-month commitment.</div>
+                    <div class="pkg-price"><sup>$</sup>90<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">SAVE $20/mo · $240/year</div>
+                    <ul class="pkg-features">
+                        <li>One Basic Detail per month (interior + exterior, $110 value)</li>
+                        <li>Priority booking</li>
+                        <li>10% off any add-on or upgrade to Detail Package</li>
+                        <li>3-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('maintain','Maintain',90)">Join Maintain</button>
+                </div>
+
+                <div class="package-card member-tier-card" data-tier="showroom" data-tier-label="Showroom" data-tier-price="170">
+                    <span class="best-value-badge" style="background:#9C1729;">Most Popular</span>
+                    <div class="pkg-name">Showroom</div>
+                    <div class="pkg-desc"><strong>Premium tier</strong> — for luxury-car owners who want the full treatment every month. Free tire dressing every visit.</div>
+                    <div class="pkg-price"><sup>$</sup>170<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">SAVE $40/mo · $480/year</div>
+                    <ul class="pkg-features">
+                        <li>One Deluxe Detail per month ($210 value)</li>
+                        <li>Priority booking</li>
+                        <li>15% off any add-on</li>
+                        <li>Free tire dressing every visit</li>
+                        <li>3-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('showroom','Showroom',170)">Join Showroom</button>
+                </div>
+
+                <div class="package-card member-tier-card" data-tier="exclusive" data-tier-label="Exclusive" data-tier-price="230">
+                    <span class="best-value-badge" style="background:#1a3a5c;">Top Tier</span>
+                    <div class="pkg-name">Exclusive</div>
+                    <div class="pkg-desc"><strong>Flagship tier</strong> — Deluxe monthly plus a mid-month exterior wash, 24-hour response, and the biggest add-on discounts. 6-month minimum.</div>
+                    <div class="pkg-price"><sup>$</sup>230<span style="font-size:14px;font-weight:500;color:#b5b5b5;"> /mo</span></div>
+                    <div class="pkg-save">Two services every month</div>
+                    <ul class="pkg-features">
+                        <li>One Deluxe Detail per month ($210)</li>
+                        <li>PLUS one Exterior wash mid-month ($50)</li>
+                        <li>20% off any major add-on (ceramic coating, full restoration)</li>
+                        <li>Free tire dressing + leather shine every visit</li>
+                        <li>Guaranteed 24-hour response time</li>
+                        <li>6-month minimum commitment</li>
+                    </ul>
+                    <button class="btn-primary member-join-btn" type="button" onclick="openJoinForm('exclusive','Exclusive',230)">Join Exclusive</button>
+                </div>
+            </div>
+
+            <div class="card join-form-card" id="joinFormCard" style="display:none;margin-top:32px;">
+                <div class="section-title">Join <span id="joinTierLabel">Maintain</span> — <span style="color:#9C1729;">$<span id="joinTierPrice">90</span>/month</span></div>
+                <p style="font-size:13px;color:#b5b5b5;margin-bottom:18px;">Fill out the form below and Bud will reach out within 24 hours to confirm your start date and first detail.</p>
+
+                <div class="form-group">
+                    <label for="memberName">Full name</label>
+                    <input type="text" id="memberName" placeholder="e.g. John Smith" />
+                </div>
+                <div class="form-group">
+                    <label for="memberPhone">Phone number</label>
+                    <input type="tel" id="memberPhone" placeholder="e.g. 604-555-0100" />
+                </div>
+                <div class="form-group">
+                    <label for="memberEmail">Email</label>
+                    <input type="email" id="memberEmail" placeholder="e.g. you@email.com" />
+                </div>
+                <div class="form-group">
+                    <label for="memberStartDate">Preferred start date</label>
+                    <input type="date" id="memberStartDate" />
+                </div>
+                <div class="form-group">
+                    <label for="memberNotes">Notes (vehicle, address, anything else)</label>
+                    <textarea id="memberNotes" rows="3" placeholder="e.g. 2021 BMW M4, West Van, prefers Saturdays" style="width:100%;background:#141010;border:1px solid #2a2020;border-radius:10px;padding:12px 14px;color:#fff;font-size:14px;font-family:inherit;resize:vertical;"></textarea>
+                </div>
+
+                <button class="submit-btn" type="button" onclick="submitMembership()">Request membership</button>
+
+                <div class="success-msg" id="memberSuccessMsg">
+                    <div class="s-title">Membership request sent!</div>
+                    <div class="s-sub">Bud will reach out within 24 hours to confirm your start date.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Booking -->
-    <!-- Hidden Netlify Form for build-time detection -->
     <form hidden method='POST' name='booking' data-netlify="true">
         <input type="hidden" name="form-name" value="booking" />
         <input name="bot-field" />
@@ -1002,6 +1754,8 @@
         <input name="client-phone" />
         <input name="booking-date" />
         <input name="package" />
+        <input name="vehicle-size" />
+        <input name="size-surcharge" />
         <input name="addons" />
         <input name="total" />
         <input name="subject" value="New Booking from %{client-name}" />
@@ -1012,8 +1766,8 @@
             <h2 class="section-heading">Book a Detail</h2>
             <p class="section-sub">Fill out the form below to request an appointment</p>
 
-            <div style="background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.3);border-radius:12px;padding:16px 24px;margin-bottom:24px;text-align:center;">
-                <span style="font-size:14px;color:#ccc;">🚗 <strong style="color:#c0392b;">Mobile Detailing</strong> — We come to you! Final pricing depends on distance — we'll work it out with you 1-on-1.</span>
+            <div style="background:rgba(156,23,41,0.08);border:1px solid rgba(156,23,41,0.3);border-radius:12px;padding:16px 24px;margin-bottom:24px;text-align:center;">
+                <span style="font-size:14px;color:#e6e6e6;">🚗 <strong style="color:#9C1729;">Mobile Detailing</strong> — We come to you! Final pricing depends on distance — we'll work it out with you 1-on-1.</span>
             </div>
 
             <div class="card">
@@ -1038,16 +1792,49 @@
                 <div class="cal-grid" id="calGrid"></div>
                 <div class="cal-legend">
                     <div class="legend-item">
-                        <div class="legend-dot" style="background:#c0392b;"></div> Selected
+                        <div class="legend-dot" style="background:#9C1729;"></div> Selected
                     </div>
                     <div class="legend-item">
                         <div class="legend-dot" style="background:#1a1a1a;"></div> Booked
                     </div>
                     <div class="legend-item">
-                        <div class="legend-dot" style="border:2px solid #c0392b;"></div> Today
+                        <div class="legend-dot" style="border:2px solid #9C1729;"></div> Today
                     </div>
                 </div>
                 <div class="selected-date-label" id="selectedDateLabel"></div>
+            </div>
+
+            <div class="card" style="background:#0d0808;border-color:#2a2020;">
+                <div class="section-title">Select your vehicle size</div>
+                <p style="font-size:12.5px;color:#9e9e9e;margin:0 0 12px;">Bigger rigs need more time &amp; product — pick the size that matches yours.</p>
+                <div class="booking-size-grid">
+                    <div class="booking-size-card selected" onclick="selectSize(this, 'Sedan', 0)" data-size="Sedan" data-surcharge-pct="0">
+                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path fill="currentColor" d="M10,58 L10,52 C10,47 15,44 20,44 L36,44 L58,22 C63,17 70,14 78,14 L122,14 C130,14 137,17 142,22 L162,44 L180,46 C188,47 192,51 192,56 L192,58 L168,58 C168,53 164,49 159,49 C154,49 150,53 150,58 L52,58 C52,53 48,49 43,49 C38,49 34,53 34,58 Z M66,22 L96,22 L96,42 L48,42 Z M100,22 L122,22 C126,22 130,23 132,25 L148,42 L100,42 Z"/>
+                            <circle cx="43" cy="60" r="10" fill="currentColor"/>
+                            <circle cx="43" cy="60" r="4.5" fill="#0d0808"/>
+                            <circle cx="159" cy="60" r="10" fill="currentColor"/>
+                            <circle cx="159" cy="60" r="4.5" fill="#0d0808"/>
+                        </svg>
+                        <span class="bs-name">Sedan</span>
+                        <span class="bs-sub">Sedan / Coupe</span>
+                        <span class="bs-price">Base</span>
+                    </div>
+                    <div class="booking-size-card" onclick="selectSize(this, 'SUV', 20)" data-size="SUV" data-surcharge-pct="20">
+                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path fill="currentColor" d="M6,58 L6,50 C6,45 11,42 16,42 L24,42 L38,20 C41,15 46,12 52,12 L96,12 L100,42 L186,42 C192,42 196,46 196,52 L196,58 L170,58 C170,53 166,49 161,49 C156,49 152,53 152,58 L46,58 C46,53 42,49 37,49 C32,49 28,53 28,58 Z M48,20 L84,20 L84,40 L32,40 Z M90,20 L96,20 L98,40 L90,40 Z"/>
+                            <rect x="108" y="30" width="70" height="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="37" cy="60" r="11" fill="currentColor"/>
+                            <circle cx="37" cy="60" r="5" fill="#0d0808"/>
+                            <circle cx="161" cy="60" r="11" fill="currentColor"/>
+                            <circle cx="161" cy="60" r="5" fill="#0d0808"/>
+                        </svg>
+                        <span class="bs-name">SUV</span>
+                        <span class="bs-sub">SUV / Crossover / Truck</span>
+                        <span class="bs-price">+20%</span>
+                    </div>
+                </div>
+                <p style="font-size:11.5px;color:#8e8e8e;margin:12px 0 0;line-height:1.5;font-style:italic;">Note: vehicles larger than an SUV (full-size pickups, vans, HD trucks) are priced at the SUV rate. Vehicles smaller than a sedan (compacts, coupes, hatchbacks) are priced at the sedan rate.</p>
             </div>
 
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
@@ -1055,48 +1842,62 @@
                 <div class="booking-packages-grid">
                     <div class="booking-pkg-card selected" onclick="selectPackage(this, 50, 'Basic Exterior Detail')">
                         <div class="pkg-name">Basic Exterior Detail</div>
+                        <div class="pkg-desc"><strong>Exterior:</strong> Full hand wash, foam bath &amp; rinse to remove dirt, grime &amp; brake dust. Wheels, tires &amp; gas cap scrubbed. Streak-free glass, door jambs flushed, towel dried. Ceramic sealant for UV &amp; water spot protection, plus tire &amp; trim dressing.</div>
                         <div class="pkg-price"><sup>$</sup>50</div>
                         <ul class="pkg-features">
                             <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
-                            <li>Full Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
+                            <li>Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
                             <li>Streakless Glass &amp; Mirrors</li>
-                            <li>Door Jambs Cleaned &amp; Flushed</li>
-                            <li>Premium Towel Dried</li>
-                            <li>Ceramic Sealant Applied</li>
+                            <li>Door Jambs Flushed</li>
+                            <li>Towel Dried</li>
+                            <li>Ceramic Sealant</li>
                             <li>Tires &amp; Trims Dressed</li>
                         </ul>
                     </div>
                     <div class="booking-pkg-card" onclick="selectPackage(this, 70, 'Basic Interior Detail')">
                         <div class="pkg-name">Basic Interior Detail</div>
+                        <div class="pkg-desc"><strong>Interior:</strong> Deep vacuum of seats, carpets, mats &amp; trunk. All surfaces scrubbed — dash, console, door panels &amp; cup holders. Interior glass cleaned. Leather seats conditioned to prevent cracking &amp; restore freshness.</div>
                         <div class="pkg-price"><sup>$</sup>70</div>
                         <ul class="pkg-features">
-                            <li>Full Deep Vacuum of Interior &amp; Boot Area</li>
-                            <li>All Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
-                            <li>Carpets &amp; Upholstery Thoroughly Vacuumed &amp; Scrubbed</li>
-                            <li>Upholstery Scrubbed</li>
+                            <li>Deep Vacuum of Interior &amp; Boot Area</li>
+                            <li>Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
+                            <li>Carpets &amp; Upholstery Vacuumed &amp; Scrubbed</li>
                             <li>Leather Seats Cleaned</li>
-                            <li>Leather Shine &amp; Conditioner Protectant</li>
+                            <li>Leather Shine &amp; Conditioner</li>
                         </ul>
                     </div>
-                    <div class="booking-pkg-card" onclick="selectPackage(this, 110, 'Full Detail')">
+                    <div class="booking-pkg-card" onclick="selectPackage(this, 110, 'Detail Package')">
                         <span class="best-value-badge" style="background:#1a3a5c;">Most Popular</span>
-                        <div class="pkg-name">Full Detail</div>
+                        <div class="pkg-name">Detail Package</div>
                         <div class="pkg-price"><sup>$</sup>110</div>
                         <div class="pkg-save">SAVE $10</div>
                         <ul class="pkg-features">
-                            <li>Our 'Basic Exterior Detail' &amp; 'Basic Interior Detail' all in one</li>
+                            <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
+                            <li>Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
+                            <li>Streakless Glass &amp; Mirrors</li>
+                            <li>Door Jambs Flushed</li>
+                            <li>Towel Dried</li>
+                            <li>Ceramic Sealant</li>
+                            <li>Tires &amp; Trims Dressed</li>
+                            <li>Deep Vacuum of Interior &amp; Boot Area</li>
+                            <li>Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
+                            <li>Carpets &amp; Upholstery Vacuumed &amp; Scrubbed</li>
+                            <li>Leather Seats Cleaned</li>
+                            <li>Leather Shine &amp; Conditioner</li>
                         </ul>
                     </div>
                     <div class="booking-pkg-card" onclick="selectPackage(this, 210, 'Deluxe Detail')">
                         <span class="best-value-badge">Best Value</span>
                         <div class="pkg-name">Deluxe Detail</div>
+                        <div class="pkg-desc"><strong>Extras included:</strong> 3-month ceramic coating to protect paint with clay bar paint decontamination, carpets/mats/upholstery shampooed &amp; extracted, leather shine + protective coat, seatbelts scrubbed, and pet hair removal.</div>
                         <div class="pkg-price"><sup>$</sup>210</div>
                         <div class="pkg-save">SAVE $25+</div>
                         <ul class="pkg-features">
-                            <li>Our 'Full Detail' included</li>
-                            <li>Bug &amp; Grime Remover</li>
+                            <li>Everything in Detail Package, plus:</li>
+                            <li>Clay Bar Paint Decontamination</li>
+                            <li>3-Month Ceramic Coating</li>
                             <li>Carpets, Mats &amp; Upholstery Shampooed &amp; Extracted</li>
-                            <li>Leather Shine &amp; Conditioner Protectant</li>
+                            <li>Leather Shine + Protective Coat</li>
                             <li>Seatbelts Scrubbed</li>
                             <li>Pet Hair Removal</li>
                         </ul>
@@ -1107,16 +1908,27 @@
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
                 <div class="section-title">Add-on services</div>
                 <div class="addon-list">
-                    <div class="addon-item" onclick="toggleAddon(this,30)" data-price="30">
+                    <div class="addon-item" onclick="toggleAddon(this,45)" data-price="45">
                         <span class="addon-name">Ceramic coating</span>
-                        <span class="addon-price">+$30</span>
+                        <span class="addon-price">+$45</span>
+                    </div>
+                    <div class="addon-item" onclick="toggleAddon(this,50)" data-price="50">
+                        <div class="addon-label">
+                            <span class="addon-name">Decontamination</span>
+                            <span class="addon-sub">Clay mitt + tar &amp; iron remover</span>
+                        </div>
+                        <span class="addon-price">+$50</span>
+                    </div>
+                    <div class="addon-item" onclick="toggleAddon(this,20)" data-price="20">
+                        <span class="addon-name">Bug extraction</span>
+                        <span class="addon-price">+$20</span>
+                    </div>
+                    <div class="addon-item" onclick="toggleAddon(this,20)" data-price="20">
+                        <span class="addon-name">Pet hair removal</span>
+                        <span class="addon-price">+$20</span>
                     </div>
                     <div class="addon-item" onclick="toggleAddon(this,5)" data-price="5">
                         <span class="addon-name">Fog removal</span>
-                        <span class="addon-price">+$5</span>
-                    </div>
-                    <div class="addon-item" onclick="toggleAddon(this,5)" data-price="5">
-                        <span class="addon-name">Rim shine</span>
                         <span class="addon-price">+$5</span>
                     </div>
                     <div class="addon-item" onclick="toggleAddon(this,10)" data-price="10">
@@ -1131,6 +1943,13 @@
                 <span class="t-amount" id="totalAmount">$50</span>
             </div>
 
+            <label class="tos-agree-row" for="tosCheckbox">
+                <input type="checkbox" id="tosCheckbox" />
+                <span class="tos-agree-label">
+                    I have read and agree to the <a class="tos-agree-link" onclick="event.preventDefault();event.stopPropagation();openTosModal();">Terms of Service</a> &mdash; including the vehicle preparation requirements. I understand that personal items not removed before my appointment may be disposed of.
+                </span>
+            </label>
+
             <button class="submit-btn" onclick="submitBooking()">Request booking</button>
 
             <div class="success-msg" id="successMsg">
@@ -1142,12 +1961,139 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        &copy; 2026 BWS Details &middot; West Vancouver &amp; North Shore, BC
+        &copy; 2026 BWS Details &middot; West Vancouver &amp; North Shore, BC &middot; <button type="button" class="footer-link" onclick="openTosModal()">Terms of Service</button>
     </footer>
 
+    <!-- Terms of Service modal -->
+    <div class="tos-modal-overlay" id="tosModal" onclick="if(event.target===this)closeTosModal()">
+        <div class="tos-modal" role="dialog" aria-modal="true" aria-labelledby="tosModalTitle">
+            <div class="tos-modal-header">
+                <div class="tos-modal-title" id="tosModalTitle">Terms of Service</div>
+                <button class="tos-modal-close" type="button" aria-label="Close" onclick="closeTosModal()">&times;</button>
+            </div>
+            <div class="tos-modal-body">
+                <div class="tos-section">
+                    <div class="tos-section-num">01</div>
+                    <div class="tos-section-title">Agreement to Terms</div>
+                    <div class="tos-section-body">
+                        <p>By booking a service with BWS Details, you confirm that you have read, understood, and agree to be bound by these Terms of Service. These terms form a binding agreement between you and BWS Details.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">02</div>
+                    <div class="tos-section-title">Services &amp; Scope of Work</div>
+                    <div class="tos-section-body">
+                        <p>All services are limited to the scope of the selected package. Work beyond the agreed package may be subject to additional charges communicated prior to proceeding. BWS Details reserves the right to adjust the service based on vehicle condition upon arrival. In cases of extreme soiling or conditions beyond standard scope, additional charges may apply or the appointment may be rescheduled.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">03</div>
+                    <div class="tos-section-title">Vehicle Preparation &amp; Personal Belongings</div>
+                    <div class="tos-section-body">
+                        <p>Clients are responsible for ensuring their vehicle is prepared before the appointment.</p>
+                        <p>Please remove all personal belongings before your appointment. BWS Details is a professional detailing service &mdash; not a junk removal or tidying service. We detail your car; we do not clean up after you.</p>
+                        <p>Any loose items, garbage, or miscellaneous debris not removed by the client before or during the service will be disposed of. BWS Details assumes no liability for items discarded under these circumstances. If you have specific items to keep, notify us explicitly in advance &mdash; we will not make assumptions. Valuable items, documents, and electronics must be removed prior to your appointment.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">04</div>
+                    <div class="tos-section-title">Booking, Scheduling &amp; Cancellations</div>
+                    <div class="tos-section-body">
+                        <p>Bookings are not confirmed until you receive direct confirmation via phone or text. Cancellations or rescheduling require at least 24 hours' notice. Late cancellations may incur a fee of up to 25% of the booked total. Same-day no-shows may be charged a trip fee. BWS Details may reschedule due to weather or circumstances beyond our control &mdash; clients will be notified and rebooked at no extra charge.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">05</div>
+                    <div class="tos-section-title">Pricing &amp; Payment</div>
+                    <div class="tos-section-body">
+                        <p>Listed prices are standard base rates. Final pricing may vary based on vehicle size, condition, travel distance, and add-ons. Any adjustments will be communicated before work begins. Payment is due upon completion unless otherwise agreed. Membership plans auto-renew monthly and may be cancelled with 30 days' written notice.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">06</div>
+                    <div class="tos-section-title">Pre-Existing Damage</div>
+                    <div class="tos-section-body">
+                        <p>BWS Details is not responsible for pre-existing damage, defects, or conditions present before the service &mdash; including paint chips, scratches, worn leather, rust, or damaged trim. Certain pre-existing conditions may become more visible following a thorough clean. BWS Details will not be held liable for the appearance or revelation of such conditions.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">07</div>
+                    <div class="tos-section-title">Liability</div>
+                    <div class="tos-section-body">
+                        <p>Our liability is limited to the value of the service performed. BWS Details is not liable for indirect or consequential damages. Clients assume full responsibility for personal belongings left in the vehicle. Any damage caused directly by our work must be reported within 24 hours of service completion.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">08</div>
+                    <div class="tos-section-title">Satisfaction &amp; Disputes</div>
+                    <div class="tos-section-body">
+                        <p>If you are not satisfied, notify us within 24 hours of service completion and we will make it right at no additional charge. Chargebacks initiated without first contacting BWS Details may result in being permanently declined future services.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">09</div>
+                    <div class="tos-section-title">Right to Refuse Service</div>
+                    <div class="tos-section-body">
+                        <p>BWS Details reserves the right to refuse or discontinue service at any time, including due to unsafe conditions, hostile behaviour, or biohazardous materials. A cancellation or trip fee may still apply in such cases.</p>
+                    </div>
+                </div>
+                <div class="tos-section">
+                    <div class="tos-section-num">10</div>
+                    <div class="tos-section-title">Privacy</div>
+                    <div class="tos-section-body">
+                        <p>Personal information collected during booking is used solely for scheduling and delivering your service &mdash; never sold or shared. Before-and-after photos may be taken for quality assurance and promotional purposes; licence plates will not be published without explicit consent.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tos-modal-footer">
+                <button class="tos-agree-btn" type="button" onclick="agreeToTos()">I agree to the Terms of Service</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tier disclaimer modal -->
+    <div class="tier-modal-overlay" id="tierDisclaimerModal" onclick="if(event.target===this)closeTierDisclaimer()">
+        <div class="tier-modal" role="dialog" aria-modal="true" aria-labelledby="tierDisclaimerTitle">
+            <div class="tier-modal-badge">Membership Confirmed</div>
+            <div class="tier-modal-title" id="tierDisclaimerTitle">You are now a <span class="tm-tier" id="disclaimerTierName">Maintain</span> Member</div>
+            <div class="tier-modal-body">
+                <p>Thank you for joining the BWS Details <strong id="disclaimerTierName2">Maintain</strong> plan at <strong>$<span id="disclaimerTierPrice">90</span>/month</strong>. Your membership request has been sent to Bud and will show up in the admin dashboard.</p>
+                <p>Bud will reach out within 24 hours to confirm your start date, collect payment details, and walk you through your member perks.</p>
+                <p class="tier-modal-fineprint">Disclaimer: monthly billing begins on your confirmed start date. Memberships auto-renew each month and can be cancelled any time with 30 days' notice. Add-on discounts and priority booking apply only while your plan is active and in good standing.</p>
+            </div>
+            <button class="submit-btn" type="button" onclick="closeTierDisclaimer()">Got it</button>
+        </div>
+    </div>
+
+    <!-- Booking disclaimer modal -->
+    <div class="tier-modal-overlay" id="bookingDisclaimerModal" onclick="if(event.target===this)closeBookingDisclaimer()">
+        <div class="tier-modal" role="dialog" aria-modal="true" aria-labelledby="bookingDisclaimerTitle">
+            <div class="tier-modal-badge">Booking Received</div>
+            <div class="tier-modal-title" id="bookingDisclaimerTitle">We will contact you <span class="tm-tier">shortly</span> after booking</div>
+            <div class="tier-modal-body">
+                <p>Thanks <strong id="bookingDisclaimerName">there</strong> — your request for <strong id="bookingDisclaimerPackage">the detail</strong> on <strong id="bookingDisclaimerDate">your selected date</strong> has been sent to BWS Details.</p>
+                <p>Bud will reach out by phone or text shortly to confirm the appointment, go over any add-ons, and lock in a drop-off or on-site time.</p>
+                <p class="tier-modal-fineprint">Disclaimer: your booking is not confirmed until Bud contacts you to finalize the date and time. Final pricing may vary based on vehicle condition. Please keep your phone handy so we can reach you.</p>
+            </div>
+            <button class="submit-btn" type="button" onclick="closeBookingDisclaimer()">Got it</button>
+        </div>
+    </div>
+
     <script>
+        (function reorderSectionsToNavOrder() {
+            const order = ['home', 'location-brief', 'products', 'contact', 'reviews', 'members', 'booking'];
+            const footer = document.querySelector('.site-footer');
+            if (!footer) return;
+            order.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) footer.parentNode.insertBefore(section, footer);
+            });
+        })();
+
         let basePrice = 50;
         let addonTotal = 0;
+        let sizeSurchargePct = 0;
+        let selectedSize = 'Sedan';
         let selectedPackage = 'Basic Exterior Detail';
         let bookings = JSON.parse(localStorage.getItem('bws_bookings') || '[]');
         let selectedDate = null;
@@ -1223,12 +2169,25 @@
         }
 
         function showPage(page, btn) {
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(page).classList.add('active');
             if (btn) btn.classList.add('active');
+            if (page === 'booking') {
+                document.body.classList.add('mode-booking');
+            } else {
+                document.body.classList.remove('mode-booking');
+            }
+            const target = document.getElementById(page);
+            if (target) {
+                requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
 
-            window.scrollTo(0, 0);
+        function goToBooking() {
+            const navButtons = document.querySelectorAll('.nav-btn');
+            const bookingBtn = navButtons[navButtons.length - 1];
+            showPage('booking', bookingBtn);
         }
 
         function selectPackage(el, price, name) {
@@ -1239,8 +2198,17 @@
             updateTotal();
         }
 
+        function selectSize(el, name, surchargePct) {
+            document.querySelectorAll('.booking-size-card').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            sizeSurchargePct = (surchargePct || 0) / 100;
+            selectedSize = name;
+            updateTotal();
+        }
+
         function updateTotal() {
-            document.getElementById('totalAmount').textContent = '$' + (basePrice + addonTotal);
+            const sizeAdjustment = Math.round(basePrice * sizeSurchargePct);
+            document.getElementById('totalAmount').textContent = '$' + (basePrice + addonTotal + sizeAdjustment);
         }
 
         function toggleAddon(el, price) {
@@ -1263,7 +2231,13 @@
                 alert('That date is already booked. Please pick another day.');
                 return;
             }
-            const total = basePrice + addonTotal;
+            const tosCb = document.getElementById('tosCheckbox');
+            if (tosCb && !tosCb.checked) {
+                alert('Please read and agree to the Terms of Service before booking.');
+                return;
+            }
+            const sizeAdjustment = Math.round(basePrice * sizeSurchargePct);
+            const total = basePrice + addonTotal + sizeAdjustment;
             const addons = Array.from(document.querySelectorAll('.addon-item.selected')).map(a => a.querySelector('.addon-name').textContent);
 
             // Format date for display
@@ -1282,9 +2256,11 @@
                 formData.append('client-phone', phone);
                 formData.append('booking-date', selectedDate);
                 formData.append('package', selectedPackage);
+                formData.append('vehicle-size', selectedSize);
+                formData.append('size-surcharge', sizeAdjustment.toString());
                 formData.append('addons', addons.join(', '));
                 formData.append('total', total.toString());
-                formData.append('subject', 'Hey ' + name + ' has booked an appointment on ' + dateDisplay + ' - $' + total + ' ' + selectedPackage);
+                formData.append('subject', 'Hey ' + name + ' has booked an appointment on ' + dateDisplay + ' - $' + total + ' ' + selectedPackage + ' (' + selectedSize + ')');
 
                 const response = await fetch('/', {
                     method: 'POST',
@@ -1295,9 +2271,13 @@
                 if (!response.ok) throw new Error('Submission failed');
 
                 // Also save locally
-                bookings.push({ id: Date.now(), name, phone, date: selectedDate, size: selectedPackage, addons, total, status: 'pending' });
+                bookings.push({ id: Date.now(), name, phone, date: selectedDate, size: selectedPackage, vehicleSize: selectedSize, sizeSurcharge: sizeAdjustment, addons, total, status: 'pending' });
                 saveBookings();
                 renderCalendar();
+                document.getElementById('bookingDisclaimerName').textContent = name;
+                document.getElementById('bookingDisclaimerPackage').textContent = selectedPackage + ' (' + selectedSize + ' vehicle)';
+                document.getElementById('bookingDisclaimerDate').textContent = dateDisplay;
+                document.getElementById('bookingDisclaimerModal').classList.add('open');
                 document.getElementById('successMsg').style.display = 'block';
                 submitBtn.style.display = 'none';
                 setTimeout(() => {
@@ -1322,6 +2302,103 @@
         }
 
         renderCalendar();
+
+        /* Membership signup */
+        function openJoinForm(tier, label, price) {
+            const card = document.getElementById('joinFormCard');
+            document.getElementById('joinTierLabel').textContent = label;
+            document.getElementById('joinTierPrice').textContent = price;
+            card.dataset.tier = tier;
+            card.dataset.tierLabel = label;
+            card.dataset.tierPrice = price;
+            card.style.display = 'block';
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.member-tier-card').forEach(c => {
+                c.style.borderColor = c.dataset.tier === tier ? '#9C1729' : '';
+            });
+        }
+
+        async function submitMembership() {
+            const card = document.getElementById('joinFormCard');
+            const tier = card.dataset.tier || 'maintain';
+            const tierLabel = card.dataset.tierLabel || 'Maintain';
+            const tierPrice = card.dataset.tierPrice || '90';
+            const name = document.getElementById('memberName').value.trim();
+            const phone = document.getElementById('memberPhone').value.trim();
+            const email = document.getElementById('memberEmail').value.trim();
+            const startDate = document.getElementById('memberStartDate').value;
+            const notes = document.getElementById('memberNotes').value.trim();
+            if (!name || !phone) {
+                alert('Please enter your name and phone number.');
+                return;
+            }
+            const btn = card.querySelector('.submit-btn');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            try {
+                const formData = new URLSearchParams();
+                formData.append('form-name', 'membership');
+                formData.append('member-name', name);
+                formData.append('member-phone', phone);
+                formData.append('member-email', email);
+                formData.append('tier', tier);
+                formData.append('tier-label', tierLabel);
+                formData.append('tier-price', tierPrice);
+                formData.append('start-date', startDate);
+                formData.append('notes', notes);
+                formData.append('subject', 'New ' + tierLabel + ' membership signup: ' + name);
+                const response = await fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: formData.toString()
+                });
+                if (!response.ok) throw new Error('Submission failed');
+                document.getElementById('disclaimerTierName').textContent = tierLabel;
+                document.getElementById('disclaimerTierName2').textContent = tierLabel;
+                document.getElementById('disclaimerTierPrice').textContent = tierPrice;
+                document.getElementById('tierDisclaimerModal').classList.add('open');
+                document.getElementById('memberSuccessMsg').style.display = 'block';
+                btn.style.display = 'none';
+                setTimeout(() => {
+                    document.getElementById('memberSuccessMsg').style.display = 'none';
+                    btn.style.display = 'block';
+                    btn.textContent = 'Request membership';
+                    btn.disabled = false;
+                    document.getElementById('memberName').value = '';
+                    document.getElementById('memberPhone').value = '';
+                    document.getElementById('memberEmail').value = '';
+                    document.getElementById('memberStartDate').value = '';
+                    document.getElementById('memberNotes').value = '';
+                    card.style.display = 'none';
+                }, 4000);
+            } catch (err) {
+                alert('Something went wrong sending your membership request. Please try again.');
+                btn.textContent = 'Request membership';
+                btn.disabled = false;
+            }
+        }
+
+        function closeTierDisclaimer() {
+            document.getElementById('tierDisclaimerModal').classList.remove('open');
+        }
+
+        function closeBookingDisclaimer() {
+            document.getElementById('bookingDisclaimerModal').classList.remove('open');
+        }
+
+        function openTosModal() {
+            document.getElementById('tosModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeTosModal() {
+            document.getElementById('tosModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        function agreeToTos() {
+            const cb = document.getElementById('tosCheckbox');
+            if (cb) cb.checked = true;
+            closeTosModal();
+        }
 
         /* Testimonial Carousel */
         let carouselIndex = 0;
