@@ -526,9 +526,17 @@
         /* ── Customer Results Gallery ── */
         .results-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(6, 1fr);
             gap: 24px;
             margin-bottom: 56px;
+        }
+
+        .results-gallery .result-card {
+            grid-column: span 2;
+        }
+
+        .results-gallery .result-card:nth-child(4) {
+            grid-column: 2 / span 2;
         }
 
         .result-card {
@@ -1270,6 +1278,8 @@
             .diff-grid { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: 1fr; }
             .results-gallery { grid-template-columns: 1fr; }
+            .results-gallery .result-card { grid-column: span 1; }
+            .results-gallery .result-card:nth-child(4) { grid-column: span 1; }
             .reviews-grid { grid-template-columns: 1fr; }
             .area-wrapper { grid-template-columns: 1fr; }
             .addons-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1415,12 +1425,12 @@
             <div class="results-gallery">
                 <div class="result-card">
                     <div class="result-card-img">
-                        <img src="images/reviews/result-1.jpeg" alt="White Toyota RAV4 after full detail and ceramic coating" loading="lazy">
-                        <div class="plate-blur" style="bottom:0%;left:28%;width:22%;height:8%"></div>
+                        <img src="images/reviews/result-1.jpeg" alt="White Toyota RAV4 after full exterior detail" loading="lazy">
+                        <div class="plate-blur" style="bottom:22%;left:22%;width:24%;height:9%"></div>
                     </div>
                     <div class="result-card-body">
                         <div class="result-card-label">Full Detail + Ceramic</div>
-                        <div class="result-card-title">Showroom Shine Restored</div>
+                        <div class="result-card-title">Toyota RAV4 — Showroom Shine</div>
                         <div class="result-card-sub">West Vancouver</div>
                         <div class="result-verified">
                             <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1430,12 +1440,25 @@
                 </div>
                 <div class="result-card">
                     <div class="result-card-img">
-                        <img src="images/reviews/result-2.png" alt="White Subaru Outback after interior and exterior detail" loading="lazy">
-                        <div class="plate-blur" style="bottom:24%;left:26%;width:32%;height:10%"></div>
+                        <img src="images/reviews/result-6.jpeg" alt="Toyota RAV4 clean interior after detail" loading="lazy">
                     </div>
                     <div class="result-card-body">
-                        <div class="result-card-label">Interior + Exterior</div>
-                        <div class="result-card-title">Like New Inside & Out</div>
+                        <div class="result-card-label">Interior Detail</div>
+                        <div class="result-card-title">RAV4 Interior — Spotless Finish</div>
+                        <div class="result-card-sub">West Vancouver</div>
+                        <div class="result-verified">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified Customer
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-card-img">
+                        <img src="images/reviews/result-4.jpeg" alt="Grey sedan rear quarter after ceramic coating" loading="lazy">
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-card-label">Ceramic Coating</div>
+                        <div class="result-card-title">Mirror-Like Paint Finish</div>
                         <div class="result-card-sub">North Vancouver</div>
                         <div class="result-verified">
                             <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1445,12 +1468,25 @@
                 </div>
                 <div class="result-card">
                     <div class="result-card-img">
-                        <img src="images/reviews/result-3.jpeg" alt="Dark sedan after premium ceramic coating" loading="lazy">
-                        <div class="plate-blur" style="bottom:18%;left:32%;width:24%;height:9%"></div>
+                        <img src="images/reviews/result-5.jpeg" alt="Grey sedan side view showing gleaming paint and clean wheels" loading="lazy">
                     </div>
                     <div class="result-card-body">
-                        <div class="result-card-label">Ceramic Coating</div>
-                        <div class="result-card-title">Water-Beading Protection</div>
+                        <div class="result-card-label">Full Detail + Wheels</div>
+                        <div class="result-card-title">Paint & Wheels — Like New</div>
+                        <div class="result-card-sub">North Vancouver</div>
+                        <div class="result-verified">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified Customer
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-card-img">
+                        <img src="images/reviews/result-7.jpeg" alt="Toyota sedan interior after deep clean and leather conditioning" loading="lazy">
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-card-label">Deep Interior Clean</div>
+                        <div class="result-card-title">Leather Restored & Conditioned</div>
                         <div class="result-card-sub">Downtown Vancouver</div>
                         <div class="result-verified">
                             <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1464,20 +1500,20 @@
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Best detail I've ever had. Interior was completely spotless and the ceramic sealant still has water beading weeks later."</p>
-                    <div class="review-author">Marcus T.</div>
+                    <p class="review-text">"My RAV4 looked brand new after the full detail and ceramic coating. Interior was completely spotless and the sealant still has water beading weeks later."</p>
+                    <div class="review-author">Marcus T. — Toyota RAV4</div>
                     <div class="review-location">West Vancouver</div>
                 </div>
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Super convenient mobile service. Had my car looking brand new in about two hours. Will definitely be a regular."</p>
-                    <div class="review-author">Sarah L.</div>
+                    <p class="review-text">"The ceramic coating on my sedan is unreal — paint looks like glass and the wheels are spotless. Super convenient mobile service, had it done in my driveway."</p>
+                    <div class="review-author">Sarah L. — Grey Sedan</div>
                     <div class="review-location">North Vancouver</div>
                 </div>
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Professional, on time, and the ceramic coating was worth every penny. Hands down the best detailer I've used."</p>
-                    <div class="review-author">James R.</div>
+                    <p class="review-text">"My leather seats haven't looked this good since I bought the car. Deep interior clean brought everything back to life. Hands down the best detailer I've used."</p>
+                    <div class="review-author">James R. — Toyota Sedan</div>
                     <div class="review-location">Downtown Vancouver</div>
                 </div>
             </div>
