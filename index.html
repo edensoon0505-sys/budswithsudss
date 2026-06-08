@@ -523,6 +523,97 @@
             stroke-width: 2;
         }
 
+        /* ── Customer Results Gallery ── */
+        .results-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        .result-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--gray-light);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+
+        .result-card-img {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .result-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .plate-blur {
+            position: absolute;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(30,30,30,0.25);
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .result-card-body {
+            padding: 20px 24px;
+        }
+
+        .result-card-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy-light);
+            margin-bottom: 4px;
+        }
+
+        .result-card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .result-card-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .result-verified {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #4ade80;
+        }
+
+        .result-verified svg {
+            width: 14px;
+            height: 14px;
+            stroke: #4ade80;
+            fill: none;
+            stroke-width: 2.5;
+        }
+
         /* ── Reviews Teaser ── */
         .reviews-grid {
             display: grid;
@@ -1178,6 +1269,7 @@
         @media (max-width: 900px) {
             .diff-grid { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: 1fr; }
+            .results-gallery { grid-template-columns: 1fr; }
             .reviews-grid { grid-template-columns: 1fr; }
             .area-wrapper { grid-template-columns: 1fr; }
             .addons-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1310,7 +1402,7 @@
         </div>
     </section>
 
-    <!-- Reviews Teaser -->
+    <!-- Reviews & Results -->
     <section class="section section-alt" id="reviews">
         <div class="container">
             <div class="section-header">
@@ -1318,6 +1410,57 @@
                 <h2 class="section-title">What Our Customers Say</h2>
                 <p class="section-subtitle">Real results from clients across Vancouver.</p>
             </div>
+
+            <!-- Customer Results Photo Gallery -->
+            <div class="results-gallery">
+                <div class="result-card">
+                    <div class="result-card-img">
+                        <img src="images/reviews/result-1.svg" alt="Full exterior detail with ceramic coating on sedan" loading="lazy">
+                        <div class="plate-blur" style="bottom:28%;left:35%;width:14%;height:7%"></div>
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-card-label">Full Detail + Ceramic</div>
+                        <div class="result-card-title">Showroom Shine Restored</div>
+                        <div class="result-card-sub">West Vancouver</div>
+                        <div class="result-verified">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified Customer
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-card-img">
+                        <img src="images/reviews/result-2.svg" alt="Interior deep clean and exterior polish on SUV" loading="lazy">
+                        <div class="plate-blur" style="bottom:30%;left:20%;width:15%;height:7%"></div>
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-card-label">Interior + Exterior</div>
+                        <div class="result-card-title">Like New Inside & Out</div>
+                        <div class="result-card-sub">North Vancouver</div>
+                        <div class="result-verified">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified Customer
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card">
+                    <div class="result-card-img">
+                        <img src="images/reviews/result-3.svg" alt="Premium ceramic coating applied to sports car" loading="lazy">
+                        <div class="plate-blur" style="bottom:26%;left:32%;width:13%;height:7%"></div>
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-card-label">Ceramic Coating</div>
+                        <div class="result-card-title">Water-Beading Protection</div>
+                        <div class="result-card-sub">Downtown Vancouver</div>
+                        <div class="result-verified">
+                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified Customer
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Reviews -->
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>

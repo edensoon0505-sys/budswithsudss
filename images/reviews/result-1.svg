@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="shine1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2a4f8f;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#6b9eff;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#2a4f8f;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg1)"/>
+  <!-- Car body silhouette -->
+  <path d="M120,420 Q140,340 250,320 L350,280 Q400,260 500,260 L600,280 Q680,300 700,340 L720,420 Z" fill="#2d2d3d" stroke="#3a3a50" stroke-width="1"/>
+  <path d="M280,320 Q300,270 380,260 L500,260 Q560,265 580,290 L590,320 Z" fill="#1e3a6e" opacity="0.4"/>
+  <!-- Wheels -->
+  <circle cx="250" cy="420" r="40" fill="#1a1a2a" stroke="#333" stroke-width="2"/>
+  <circle cx="250" cy="420" r="25" fill="#222" stroke="#444" stroke-width="1"/>
+  <circle cx="620" cy="420" r="40" fill="#1a1a2a" stroke="#333" stroke-width="2"/>
+  <circle cx="620" cy="420" r="25" fill="#222" stroke="#444" stroke-width="1"/>
+  <!-- Shine effect -->
+  <rect x="200" y="290" width="400" height="80" fill="url(#shine1)" rx="8" opacity="0.5"/>
+  <!-- Ground reflection -->
+  <rect x="0" y="460" width="800" height="140" fill="#111" opacity="0.5"/>
+  <!-- Camera icon -->
+  <g transform="translate(370,160)" opacity="0.3">
+    <rect x="0" y="8" width="60" height="44" rx="6" fill="none" stroke="#fff" stroke-width="2"/>
+    <circle cx="30" cy="30" r="12" fill="none" stroke="#fff" stroke-width="2"/>
+    <path d="M20,8 L24,0 L36,0 L40,8" fill="none" stroke="#fff" stroke-width="2"/>
+  </g>
+  <text x="400" y="230" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="sans-serif" font-size="14" font-weight="600" letter-spacing="2">CUSTOMER PHOTO</text>
+</svg>
