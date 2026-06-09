@@ -503,6 +503,22 @@
             background: var(--white);
         }
 
+        .service-features-rich li { padding-top: 8px; padding-bottom: 10px; }
+        .service-features-rich li::before { top: 16px; }
+        .service-features-rich .feature-title {
+            display: block;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+        .service-features-rich .feature-desc {
+            display: block;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
         .service-cta {
             display: inline-flex;
             align-items: center;
@@ -1582,6 +1598,31 @@
                     <a href="#area" class="service-cta">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
                 </div>
                 <div class="service-card">
+                    <div class="service-badge" style="background: var(--accent);">Premium</div>
+                    <div class="service-name">Premium Exterior</div>
+                    <div class="service-price"><sup>$</sup>130</div>
+                    <span class="service-save">Your choice of coating</span>
+                    <ul class="service-features service-features-rich">
+                        <li>
+                            <span class="feature-title">Full Decontamination</span>
+                            <span class="feature-desc">A deep paint cleanse that strips away bonded road film, grime, and contaminants a regular wash leaves behind, prepping a perfectly clean surface for protection.</span>
+                        </li>
+                        <li>
+                            <span class="feature-title">Iron Removal (if needed)</span>
+                            <span class="feature-desc">An iron-dissolving treatment that targets embedded brake dust and metal particles in the paint, lifting the rough specks a wash alone can't reach.</span>
+                        </li>
+                        <li>
+                            <span class="feature-title">Clay Mitt</span>
+                            <span class="feature-desc">A clay mitt is added to extract any dirt and filaments stuck on the clear coat, leaving the paint glass-smooth before the final coat goes on.</span>
+                        </li>
+                        <li>
+                            <span class="feature-title">Coating — Customer's Choice</span>
+                            <span class="feature-desc">Finish with the protection you prefer: wax for a warm, classic shine, ceramic for long-lasting durability and gloss, or sealant for slick, weather-resistant defense.</span>
+                        </li>
+                    </ul>
+                    <a href="#booking" class="service-cta">Book now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                </div>
+                <div class="service-card">
                     <div class="service-name">Basic Interior</div>
                     <div class="service-price"><sup>$</sup>70</div>
                     <ul class="service-features">
@@ -1855,6 +1896,7 @@
                         <select id="bookPackage" name="package" required>
                             <option value="">Select a package</option>
                             <option value="Basic Exterior" data-price="50">Basic Exterior — $50</option>
+                            <option value="Premium Exterior" data-price="130">Premium Exterior — $130</option>
                             <option value="Basic Interior" data-price="70">Basic Interior — $70</option>
                             <option value="Full Detail" data-price="110">Full Detail — $110</option>
                             <option value="Deluxe Detail" data-price="210">Deluxe Detail — $210</option>
