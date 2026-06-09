@@ -768,7 +768,7 @@
             <div class="packages-grid">
                 <div class="package-card">
                     <div class="pkg-name">Basic Exterior Detail</div>
-                    <div class="pkg-price"><sup>$</sup>50</div>
+                    <div class="pkg-price"><sup>$</sup>70</div>
                     <ul class="pkg-features">
                         <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
                         <li>Full Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
@@ -800,7 +800,6 @@
                         <li>Carpets &amp; Upholstery Thoroughly Vacuumed &amp; Scrubbed</li>
                         <li>Upholstery Scrubbed</li>
                         <li>Leather Seats Cleaned</li>
-                        <li>Leather Shine &amp; Conditioner Protectant</li>
                     </ul>
                 </div>
                 <div class="package-card">
@@ -818,7 +817,7 @@
                 <div class="package-card">
                     <span class="best-value-badge" style="background:#1a3a5c;">Most Popular</span>
                     <div class="pkg-name">Full Detail</div>
-                    <div class="pkg-price"><sup>$</sup>110</div>
+                    <div class="pkg-price"><sup>$</sup>130</div>
                     <div class="pkg-save">SAVE $10</div>
                     <ul class="pkg-features">
                         <li>Our 'Basic Exterior Detail' &amp; 'Basic Interior Detail' all in one</li>
@@ -1135,9 +1134,9 @@
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
                 <div class="section-title">Choose your detail package</div>
                 <div class="booking-packages-grid">
-                    <div class="booking-pkg-card selected" onclick="selectPackage(this, 50, 'Basic Exterior Detail')">
+                    <div class="booking-pkg-card selected" onclick="selectPackage(this, 70, 'Basic Exterior Detail')">
                         <div class="pkg-name">Basic Exterior Detail</div>
-                        <div class="pkg-price"><sup>$</sup>50</div>
+                        <div class="pkg-price"><sup>$</sup>70</div>
                         <ul class="pkg-features">
                             <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
                             <li>Full Rims, Tires, Barrels &amp; Gas Cap Cleaning</li>
@@ -1169,7 +1168,6 @@
                             <li>Carpets &amp; Upholstery Thoroughly Vacuumed &amp; Scrubbed</li>
                             <li>Upholstery Scrubbed</li>
                             <li>Leather Seats Cleaned</li>
-                            <li>Leather Shine &amp; Conditioner Protectant</li>
                         </ul>
                     </div>
                     <div class="booking-pkg-card" onclick="selectPackage(this, 90, 'Premium Interior')">
@@ -1184,10 +1182,10 @@
                             <li><strong>Full Carpet Extraction + Stain Removal</strong></li>
                         </ul>
                     </div>
-                    <div class="booking-pkg-card" onclick="selectPackage(this, 110, 'Full Detail')">
+                    <div class="booking-pkg-card" onclick="selectPackage(this, 130, 'Full Detail')">
                         <span class="best-value-badge" style="background:#1a3a5c;">Most Popular</span>
                         <div class="pkg-name">Full Detail</div>
-                        <div class="pkg-price"><sup>$</sup>110</div>
+                        <div class="pkg-price"><sup>$</sup>130</div>
                         <div class="pkg-save">SAVE $10</div>
                         <ul class="pkg-features">
                             <li>Our 'Basic Exterior Detail' &amp; 'Basic Interior Detail' all in one</li>
@@ -1243,7 +1241,7 @@
 
             <div class="total-bar">
                 <span class="t-label">Estimated total</span>
-                <span class="t-amount" id="totalAmount">$50</span>
+                <span class="t-amount" id="totalAmount">$70</span>
             </div>
 
             <button class="submit-btn" onclick="submitBooking()">Request booking</button>
@@ -1291,7 +1289,7 @@
     </footer>
 
     <script>
-        let basePrice = 50;
+        let basePrice = 70;
         let addonTotal = 0;
         let selectedPackage = 'Basic Exterior Detail';
         let bookings = JSON.parse(localStorage.getItem('raven_bookings') || '[]');
