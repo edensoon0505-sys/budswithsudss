@@ -538,6 +538,32 @@
         .addon-name { font-size: 14px; color: #ccc; }
         .addon-price { font-size: 13px; color: #c0392b; font-weight: 600; }
 
+        /* Add-on choice modal */
+        .addon-modal-overlay { display: none; position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.75); padding: 20px; overflow-y: auto; }
+        .addon-modal-overlay.open { display: flex; align-items: center; justify-content: center; }
+        .addon-modal { position: relative; width: 100%; max-width: 460px; background: #0d0808; border: 1px solid #2a2020; border-radius: 14px; padding: 28px 26px; }
+        .addon-modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; color: #888; font-size: 26px; line-height: 1; cursor: pointer; }
+        .addon-modal-close:hover { color: #fff; }
+        .addon-modal-title { font-size: 20px; color: #fff; margin-bottom: 6px; }
+        .addon-modal-sub { font-size: 13px; color: #999; margin-bottom: 18px; line-height: 1.5; }
+        .addon-modal-options { display: flex; flex-direction: column; gap: 10px; }
+        .addon-opt { display: grid; grid-template-columns: 18px 1fr; gap: 4px 12px; padding: 14px 16px; border: 1px solid #2a2020; border-radius: 10px; cursor: pointer; transition: all 0.15s; background: #141010; }
+        .addon-opt:hover { border-color: #c0392b; }
+        .addon-opt input[type="radio"] { width: 16px; height: 16px; margin-top: 3px; accent-color: #c0392b; }
+        .addon-opt-main { grid-column: 2; display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+        .addon-opt-name { font-size: 15px; font-weight: 500; color: #fff; }
+        .addon-opt-price { font-size: 15px; font-weight: 700; color: #c0392b; white-space: nowrap; }
+        .addon-opt-desc { grid-column: 2; font-size: 12px; line-height: 1.5; color: #999; }
+        .addon-opt-lock { grid-column: 2; font-size: 11.5px; line-height: 1.5; color: #d99a3c; margin-top: 2px; }
+        .addon-opt.disabled { opacity: 0.55; cursor: not-allowed; }
+        .addon-opt.disabled:hover { border-color: #2a2020; }
+        .addon-modal-actions { display: flex; gap: 12px; margin-top: 22px; }
+        .addon-modal-clear, .addon-modal-done { flex: 1; padding: 12px; border-radius: 8px; font-size: 14px; cursor: pointer; border: 1px solid #2a2020; }
+        .addon-modal-clear { background: transparent; color: #aaa; }
+        .addon-modal-clear:hover { color: #fff; border-color: #555; }
+        .addon-modal-done { background: #c0392b; color: #fff; border-color: #c0392b; }
+        .addon-modal-done:hover { background: #a93226; }
+
         /* QR Codes */
         .qr-section { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
         .qr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -843,12 +869,12 @@
                 <p class="section-sub" style="margin-bottom:24px;">Enhance any package with these extras</p>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:600px;margin:0 auto;">
                     <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Ceramic Coating</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$45</span>
+                        <span style="font-size:14px;color:#ccc;">Protection &amp; Shine</span>
+                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$30</span>
                     </div>
                     <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
-                        <span style="font-size:14px;color:#ccc;">Clay &amp; Decontamination</span>
-                        <span style="font-size:16px;font-weight:700;color:#c0392b;">+$50</span>
+                        <span style="font-size:14px;color:#ccc;">Paint Correction</span>
+                        <span style="font-size:16px;font-weight:700;color:#c0392b;">Quote</span>
                     </div>
                     <div class="addon-card" style="background:#141010;border:2px solid #2a2020;border-radius:12px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;transition:border-color 0.2s;">
                         <span style="font-size:14px;color:#ccc;">Engine Bay</span>
@@ -1208,13 +1234,13 @@
             <div class="card" style="background:#0d0808;border-color:#2a2020;">
                 <div class="section-title">Add-on services</div>
                 <div class="addon-list">
-                    <div class="addon-item" onclick="toggleAddon(this,45)" data-price="45">
-                        <span class="addon-name">Ceramic Coating</span>
-                        <span class="addon-price">+$45</span>
+                    <div class="addon-item" id="protectionItem" onclick="openAddonModal('protectionModal')">
+                        <span class="addon-name">Protection &amp; Shine</span>
+                        <span class="addon-price">Choose &#9656;</span>
                     </div>
-                    <div class="addon-item" onclick="toggleAddon(this,50)" data-price="50">
-                        <span class="addon-name">Clay &amp; Decontamination</span>
-                        <span class="addon-price">+$50</span>
+                    <div class="addon-item" id="correctionItem" onclick="openAddonModal('correctionModal')">
+                        <span class="addon-name">Paint Correction</span>
+                        <span class="addon-price">Choose &#9656;</span>
                     </div>
                     <div class="addon-item" onclick="toggleAddon(this,25)" data-price="25">
                         <span class="addon-name">Engine Bay</span>
@@ -1227,10 +1253,6 @@
                     <div class="addon-item" onclick="toggleAddon(this,10)" data-price="10">
                         <span class="addon-name">Leather Shine + Coat</span>
                         <span class="addon-price">+$10</span>
-                    </div>
-                    <div class="addon-item" onclick="toggleAddon(this,30)" data-price="30">
-                        <span class="addon-name">Wax</span>
-                        <span class="addon-price">+$30</span>
                     </div>
                 </div>
             </div>
@@ -1278,6 +1300,67 @@
             </div>
         </div>
     </section>
+
+    <!-- Protection & Shine chooser -->
+    <div class="addon-modal-overlay" id="protectionModal">
+        <div class="addon-modal">
+            <button type="button" class="addon-modal-close" onclick="closeAddonModal('protectionModal')">&times;</button>
+            <h3 class="addon-modal-title">Protection &amp; Shine</h3>
+            <p class="addon-modal-sub">Pick one coating to finish the detail.</p>
+            <div class="addon-modal-options" id="protectionOptions">
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Wax" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Wax</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">A warm, classic shine that enriches the paint.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Ceramic Sealant" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Ceramic Sealant</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">Slick, weather-resistant protection with a clean gloss.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Hybrid Ceramic" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Hybrid Ceramic</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">A ceramic-infused boost for longer-lasting durability and water beading.</span>
+                </label>
+                <label class="addon-opt" id="fullCeramicOpt">
+                    <input type="radio" name="protection" value="Full Ceramic Coating" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Full Ceramic Coating</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">Longest-lasting protection. Paint and clear coat are fully decontaminated first, then the coating cures under shade for about 2 hours.</span>
+                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Deluxe Detail or Premium Exterior package.</span>
+                </label>
+            </div>
+            <div class="addon-modal-actions">
+                <button type="button" class="addon-modal-clear" onclick="clearProtection()">None</button>
+                <button type="button" class="addon-modal-done" onclick="applyProtection()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paint Correction chooser -->
+    <div class="addon-modal-overlay" id="correctionModal">
+        <div class="addon-modal">
+            <button type="button" class="addon-modal-close" onclick="closeAddonModal('correctionModal')">&times;</button>
+            <h3 class="addon-modal-title">Paint Correction</h3>
+            <p class="addon-modal-sub">Machine polishing to remove scratches, swirls &amp; marring. Both stages are recommended before a ceramic coating.</p>
+            <div class="addon-modal-options" id="correctionOptions">
+                <label class="addon-opt">
+                    <input type="radio" name="correction" value="1-Step" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">1-Step</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">Gets about 70% of the job done — removes most scratches, swirls, and marring, bringing back a lot of color and shine.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="correction" value="2-Step" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">2-Step</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">A more thorough 90% correction for deeper defects and maximum gloss.</span>
+                </label>
+            </div>
+            <div class="addon-modal-actions">
+                <button type="button" class="addon-modal-clear" onclick="clearCorrection()">None</button>
+                <button type="button" class="addon-modal-done" onclick="applyCorrection()">Done</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -1375,21 +1458,122 @@
             el.classList.add('selected');
             basePrice = price;
             selectedPackage = name;
+            if (selectedProtection && selectedProtection.value === 'Full Ceramic Coating' && !packageAllowsFullCeramic()) {
+                document.querySelectorAll('#protectionOptions input').forEach(i => i.checked = false);
+                clearProtectionState();
+            }
+            refreshFullCeramic();
             updateTotal();
         }
 
         function updateTotal() {
-            document.getElementById('totalAmount').textContent = '$' + (basePrice + addonTotal);
+            addonTotal = 0;
+            let hasQuote = false;
+            document.querySelectorAll('.addon-item.selected').forEach(a => {
+                const p = parseInt(a.dataset.price);
+                if (!isNaN(p)) addonTotal += p;
+                if (a.dataset.quote === '1') hasQuote = true;
+            });
+            document.getElementById('totalAmount').textContent = '$' + (basePrice + addonTotal) + (hasQuote ? ' + quote' : '');
         }
 
         function toggleAddon(el, price) {
             el.classList.toggle('selected');
-            addonTotal = 0;
-            document.querySelectorAll('.addon-item.selected').forEach(a => {
-                addonTotal += parseInt(a.dataset.price);
-            });
             updateTotal();
         }
+
+        // ── Protection & Shine / Paint Correction choosers ──
+        let selectedProtection = null;
+        let selectedCorrection = null;
+
+        function openAddonModal(id) {
+            if (id === 'protectionModal') refreshFullCeramic();
+            document.getElementById(id).classList.add('open');
+        }
+        function closeAddonModal(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+
+        function packageAllowsFullCeramic() {
+            return selectedPackage === 'Deluxe Detail' || selectedPackage === 'Premium Exterior';
+        }
+        function refreshFullCeramic() {
+            const opt = document.getElementById('fullCeramicOpt');
+            const input = opt.querySelector('input');
+            const allowed = packageAllowsFullCeramic();
+            input.disabled = !allowed;
+            opt.classList.toggle('disabled', !allowed);
+            document.getElementById('fullCeramicLock').style.display = allowed ? 'none' : 'block';
+            if (!allowed && input.checked) input.checked = false;
+        }
+
+        function clearProtectionState() {
+            const item = document.getElementById('protectionItem');
+            selectedProtection = null;
+            delete item.dataset.price;
+            delete item.dataset.quote;
+            item.querySelector('.addon-name').textContent = 'Protection & Shine';
+            item.querySelector('.addon-price').textContent = 'Choose ▸';
+            item.classList.remove('selected');
+        }
+        function applyProtection() {
+            const checked = document.querySelector('#protectionOptions input:checked');
+            const item = document.getElementById('protectionItem');
+            if (checked && !checked.disabled) {
+                selectedProtection = { value: checked.value, price: parseInt(checked.dataset.price) || 0, quote: checked.dataset.quote === '1' };
+                item.dataset.price = selectedProtection.price;
+                if (selectedProtection.quote) item.dataset.quote = '1'; else delete item.dataset.quote;
+                item.querySelector('.addon-name').textContent = 'Protection & Shine: ' + checked.value;
+                item.querySelector('.addon-price').textContent = selectedProtection.quote ? 'Quote' : '+$' + selectedProtection.price;
+                item.classList.add('selected');
+            } else {
+                clearProtectionState();
+            }
+            closeAddonModal('protectionModal');
+            updateTotal();
+        }
+        function clearProtection() {
+            document.querySelectorAll('#protectionOptions input').forEach(i => i.checked = false);
+            clearProtectionState();
+            closeAddonModal('protectionModal');
+            updateTotal();
+        }
+
+        function clearCorrectionState() {
+            const item = document.getElementById('correctionItem');
+            selectedCorrection = null;
+            delete item.dataset.price;
+            delete item.dataset.quote;
+            item.querySelector('.addon-name').textContent = 'Paint Correction';
+            item.querySelector('.addon-price').textContent = 'Choose ▸';
+            item.classList.remove('selected');
+        }
+        function applyCorrection() {
+            const checked = document.querySelector('#correctionOptions input:checked');
+            const item = document.getElementById('correctionItem');
+            if (checked) {
+                selectedCorrection = { value: checked.value };
+                item.dataset.price = 0;
+                item.dataset.quote = '1';
+                item.querySelector('.addon-name').textContent = 'Paint Correction: ' + checked.value;
+                item.querySelector('.addon-price').textContent = 'Quote';
+                item.classList.add('selected');
+            } else {
+                clearCorrectionState();
+            }
+            closeAddonModal('correctionModal');
+            updateTotal();
+        }
+        function clearCorrection() {
+            document.querySelectorAll('#correctionOptions input').forEach(i => i.checked = false);
+            clearCorrectionState();
+            closeAddonModal('correctionModal');
+            updateTotal();
+        }
+
+        document.querySelectorAll('.addon-modal-overlay').forEach(ov => {
+            ov.addEventListener('click', e => { if (e.target === ov) ov.classList.remove('open'); });
+        });
 
         async function submitBooking() {
             const name = document.getElementById('clientName').value.trim();
@@ -1446,6 +1630,9 @@
                     selectedDate = null;
                     document.getElementById('selectedDateLabel').textContent = '';
                     document.querySelectorAll('.addon-item.selected').forEach(a => a.classList.remove('selected'));
+                    document.querySelectorAll('#protectionOptions input, #correctionOptions input').forEach(i => i.checked = false);
+                    clearProtectionState();
+                    clearCorrectionState();
                     addonTotal = 0;
                     updateTotal();
                     renderCalendar();
