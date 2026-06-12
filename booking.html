@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raven Details — Premium Mobile Detailing</title>
-    <meta name="description" content="Raven Details offers premium mobile auto detailing in West Vancouver, North Shore, and Downtown Vancouver. Book online for free.">
+    <title>Book a Detail — Raven Details</title>
+    <meta name="description" content="Book your premium mobile auto detail with Raven Details in West Vancouver, North Shore, and Downtown Vancouver. Pick your package and date online for free.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1461,14 +1460,40 @@
 
             .cta-banner h2 { font-size: 28px; }
         }
+
+        /* ── Dedicated booking page — bigger & easier to read ── */
+        .booking-page { padding-top: 150px; padding-bottom: 90px; }
+        .booking-page .booking-form-wrapper { max-width: 780px; }
+        .booking-page .section-title { font-size: clamp(36px, 6vw, 56px); }
+        .booking-page .section-subtitle { font-size: 18px; }
+        .booking-page .booking-form label { font-size: 16px; }
+        .booking-page .booking-form input,
+        .booking-page .booking-form select,
+        .booking-page .booking-form textarea { font-size: 17px; padding: 16px 18px; }
+        .booking-page .booking-addon-item { padding: 16px 18px; }
+        .booking-page .booking-addon-label { font-size: 16px; }
+        .booking-page .booking-total { padding: 24px; }
+        .booking-page .booking-total-amount { font-size: 34px; }
+        .booking-page .btn-book { font-size: 18px; padding: 20px; }
+        .booking-page .cal-day, .booking-page .cal-day-label { font-size: 16px; }
+        .booking-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 28px;
+            color: var(--text-light);
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .booking-back:hover { color: var(--white); }
     </style>
 </head>
 <body>
 
     <!-- Navigation -->
-    <nav class="nav" id="mainNav">
+    <nav class="nav scrolled" id="mainNav">
         <div class="nav-inner">
-            <a href="#hero" class="nav-brand">
+            <a href="index.html#hero" class="nav-brand">
                 <img src="raven-logo.jpg" alt="Raven Detailing">
                 <span class="nav-brand-text">Raven Details</span>
             </a>
@@ -1484,484 +1509,128 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
             <div class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#memberships">Memberships</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#contact">Contact</a>
-                <a href="booking.html" class="nav-cta">Book Now</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#memberships">Memberships</a>
+                <a href="index.html#reviews">Reviews</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="index.html#hero" class="nav-cta">Home</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="https://videos.pexels.com/video-files/6872068/6872068-uhd_2560_1440_25fps.mp4" type="video/mp4">
-        </video>
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <div class="hero-label">Premium Mobile Detailing</div>
-            <h1>Raven Details</h1>
-            <p class="hero-tagline">Mobile detailing that comes to you. West Vancouver, North Shore &amp; Downtown.</p>
-            <div class="hero-actions">
-                <a href="booking.html" class="btn-primary">Free Book Now</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- What Makes Us Different -->
-    <section class="section" id="different">
+    <!-- Book a Detail -->
+    <section class="section section-dark booking-page" id="booking">
         <div class="container">
+            <a href="index.html" class="booking-back">&#8592; Back to home</a>
             <div class="section-header">
-                <div class="section-label">Why Raven</div>
-                <h2 class="section-title">What Makes Us Different</h2>
-                <p class="section-subtitle">Dealership-quality results, right in your driveway.</p>
+                <div class="section-label">Schedule</div>
+                <h2 class="section-title" style="color: var(--white);">Book a Detail</h2>
+                <p class="section-subtitle">Pick your package and preferred date. We'll confirm via text.</p>
             </div>
-            <div class="diff-grid">
-                <div class="diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3>Detail-Obsessed</h3>
-                    <p>Every corner and crevice gets full attention. No shortcuts.</p>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                    </div>
-                    <h3>Mobile Convenience</h3>
-                    <p>We come to you. No drop-offs, no waiting rooms.</p>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Premium Products</h3>
-                    <p>Professional-grade products and ceramic sealants for lasting protection.</p>
-                </div>
-                <div class="diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <h3>Transparent Pricing</h3>
-                    <p>No hidden fees. The price you see is the price you pay.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews & Results -->
-    <section class="section section-alt" id="reviews">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Testimonials</div>
-                <h2 class="section-title">What Our Customers Say</h2>
-                <p class="section-subtitle">Real results from clients across Vancouver.</p>
-            </div>
-
-            <!-- Customer Results Photo Gallery -->
-            <div class="results-gallery">
-                <div class="result-card">
-                    <div class="result-card-img dual">
-                        <img src="images/reviews/result-1.jpeg" alt="White Toyota RAV4 after full exterior detail" loading="lazy">
-                        <img src="images/reviews/result-6.jpeg" alt="Toyota RAV4 clean interior after detail" loading="lazy">
-                        <div class="plate-blur" style="bottom:4%;left:5%;width:14%;height:14%"></div>
-                    </div>
-                    <div class="result-card-body">
-                        <div class="result-card-label">Full Detail Package</div>
-                        <div class="result-card-title">Toyota RAV4 — Full Detail Package</div>
-                        <div class="result-card-sub">West Vancouver</div>
-                        <div class="result-verified">
-                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Verified Customer
+            <div class="booking-form-wrapper">
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookName">Your Name</label>
+                            <input type="text" id="bookName" name="client-name" required placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="bookPhone">Phone Number</label>
+                            <input type="tel" id="bookPhone" name="client-phone" required placeholder="778-555-1234">
                         </div>
                     </div>
-                </div>
-                <div class="result-card">
-                    <div class="result-card-img">
-                        <img src="images/reviews/result-7.jpeg" alt="Toyota Venza interior after deep clean and leather conditioning" loading="lazy">
-                    </div>
-                    <div class="result-card-body">
-                        <div class="result-card-label">Deep Interior Clean</div>
-                        <div class="result-card-title">Toyota Venza — Leather Restored & Conditioned</div>
-                        <div class="result-card-sub">Downtown Vancouver</div>
-                        <div class="result-verified">
-                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Verified Customer
-                        </div>
-                    </div>
-                </div>
-                <div class="result-card">
-                    <div class="result-card-img dual">
-                        <img src="images/reviews/result-8.jpeg" alt="Porsche Cayenne GTS covered in foam during exterior foam bath" loading="lazy">
-                        <img src="images/reviews/result-9.jpeg" alt="Porsche Cayenne GTS black and red leather sport interior after deep clean" loading="lazy">
-                    </div>
-                    <div class="result-card-body">
-                        <div class="result-card-label">Exterior Detail</div>
-                        <div class="result-card-title">Porsche Cayenne GTS — Deluxe Detail &amp; 3-Month Ceramic Sealant</div>
-                        <div class="result-card-sub">North Vancouver</div>
-                        <div class="result-verified">
-                            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            Verified Customer
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text Reviews -->
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"My RAV4 looked brand new after the full detail package and ceramic coating. Interior was completely spotless and the sealant still has water beading weeks later."</p>
-                    <div class="review-author">Marcus T. — Toyota RAV4</div>
-                    <div class="review-location">West Vancouver</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"My Venza's leather seats haven't looked this good since I bought the car. The deep interior clean brought everything back to life. Hands down the best detailer I've used."</p>
-                    <div class="review-author">James R. — Toyota Venza</div>
-                    <div class="review-location">Downtown Vancouver</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p class="review-text">"Booked the deluxe detail with the 3-month ceramic sealant for my Cayenne GTS. The foam bath and paint refresh left it glossier than the day I bought it — exterior and interior both flawless."</p>
-                    <div class="review-author">Daniel K. — Porsche Cayenne GTS</div>
-                    <div class="review-location">North Vancouver</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Area -->
-    <section class="section" id="area">
-        <div class="container">
-            <div class="area-wrapper">
-                <div class="area-info">
-                    <div class="section-label">Coverage</div>
-                    <h3>Service Area</h3>
-                    <p>Premium detailing delivered to your door across West Vancouver, North Vancouver, Downtown, and surrounding areas.</p>
-                    <div class="area-locations">
-                        <div class="area-pin">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <div>
-                                <div class="area-pin-name">West Vancouver</div>
-                                <div class="area-pin-sub">Full coverage across West Van</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preferred Date</label>
+                            <div class="cal-header">
+                                <button type="button" class="cal-nav" onclick="changeMonth(-1)">&#8592;</button>
+                                <span class="month-label" id="monthLabel"></span>
+                                <button type="button" class="cal-nav" onclick="changeMonth(1)">&#8594;</button>
                             </div>
-                        </div>
-                        <div class="area-pin">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <div>
-                                <div class="area-pin-name">North Vancouver</div>
-                                <div class="area-pin-sub">Full coverage across North Van</div>
+                            <div class="cal-grid" id="calGrid"></div>
+                            <div class="cal-legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:var(--navy);"></div> Selected
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="background:var(--gray-light);"></div> Booked
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot" style="border:2px solid var(--navy);"></div> Today
+                                </div>
                             </div>
+                            <div class="selected-date-label" id="selectedDateLabel"></div>
+                            <input type="hidden" id="bookDate" name="booking-date" required>
                         </div>
-                        <div class="area-pin">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <div>
-                                <div class="area-pin-name">Downtown Vancouver</div>
-                                <div class="area-pin-sub">Full coverage downtown core</div>
+                        <div class="form-group">
+                            <label for="bookVehicleSize">Vehicle Size</label>
+                            <select id="bookVehicleSize" name="vehicle-size" required>
+                                <option value="">Select vehicle size</option>
+                                <option value="Sedan/Coupe">Sedan / Coupe</option>
+                                <option value="SUV/Crossover">SUV / Crossover</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Van/Minivan">Van / Minivan</option>
+                                <option value="Sports Car">Sports Car</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookPackage">Package</label>
+                        <select id="bookPackage" name="package" required>
+                            <option value="">Select a package</option>
+                            <option value="Basic Exterior" data-price="70">Basic Exterior — $70</option>
+                            <option value="Premium Exterior" data-price="130">Premium Exterior — $130</option>
+                            <option value="Basic Interior" data-price="70">Basic Interior — $70</option>
+                            <option value="Premium Interior" data-price="90">Premium Interior — $90</option>
+                            <option value="Full Detail" data-price="130">Full Detail — $130</option>
+                            <option value="Deluxe Detail" data-price="210">Deluxe Detail — $210</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Add-Ons</label>
+                        <div class="booking-addons" id="bookingAddons">
+                            <div class="booking-addon-item" id="protectionItem" onclick="openAddonModal('protectionModal')">
+                                <span class="booking-addon-label">Protection &amp; Shine</span>
+                                <span class="booking-addon-price">Choose ▸</span>
                             </div>
+                            <div class="booking-addon-item" id="correctionItem" onclick="openAddonModal('correctionModal')">
+                                <span class="booking-addon-label">Paint Correction</span>
+                                <span class="booking-addon-price">Choose ▸</span>
+                            </div>
+                            <label class="booking-addon-item">
+                                <input type="checkbox" data-price="25" value="Engine Bay">
+                                <span class="booking-addon-label">Engine Bay</span>
+                                <span class="booking-addon-price">+$25</span>
+                            </label>
+                            <label class="booking-addon-item">
+                                <input type="checkbox" data-price="20" value="Pet Hair Removal">
+                                <span class="booking-addon-label">Pet Hair Removal</span>
+                                <span class="booking-addon-price">+$20</span>
+                            </label>
+                            <label class="booking-addon-item">
+                                <input type="checkbox" data-price="10" value="Leather Shine + Coat">
+                                <span class="booking-addon-label">Leather Shine + Coat</span>
+                                <span class="booking-addon-price">+$10</span>
+                            </label>
                         </div>
                     </div>
-                </div>
-                <div class="area-map">
-                    <div id="serviceMap"></div>
+                    <div class="form-group">
+                        <label for="bookNotes">Notes (optional)</label>
+                        <textarea id="bookNotes" name="notes" rows="3" placeholder="Vehicle type, condition, etc."></textarea>
+                    </div>
+                    <div class="booking-total">
+                        <span class="booking-total-label">Estimated Total</span>
+                        <span class="booking-total-amount" id="bookingTotal">$0</span>
+                    </div>
+                    <button type="submit" class="btn-book" id="bookBtn">Request Booking</button>
+                </form>
+                <div class="booking-success" id="bookingSuccess" style="display:none;">
+                    <h3>Booking Request Sent!</h3>
+                    <p>We've received your booking request. We'll reach out shortly to confirm your appointment.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Services -->
-    <section class="section section-alt" id="services">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Our Services</div>
-                <h2 class="section-title">Detail Packages</h2>
-                <p class="section-subtitle">From a quick refresh to a complete restoration.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-name">Basic Exterior</div>
-                    <div class="service-price"><sup>$</sup>70</div>
-                    <ul class="service-features">
-                        <li>Pre-wash, Foam Bath &amp; Contact Wash</li>
-                        <li>Full Rims, Tires &amp; Gas Cap Cleaning</li>
-                        <li>Streak-Free Glass &amp; Mirrors</li>
-                        <li>Door Jambs Cleaned &amp; Flushed</li>
-                        <li>Ceramic Sealant Applied</li>
-                        <li>Tires &amp; Trims Dressed</li>
-                    </ul>
-                    <a href="#area" class="service-cta">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-badge" style="background: var(--accent);">Premium</div>
-                    <div class="service-name">Premium Exterior</div>
-                    <div class="service-price"><sup>$</sup>130</div>
-                    <span class="service-save">Your choice of coating</span>
-                    <ul class="service-features service-features-rich">
-                        <li>
-                            <span class="feature-title">Full Decontamination</span>
-                            <span class="feature-desc">A deep paint cleanse that strips away bonded road film, grime, and contaminants a regular wash leaves behind, prepping a perfectly clean surface for protection.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">Iron Removal (if needed)</span>
-                            <span class="feature-desc">An iron-dissolving treatment that targets embedded brake dust and metal particles in the paint, lifting the rough specks a wash alone can't reach.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">Clay Mitt</span>
-                            <span class="feature-desc">A clay mitt is added to extract any dirt and filaments stuck on the clear coat, leaving the paint glass-smooth before the final coat goes on.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">Coating — Customer's Choice</span>
-                            <span class="feature-desc">Finish with the protection you prefer: wax for a warm, classic shine, ceramic for long-lasting durability and gloss, or sealant for slick, weather-resistant defense.</span>
-                        </li>
-                    </ul>
-                    <a href="booking.html" class="service-cta">Book now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-name">Basic Interior</div>
-                    <div class="service-price"><sup>$</sup>70</div>
-                    <ul class="service-features">
-                        <li>Full Deep Vacuum of Interior &amp; Boot Area</li>
-                        <li>All Interior Surfaces Scrubbed &amp; Glass Cleaned</li>
-                        <li>Carpets &amp; Upholstery Vacuumed &amp; Scrubbed</li>
-                        <li>Leather Seats Cleaned</li>
-                    </ul>
-                    <a href="#area" class="service-cta">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-badge" style="background: var(--accent);">Premium</div>
-                    <div class="service-name">Premium Interior</div>
-                    <div class="service-price"><sup>$</sup>90</div>
-                    <span class="service-save">Deep dry matte finish</span>
-                    <ul class="service-features service-features-rich">
-                        <li>
-                            <span class="feature-title">Leather &amp; Polyurethane Protectant</span>
-                            <span class="feature-desc">Both genuine leather and polyurethane (fake leather) surfaces are cleaned and treated with a protectant that conditions, shields against wear, and keeps them looking fresh.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">White-Light Odor Removal</span>
-                            <span class="feature-desc">We use a white-light odor remover that's safer and more pleasant because it neutralizes smells without adding any scents. Air freshener optional — we keep some on hand if you'd like one added.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">Plastics &amp; Mats Coated &amp; Dressed</span>
-                            <span class="feature-desc">All plastics and mats are coated and dressed for a deep, dry matte finish that looks clean and factory-fresh, never greasy.</span>
-                        </li>
-                        <li>
-                            <span class="feature-title">Full Carpet Extraction + Stain Removal</span>
-                            <span class="feature-desc">A full carpet extraction lifts deep-set dirt and tackles stains, leaving everything looking brand new.</span>
-                        </li>
-                    </ul>
-                    <a href="booking.html" class="service-cta">Book now <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-badge" style="background: var(--accent);">Most Popular</div>
-                    <div class="service-name">Full Detail</div>
-                    <div class="service-price"><sup>$</sup>130</div>
-                    <span class="service-save">SAVE $10</span>
-                    <ul class="service-features">
-                        <li>Complete Exterior &amp; Interior Detail combined</li>
-                        <li>Everything from both Basic packages in one session</li>
-                    </ul>
-                    <a href="#area" class="service-cta">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-badge">Best Value</div>
-                    <div class="service-name">Deluxe Detail</div>
-                    <div class="service-price"><sup>$</sup>210</div>
-                    <span class="service-save">SAVE $25+</span>
-                    <ul class="service-features">
-                        <li>Premium Exterior + Premium Interior included</li>
-                        <li>Everything from both Premium packages in one session</li>
-                        <li>3-Month Ceramic Coating</li>
-                        <li>Seatbelts Scrubbed</li>
-                        <li>Pet Hair Removal</li>
-                    </ul>
-                    <a href="#area" class="service-cta">Learn more <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Add-On Services -->
-    <section class="section" id="addons">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Extras</div>
-                <h2 class="section-title">Add-On Services</h2>
-                <p class="section-subtitle">Enhance any detail package with these extras.</p>
-            </div>
-            <div class="addons-grid">
-                <div class="addon-card addon-card-feature">
-                    <div class="addon-info">
-                        <span class="addon-name">Protection &amp; Shine</span>
-                        <span class="addon-note">Your choice of wax, ceramic sealant, hybrid ceramic, or full ceramic coating.</span>
-                    </div>
-                    <span class="addon-price">+$30</span>
-                </div>
-                <div class="addon-card addon-card-feature">
-                    <div class="addon-info">
-                        <span class="addon-name">Paint Correction</span>
-                        <span class="addon-note">1-step or 2-step machine polish to cut scratches, swirls &amp; marring.</span>
-                    </div>
-                    <span class="addon-price">Quote</span>
-                </div>
-                <div class="addon-card">
-                    <span class="addon-name">Engine Bay</span>
-                    <span class="addon-price">+$25</span>
-                </div>
-                <div class="addon-card">
-                    <span class="addon-name">Pet Hair Removal</span>
-                    <span class="addon-price">+$20</span>
-                </div>
-                <div class="addon-card">
-                    <span class="addon-name">Leather Shine + Coat</span>
-                    <span class="addon-price">+$10</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Membership Plans -->
-    <section class="section section-alt" id="memberships">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Save More</div>
-                <h2 class="section-title">Membership Plans</h2>
-                <p class="section-subtitle">Lock in a lower rate, priority booking, and add-on discounts.</p>
-            </div>
-            <div class="plans-grid">
-                <div class="plan-card">
-                    <div class="plan-name">Maintain</div>
-                    <div class="plan-price"><sup>$</sup>90<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>One Basic Detail per month ($110 value)</li>
-                        <li>Priority booking</li>
-                        <li>10% off any add-on</li>
-                        <li>3-month minimum commitment</li>
-                    </ul>
-                </div>
-                <div class="plan-card featured">
-                    <div class="service-badge" style="background: var(--accent);">Most Popular</div>
-                    <div class="plan-name">Showroom</div>
-                    <div class="plan-price"><sup>$</sup>170<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>One Deluxe Detail per month ($210 value)</li>
-                        <li>Priority booking</li>
-                        <li>15% off any add-on</li>
-                        <li>Free tire dressing every visit</li>
-                        <li>3-month minimum commitment</li>
-                    </ul>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-name">Exclusive</div>
-                    <div class="plan-price"><sup>$</sup>230<span>/mo</span></div>
-                    <ul class="plan-features">
-                        <li>One Deluxe Detail per month</li>
-                        <li>Plus one Exterior wash mid-month</li>
-                        <li>20% off any add-on</li>
-                        <li>Free tire dressing + leather shine</li>
-                        <li>Guaranteed 24-hour response</li>
-                        <li>6-month minimum commitment</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section class="section section-dark" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="section-label">About Raven</div>
-                <h2 class="section-title" style="color: var(--white); margin-bottom: 24px;">Built on Passion,<br>Driven by Quality</h2>
-                <p>Run by a young detailer focused on clean, quality results. We combine premium products with meticulous technique at a fair price.</p>
-                <p>Committed to eco-friendly practices — biodegradable soaps, water-conscious techniques, and VOC-free products that protect your vehicle and the environment.</p>
-                <div class="eco-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4.97 0-9-2.24-9-5v-2c0-2.76 4.03-5 9-5s9 2.24 9 5v2c0 2.76-4.03 5-9 5z"/><path d="M12 10V2"/><path d="M8 6l4-4 4 4"/></svg>
-                    Eco-Friendly Products &amp; Practices
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Contact Us</h2>
-                <p class="section-subtitle">Ready to book? Reach out anytime.</p>
-            </div>
-            <div class="contact-grid">
-                <div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Phone</div>
-                            <div class="contact-value"><a href="tel:7789037078">778-903-7078</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value"><a href="mailto:budswithsuds@gmail.com">budswithsuds@gmail.com</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Hours</div>
-                            <div class="contact-value">Mon&ndash;Sat, 8AM&ndash;6PM</div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Address</div>
-                            <div class="contact-value">1215 Duchess Ave, West Vancouver, BC</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Service Type</div>
-                            <div class="contact-value">Mobile + Stationary</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <div>
-                            <div class="contact-label">Coverage</div>
-                            <div class="contact-value">West Van, North Shore &amp; Downtown</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <div class="cta-banner">
-        <h2>Ready for a Showroom Finish?</h2>
-        <p>Contact us today and see the Raven difference.</p>
-        <a href="booking.html" class="btn-primary">Book Now — It's Free</a>
-    </div>
 
     <!-- Hidden Netlify Forms for build-time detection -->
     <form hidden method="POST" name="booking" data-netlify="true">
@@ -1979,16 +1648,66 @@
         <input name="subject" value="New Raven Details Booking">
     </form>
 
-    <form hidden method="POST" name="testimonial" data-netlify="true">
-        <input type="hidden" name="form-name" value="testimonial">
-        <input name="bot-field">
-        <input name="reviewer-name">
-        <input name="vehicle">
-        <input name="location">
-        <input name="service">
-        <input name="rating">
-        <input name="review">
-    </form>
+    <!-- Protection & Shine chooser -->
+    <div class="addon-modal-overlay" id="protectionModal">
+        <div class="addon-modal">
+            <button type="button" class="addon-modal-close" onclick="closeAddonModal('protectionModal')">&times;</button>
+            <h3 class="addon-modal-title">Protection &amp; Shine</h3>
+            <p class="addon-modal-sub">Pick one coating to finish your detail.</p>
+            <div class="addon-modal-options" id="protectionOptions">
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Wax" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Wax</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">A warm, classic shine that enriches the paint.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Ceramic Sealant" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Ceramic Sealant</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">Slick, weather-resistant protection with a clean gloss.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="protection" value="Hybrid Ceramic" data-price="30">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Hybrid Ceramic</span><span class="addon-opt-price">+$30</span></span>
+                    <span class="addon-opt-desc">A ceramic-infused boost for longer-lasting durability and water beading.</span>
+                </label>
+                <label class="addon-opt" id="fullCeramicOpt">
+                    <input type="radio" name="protection" value="Full Ceramic Coating" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">Full Ceramic Coating</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">Our longest-lasting protection. The paint and clear coat are fully decontaminated first, then the coating cures under shade for about 2 hours.</span>
+                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Deluxe Detail or Premium Exterior package.</span>
+                </label>
+            </div>
+            <div class="addon-modal-actions">
+                <button type="button" class="addon-modal-clear" onclick="clearProtection()">None</button>
+                <button type="button" class="addon-modal-done" onclick="applyProtection()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paint Correction chooser -->
+    <div class="addon-modal-overlay" id="correctionModal">
+        <div class="addon-modal">
+            <button type="button" class="addon-modal-close" onclick="closeAddonModal('correctionModal')">&times;</button>
+            <h3 class="addon-modal-title">Paint Correction</h3>
+            <p class="addon-modal-sub">Machine polishing to remove scratches, swirls &amp; marring. Both stages are recommended before a ceramic coating.</p>
+            <div class="addon-modal-options" id="correctionOptions">
+                <label class="addon-opt">
+                    <input type="radio" name="correction" value="1-Step" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">1-Step</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">Gets about 70% of the job done — removes most scratches, swirls, and marring, bringing back a lot of color and shine.</span>
+                </label>
+                <label class="addon-opt">
+                    <input type="radio" name="correction" value="2-Step" data-price="0" data-quote="1">
+                    <span class="addon-opt-main"><span class="addon-opt-name">2-Step</span><span class="addon-opt-price">Quote</span></span>
+                    <span class="addon-opt-desc">A more thorough 90% correction for deeper defects and maximum gloss.</span>
+                </label>
+            </div>
+            <div class="addon-modal-actions">
+                <button type="button" class="addon-modal-clear" onclick="clearCorrection()">None</button>
+                <button type="button" class="addon-modal-done" onclick="applyCorrection()">Done</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -1997,7 +1716,6 @@
         <p style="margin-top: 8px;"><a href="admin.html">Admin</a></p>
     </footer>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         // Nav scroll effect
         window.addEventListener('scroll', function() {
@@ -2011,20 +1729,289 @@
             });
         });
 
-        // Service area map with circles
-        var map = L.map('serviceMap', { scrollWheelZoom: false }).setView([49.32, -123.15], 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+        // Booking form logic
+        var bookForm = document.getElementById('bookingForm');
+        var bookPackage = document.getElementById('bookPackage');
+        var totalDisplay = document.getElementById('bookingTotal');
+        var addonChecks = document.querySelectorAll('#bookingAddons input[type="checkbox"]');
 
-        L.circle([49.32, -123.15], {
-            color: '#1e3a6e',
-            fillColor: '#1e3a6e',
-            fillOpacity: 0.15,
-            weight: 2,
-            radius: 5500
-        }).addTo(map).bindPopup('<strong>Raven Details</strong><br>Downtown, West Van &amp; North Van');
+        // Calendar state
+        var calSelectedDate = null;
+        var calToday = new Date();
+        calToday.setHours(0,0,0,0);
+        var calCurrentYear = calToday.getFullYear();
+        var calCurrentMonth = calToday.getMonth();
+        var CAL_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var CAL_DAY_LABELS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
+        function getBookedDates() {
+            var stored = JSON.parse(localStorage.getItem('raven_bookings') || '[]');
+            var set = new Set();
+            stored.forEach(function(b) { if (b.date) set.add(b.date); });
+            return set;
+        }
+
+        function renderCalendar() {
+            document.getElementById('monthLabel').textContent = CAL_MONTHS[calCurrentMonth] + ' ' + calCurrentYear;
+            var grid = document.getElementById('calGrid');
+            grid.innerHTML = '';
+            CAL_DAY_LABELS.forEach(function(d) {
+                var el = document.createElement('div');
+                el.className = 'cal-day-label';
+                el.textContent = d;
+                grid.appendChild(el);
+            });
+            var firstDay = new Date(calCurrentYear, calCurrentMonth, 1).getDay();
+            var daysInMonth = new Date(calCurrentYear, calCurrentMonth + 1, 0).getDate();
+            var booked = getBookedDates();
+            for (var i = 0; i < firstDay; i++) {
+                var el = document.createElement('div');
+                el.className = 'cal-day empty-day';
+                grid.appendChild(el);
+            }
+            for (var d = 1; d <= daysInMonth; d++) {
+                var el = document.createElement('div');
+                var dateStr = calCurrentYear + '-' + String(calCurrentMonth + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+                var dateObj = new Date(calCurrentYear, calCurrentMonth, d);
+                el.className = 'cal-day';
+                el.textContent = d;
+                if (dateObj < calToday) {
+                    el.classList.add('past');
+                } else if (booked.has(dateStr)) {
+                    el.classList.add('booked');
+                    el.title = 'Already booked';
+                } else {
+                    if (dateObj.getTime() === calToday.getTime()) el.classList.add('today');
+                    if (calSelectedDate === dateStr) el.classList.add('selected-day');
+                    (function(ds, day) {
+                        el.onclick = function() { selectCalDate(ds, day); };
+                    })(dateStr, d);
+                }
+                grid.appendChild(el);
+            }
+        }
+
+        function selectCalDate(dateStr, d) {
+            calSelectedDate = dateStr;
+            document.getElementById('bookDate').value = dateStr;
+            var dateObj = new Date(calCurrentYear, calCurrentMonth, d);
+            document.getElementById('selectedDateLabel').textContent = 'Selected: ' + dateObj.toLocaleDateString('en-CA', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+            renderCalendar();
+        }
+
+        function changeMonth(dir) {
+            calCurrentMonth += dir;
+            if (calCurrentMonth > 11) { calCurrentMonth = 0; calCurrentYear++; }
+            if (calCurrentMonth < 0) { calCurrentMonth = 11; calCurrentYear--; }
+            renderCalendar();
+        }
+
+        renderCalendar();
+
+        // Modal-based add-on state
+        var selectedProtection = null; // { value, price, quote }
+        var selectedCorrection = null; // { value }
+
+        function openAddonModal(id) {
+            if (id === 'protectionModal') refreshFullCeramic();
+            document.getElementById(id).classList.add('open');
+        }
+        function closeAddonModal(id) {
+            document.getElementById(id).classList.remove('open');
+        }
+
+        function packageAllowsFullCeramic() {
+            return bookPackage.value === 'Deluxe Detail' || bookPackage.value === 'Premium Exterior';
+        }
+
+        function refreshFullCeramic() {
+            var opt = document.getElementById('fullCeramicOpt');
+            var input = opt.querySelector('input');
+            var allowed = packageAllowsFullCeramic();
+            input.disabled = !allowed;
+            opt.classList.toggle('disabled', !allowed);
+            document.getElementById('fullCeramicLock').style.display = allowed ? 'none' : 'block';
+            if (!allowed && input.checked) input.checked = false;
+        }
+
+        function setProtectionDisplay() {
+            var item = document.getElementById('protectionItem');
+            var label = item.querySelector('.booking-addon-label');
+            var price = item.querySelector('.booking-addon-price');
+            if (selectedProtection) {
+                label.textContent = 'Protection & Shine: ' + selectedProtection.value;
+                price.textContent = selectedProtection.quote ? 'Quote' : '+$' + selectedProtection.price;
+                item.classList.add('selected');
+            } else {
+                label.textContent = 'Protection & Shine';
+                price.textContent = 'Choose ▸';
+                item.classList.remove('selected');
+            }
+        }
+
+        function applyProtection() {
+            var checked = document.querySelector('#protectionOptions input:checked');
+            if (checked && !checked.disabled) {
+                selectedProtection = {
+                    value: checked.value,
+                    price: parseInt(checked.dataset.price) || 0,
+                    quote: checked.dataset.quote === '1'
+                };
+            } else {
+                selectedProtection = null;
+            }
+            setProtectionDisplay();
+            closeAddonModal('protectionModal');
+            updateTotal();
+        }
+
+        function clearProtection() {
+            document.querySelectorAll('#protectionOptions input').forEach(function(i) { i.checked = false; });
+            selectedProtection = null;
+            setProtectionDisplay();
+            closeAddonModal('protectionModal');
+            updateTotal();
+        }
+
+        function setCorrectionDisplay() {
+            var item = document.getElementById('correctionItem');
+            var label = item.querySelector('.booking-addon-label');
+            var price = item.querySelector('.booking-addon-price');
+            if (selectedCorrection) {
+                label.textContent = 'Paint Correction: ' + selectedCorrection.value;
+                price.textContent = 'Quote';
+                item.classList.add('selected');
+            } else {
+                label.textContent = 'Paint Correction';
+                price.textContent = 'Choose ▸';
+                item.classList.remove('selected');
+            }
+        }
+
+        function applyCorrection() {
+            var checked = document.querySelector('#correctionOptions input:checked');
+            selectedCorrection = checked ? { value: checked.value } : null;
+            setCorrectionDisplay();
+            closeAddonModal('correctionModal');
+            updateTotal();
+        }
+
+        function clearCorrection() {
+            document.querySelectorAll('#correctionOptions input').forEach(function(i) { i.checked = false; });
+            selectedCorrection = null;
+            setCorrectionDisplay();
+            closeAddonModal('correctionModal');
+            updateTotal();
+        }
+
+        // Close modal when clicking the dark backdrop
+        document.querySelectorAll('.addon-modal-overlay').forEach(function(ov) {
+            ov.addEventListener('click', function(e) {
+                if (e.target === ov) ov.classList.remove('open');
+            });
+        });
+
+        function updateTotal() {
+            var pkg = bookPackage.options[bookPackage.selectedIndex];
+            var base = pkg && pkg.dataset.price ? parseInt(pkg.dataset.price) : 0;
+            var addonsTotal = 0;
+            var hasQuote = false;
+            addonChecks.forEach(function(cb) {
+                if (cb.checked) addonsTotal += parseInt(cb.dataset.price);
+            });
+            if (selectedProtection) {
+                if (selectedProtection.quote) hasQuote = true;
+                else addonsTotal += selectedProtection.price;
+            }
+            if (selectedCorrection) hasQuote = true;
+            totalDisplay.textContent = '$' + (base + addonsTotal) + (hasQuote ? ' + quote' : '');
+        }
+
+        bookPackage.addEventListener('change', function() {
+            // Full ceramic coating requires a qualifying package
+            if (selectedProtection && selectedProtection.value === 'Full Ceramic Coating' && !packageAllowsFullCeramic()) {
+                document.querySelectorAll('#protectionOptions input').forEach(function(i) { i.checked = false; });
+                selectedProtection = null;
+                setProtectionDisplay();
+            }
+            refreshFullCeramic();
+            updateTotal();
+        });
+        addonChecks.forEach(function(cb) {
+            cb.addEventListener('change', function() {
+                this.closest('.booking-addon-item').classList.toggle('selected', this.checked);
+                updateTotal();
+            });
+        });
+
+        bookForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!calSelectedDate) {
+                alert('Please pick a date on the calendar.');
+                return;
+            }
+            var btn = document.getElementById('bookBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            var selectedAddons = [];
+            addonChecks.forEach(function(cb) {
+                if (cb.checked) selectedAddons.push(cb.value);
+            });
+            if (selectedProtection) {
+                selectedAddons.push('Protection & Shine — ' + selectedProtection.value + (selectedProtection.quote ? ' (quote)' : ''));
+            }
+            if (selectedCorrection) {
+                selectedAddons.push('Paint Correction — ' + selectedCorrection.value + ' (quote)');
+            }
+
+            var data = {
+                'client-name': document.getElementById('bookName').value,
+                'client-phone': document.getElementById('bookPhone').value,
+                'booking-date': calSelectedDate,
+                'vehicle-size': document.getElementById('bookVehicleSize').value,
+                'package': bookPackage.value,
+                'addons': selectedAddons.join(', '),
+                'notes': document.getElementById('bookNotes').value,
+                'total': totalDisplay.textContent
+            };
+
+            fetch('/.netlify/functions/book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function(res) {
+                if (res.ok) {
+                    bookForm.style.display = 'none';
+                    document.getElementById('bookingSuccess').style.display = 'block';
+
+                    var formBody = new URLSearchParams();
+                    formBody.append('form-name', 'booking');
+                    formBody.append('client-name', data['client-name']);
+                    formBody.append('client-phone', data['client-phone']);
+                    formBody.append('booking-date', data['booking-date']);
+                    formBody.append('vehicle-size', data['vehicle-size']);
+                    formBody.append('package', data['package']);
+                    formBody.append('addons', data['addons']);
+                    formBody.append('notes', data['notes']);
+                    formBody.append('total', data['total']);
+                    formBody.append('subject', 'New Booking: ' + data['package'] + ' on ' + data['booking-date'] + ' — ' + data['client-name']);
+                    fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: formBody.toString()
+                    }).catch(function() {});
+                } else {
+                    btn.disabled = false;
+                    btn.textContent = 'Request Booking';
+                    alert('Something went wrong. Please call us at 778-903-7078 to book.');
+                }
+            }).catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Request Booking';
+                alert('Something went wrong. Please call us at 778-903-7078 to book.');
+            });
+        });
     </script>
 </body>
 </html>
