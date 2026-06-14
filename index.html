@@ -243,12 +243,13 @@
             margin-bottom: 20px;
         }
 
-        .hero h1 {
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 20px;
-            letter-spacing: 4px;
+        .hero-logo {
+            display: block;
+            width: 300px;
+            max-width: 80vw;
+            height: auto;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 12px 32px rgba(0,0,0,0.55));
         }
 
         .hero-tagline {
@@ -1445,9 +1446,8 @@
             .nav-social { gap: 8px; }
             .nav-social a { width: 38px; height: 38px; border-radius: 8px; }
             .nav-social svg { width: 20px; height: 20px; }
-            .nav-brand-text { font-size: 16px; }
 
-            .hero h1 { font-size: 36px; }
+            .hero-logo { width: 220px; }
             .hero-tagline { font-size: 16px; }
             .hero-actions { flex-direction: column; }
             .btn-primary, .btn-outline { width: 100%; justify-content: center; }
@@ -1470,8 +1470,7 @@
     <nav class="nav" id="mainNav">
         <div class="nav-inner">
             <a href="#hero" class="nav-brand">
-                <img src="raven-logo.png" alt="Raven Detailing">
-                <span class="nav-brand-text">Raven Details</span>
+                <img src="raven-logo.png" alt="Raven Details">
             </a>
             <div class="nav-social">
                 <a href="https://www.instagram.com/bwscardetailing?igsh=eWgyOGoydjJpM3g4&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -1502,7 +1501,7 @@
         <div class="hero-bg"></div>
         <div class="hero-content">
             <div class="hero-label">Premium Mobile Detailing</div>
-            <h1>Raven Details</h1>
+            <img src="raven-logo.png" class="hero-logo" alt="Raven Details">
             <p class="hero-tagline">Mobile detailing that comes to you. West Vancouver, North Shore &amp; Downtown.</p>
             <div class="hero-actions">
                 <a href="booking.html" class="btn-primary">Free Book Now</a>
