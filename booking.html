@@ -1187,6 +1187,19 @@
             flex: 1;
         }
 
+        .booking-addon-info {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .booking-addon-note {
+            color: rgba(255,255,255,0.58);
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
         .booking-addon-price {
             font-size: 13px;
             color: #6b9eff;
@@ -1582,7 +1595,7 @@
                             <option value="Basic Interior" data-price="70">Basic Interior — $70</option>
                             <option value="Premium Interior" data-price="90">Premium Interior — $90</option>
                             <option value="Full Detail" data-price="130">Full Detail — $130</option>
-                            <option value="Deluxe Detail" data-price="210">Deluxe Detail — $210</option>
+                            <option value="Premium Detail" data-price="210">Premium Detail — $210</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -1596,6 +1609,14 @@
                                 <span class="booking-addon-label">Paint Correction</span>
                                 <span class="booking-addon-price">Choose ▸</span>
                             </div>
+                            <label class="booking-addon-item">
+                                <input type="checkbox" data-price="30" value="Stain Removal (starting at $30; price varies by severity)">
+                                <span class="booking-addon-info">
+                                    <span class="booking-addon-label">Stain Removal</span>
+                                    <span class="booking-addon-note">Pricing may vary based on stain severity. Complete removal is not guaranteed; the best expected improvement is typically 80–90%.</span>
+                                </span>
+                                <span class="booking-addon-price">+$30</span>
+                            </label>
                             <label class="booking-addon-item">
                                 <input type="checkbox" data-price="25" value="Engine Bay">
                                 <span class="booking-addon-label">Engine Bay</span>
@@ -1673,7 +1694,7 @@
                     <input type="radio" name="protection" value="Full Ceramic Coating" data-price="0" data-quote="1">
                     <span class="addon-opt-main"><span class="addon-opt-name">Full Ceramic Coating</span><span class="addon-opt-price">Quote</span></span>
                     <span class="addon-opt-desc">Our longest-lasting protection. The paint and clear coat are fully decontaminated first, then the coating cures under shade for about 2 hours.</span>
-                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Deluxe Detail or Premium Exterior package.</span>
+                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Premium Detail or Premium Exterior package.</span>
                 </label>
             </div>
             <div class="addon-modal-actions">
@@ -1820,7 +1841,7 @@
         }
 
         function packageAllowsFullCeramic() {
-            return bookPackage.value === 'Deluxe Detail' || bookPackage.value === 'Premium Exterior';
+            return bookPackage.value === 'Premium Detail' || bookPackage.value === 'Premium Exterior';
         }
 
         function refreshFullCeramic() {

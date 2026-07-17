@@ -837,7 +837,7 @@
                         <li><strong>Leather &amp; Polyurethane Protectant</strong> — conditions &amp; protects both real leather and polyurethane (fake leather) surfaces</li>
                         <li><strong>White-Light Odor Removal</strong> — neutralizes smells with no added scents (air freshener optional, available on request)</li>
                         <li><strong>Plastics &amp; Mats Coated &amp; Dressed</strong> — for a deep, dry matte finish that's never greasy</li>
-                        <li><strong>Full Carpet Extraction + Stain Removal</strong> — lifts deep-set dirt &amp; stains so everything looks brand new</li>
+                        <li><strong>Carpet Shampoo + Wet/Dry Extraction</strong> — loosens embedded dirt, then extracts moisture, grime &amp; cleaning residue for a deeper clean and faster drying</li>
                     </ul>
                 </div>
                 <div class="package-card">
@@ -851,9 +851,9 @@
                 </div>
                 <div class="package-card">
                     <span class="best-value-badge">Best Value</span>
-                    <div class="pkg-name">Deluxe Detail</div>
+                    <div class="pkg-name">Premium Detail</div>
                     <div class="pkg-price"><sup>$</sup>210</div>
-                    <div class="pkg-save">SAVE $25+</div>
+                    <div class="pkg-save">SAVE $10+</div>
                     <ul class="pkg-features">
                         <li>Premium Exterior + Premium Interior included</li>
                         <li>Everything from both Premium packages in one session</li>
@@ -935,7 +935,7 @@
                             <div class="testimonial-text">"Professional, on time, and the ceramic coating was worth every penny. My BMW still beads water after heavy rain weeks later. The attention to detail on the paint correction was next level — you can see yourself in the reflection. I've tried other detailers in Surrey and Raven is hands down the best."</div>
                             <div class="testimonial-author">James R.</div>
                             <div class="testimonial-location">Surrey, BC</div>
-                            <div class="testimonial-service">Deluxe Detail + Ceramic Coating</div>
+                            <div class="testimonial-service">Premium Detail + Ceramic Coating</div>
                         </div>
                     </div>
                     <div class="testimonial-slide">
@@ -975,7 +975,7 @@
                             <div class="testimonial-text">"My Wrangler was absolutely trashed after a weekend off-roading and I didn't think it could be saved. Raven worked magic on it — deep cleaned the carpets, scrubbed the mud off every surface, and the exterior looked better than when I bought it. The engine bay clean was a nice bonus too. Top notch service!"</div>
                             <div class="testimonial-author">Ryan S.</div>
                             <div class="testimonial-location">Langley, BC</div>
-                            <div class="testimonial-service">Deluxe Detail + Engine Bay</div>
+                            <div class="testimonial-service">Premium Detail + Engine Bay</div>
                         </div>
                     </div>
                     <div class="testimonial-slide">
@@ -1203,7 +1203,7 @@
                             <li><strong>Leather &amp; Polyurethane Protectant</strong> — for real &amp; fake leather surfaces</li>
                             <li><strong>White-Light Odor Removal</strong> — no added scents (air freshener optional)</li>
                             <li><strong>Plastics &amp; Mats Coated &amp; Dressed</strong> — deep dry matte finish</li>
-                            <li><strong>Full Carpet Extraction + Stain Removal</strong></li>
+                            <li><strong>Carpet Shampoo + Wet/Dry Extraction</strong> — loosens embedded dirt, then extracts moisture, grime &amp; cleaning residue for a deeper clean and faster drying</li>
                         </ul>
                     </div>
                     <div class="booking-pkg-card" onclick="selectPackage(this, 130, 'Full Detail')">
@@ -1215,11 +1215,11 @@
                             <li>Our 'Basic Exterior Detail' &amp; 'Basic Interior Detail' all in one</li>
                         </ul>
                     </div>
-                    <div class="booking-pkg-card" onclick="selectPackage(this, 210, 'Deluxe Detail')">
+                    <div class="booking-pkg-card" onclick="selectPackage(this, 210, 'Premium Detail')">
                         <span class="best-value-badge">Best Value</span>
-                        <div class="pkg-name">Deluxe Detail</div>
+                        <div class="pkg-name">Premium Detail</div>
                         <div class="pkg-price"><sup>$</sup>210</div>
-                        <div class="pkg-save">SAVE $25+</div>
+                        <div class="pkg-save">SAVE $10+</div>
                         <ul class="pkg-features">
                             <li>Premium Exterior + Premium Interior included</li>
                             <li>Everything from both Premium packages in one session</li>
@@ -1327,7 +1327,7 @@
                     <input type="radio" name="protection" value="Full Ceramic Coating" data-price="0" data-quote="1">
                     <span class="addon-opt-main"><span class="addon-opt-name">Full Ceramic Coating</span><span class="addon-opt-price">Quote</span></span>
                     <span class="addon-opt-desc">Longest-lasting protection. Paint and clear coat are fully decontaminated first, then the coating cures under shade for about 2 hours.</span>
-                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Deluxe Detail or Premium Exterior package.</span>
+                    <span class="addon-opt-lock" id="fullCeramicLock">Available only with the Premium Detail or Premium Exterior package.</span>
                 </label>
             </div>
             <div class="addon-modal-actions">
@@ -1495,7 +1495,7 @@
         }
 
         function packageAllowsFullCeramic() {
-            return selectedPackage === 'Deluxe Detail' || selectedPackage === 'Premium Exterior';
+            return selectedPackage === 'Premium Detail' || selectedPackage === 'Premium Exterior';
         }
         function refreshFullCeramic() {
             const opt = document.getElementById('fullCeramicOpt');
